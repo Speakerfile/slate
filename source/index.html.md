@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -25,12 +24,6 @@ curl "api_endpoint_here"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
 > Make sure to replace `meowmeowmeow` with your API key.
 
 Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
@@ -50,13 +43,6 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ```shell
 curl "https://public-api.expertfile.com/organization/:corporation/experts"
   -H "Authorization: xxx-xxx-xxx"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
@@ -86,16 +72,18 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
+### Url Parameters
+
+Parameter  | Desription
+---------  | ----------
+corporation  | The corporation id
+
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+accessToken | - | required.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
 
 ## Get a Specific Expert
 
@@ -118,17 +106,17 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/2"
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 ## Delete a Specific Expert
 
@@ -153,7 +141,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username`
 
 ### URL Parameters
 
@@ -169,13 +157,6 @@ ID | The ID of the kitten to delete
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
@@ -203,7 +184,14 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 ### Query Parameters
 
@@ -213,6 +201,7 @@ include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Link
+
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/2"
@@ -233,17 +222,18 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 ## Delete a Specific Expert
 
@@ -342,7 +332,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
@@ -352,7 +341,9 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 ## Delete a Specific Expert
 
@@ -449,7 +440,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
@@ -459,7 +449,9 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 ## Delete a Specific Expert
 
@@ -502,12 +494,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -552,12 +538,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -602,12 +582,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -642,6 +616,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Event Appearance
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Event Appearance
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Media Appearance
 
@@ -652,13 +691,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -692,6 +724,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Media Appearance
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Media Appearance
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Education
 
@@ -702,12 +799,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -742,6 +833,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Education
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Testimonial
 
@@ -752,13 +908,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -792,6 +941,72 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+
+## Get a Specific Testimonial
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Patent
 
@@ -802,13 +1017,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -842,6 +1050,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Patent
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Patent
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Research Grant
 
@@ -852,13 +1125,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -892,6 +1158,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Research grant
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Research Grant
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Partnerships
 
@@ -902,13 +1233,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -942,6 +1266,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Partnership
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Partnership
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Courses
 
@@ -952,13 +1341,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -992,6 +1374,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Course
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Course
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Articles
 
@@ -1002,13 +1449,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -1042,6 +1482,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Article
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Article
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Research Focus
 
@@ -1052,12 +1557,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -1092,6 +1591,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Research Focus
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Research Focus
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Topics
 
@@ -1102,13 +1666,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -1142,6 +1699,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Topic
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Industry
 
@@ -1152,13 +1774,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -1192,6 +1807,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Industry
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve.
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Languages
 
@@ -1202,13 +1882,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -1242,6 +1915,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Languages
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Fees
 
@@ -1252,12 +1990,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -1292,6 +2024,71 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Link
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the link to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve.
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
 
 #Availability
 
@@ -1302,13 +2099,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -1343,6 +2133,69 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
+## Get a Specific Availability
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+
+## Delete a Specific Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
+
 #Social
 
 ##Get All Social
@@ -1352,12 +2205,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   -H "Authorization: xxx-xxx-xxx"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('xxxxxx');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
