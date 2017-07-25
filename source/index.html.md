@@ -2575,3 +2575,577 @@ available | true | If set to false, the result will include kittens that have al
 
 
 
+#Youtube
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+
+#Vimeo
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+#Slideshare
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+#Documents
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+
+
+#Photo
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+
+#Video
+
+##Get All Youtube Media
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    },
+    {
+      "id": 2,
+      "title": "Title 2",
+      "description": "description 2",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null 
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/social`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+##Get a Specific youtube media
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "description",
+      "watch_page_url": "watch page url",
+      "thumbnail_url": "thumbnail url",
+      "flash_player_url": "flashplayerurl",
+      "video_id": "video id",
+      "thumbnail_alt_title": null
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all youtube media for an Expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
