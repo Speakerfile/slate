@@ -52,7 +52,6 @@ curl "https://public-api.expertfile.com/organization/:corporation/experts"
   "data": {
     "experts": [
       {
-        "profile_id": "1",
         "username": "myusername",
         "corporation": "mycorporation",
         "topics":[
@@ -115,7 +114,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "accomplishment":[
       {
         "id": 1,
-        "profile_id": 1,
         "title": "my accomplishment title",
         "description": "my accomplishment description",
         "start": 1349841600, //unix time
@@ -124,7 +122,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
       },
       {
         "id": 2,
-        "profile_id": 1,
         "title": "my another accomplishment title",
         "description": "my another accomplishment description",
         "start": 1349841600, //unix time
@@ -154,13 +151,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "affiliation": [
       {
         "id": 1,
-        "profile_id": 1,
         "name": "my affiliation name",
         "notes": "",
         "link": ""
       },{
         "id": 2,
-        "profile_id": 1,
         "name": "my another affiliation name",
         "notes": "",
         "link": ""
@@ -213,7 +208,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "eventAppearance": [
       {
         "id": 1,
-        "profile_id": 1,
         "title": "my event title ",
         "event_name": "my event name",
         "location": "Toronto",
@@ -222,7 +216,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
         "time": ""
       },{
         "id": 2,
-        "profile_id": 1,
         "title": "my another event title ",
         "event_name": "my another event name",
         "location": "Toronto",
@@ -234,22 +227,19 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "education": [
       {
         "id": 1,
-			  "profile_id": 1,
 			  "institution": "My Institution",
 			  "degree": "My Degree",
 			  "description": "",
-			  "major": "My majoir",
+			  "major": "My major",
 			  "date": 1998
       },
       {
         "id": 2,
-			  "profile_id": 1,
 			  "institution": "My 2nd Institution",
 			  "degree": "My 2nd Degree",
 			  "description": "",
-			  "major": "My 2nd majoir",
+			  "major": "My 2nd major",
 			  "date": 1998
-
       }
     ],
     "document": [
@@ -377,13 +367,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "profile_id": 1,
       "name": "link name",
       "url": "http://www.example.com/",
     },
     {
       "id": 2,
-      "profile_id": 1,
       "name": "link name1",
       "url": "http://www.example.com/1",
     }
@@ -426,7 +414,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "profile_id": 1,
       "name": "link name",
       "url": "http://linkurl.com"
     }
@@ -435,7 +422,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Link.
 
 
 ### HTTP Request
@@ -497,25 +484,24 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Title",
+      "description": "Description"
+    },
+    {
+      "id": 2,
+      "title": "Title",
+      "description": "Description"
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all Sample Talks.
 
 ### HTTP Request
 
@@ -539,15 +525,18 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "title",
+      "description": "description"
+    }
+  ],
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Sample Talk.
 
 
 ### HTTP Request
@@ -607,22 +596,27 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "my accomplishment title",
+      "description": "my accomplishment description",
+      "start": 1349841600, //unix time
+      "end": 1349841600, //unix time
+      "type": 71
+    },
+    {
+      "id": 2,
+      "title": "my another accomplishment title",
+      "description": "my another accomplishment description",
+      "start": 1349841600, //unix time
+      "end": 1349841600, //unix time
+      "type": 71
+    }
+  ],
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -649,11 +643,17 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "my accomplishment title",
+      "description": "my accomplishment description",
+      "start": 1349841600, //unix time
+      "end": 1349841600, //unix time
+      "type": 71
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -719,22 +719,22 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "my affiliation name",
+      "notes": "",
+      "link": ""
+    },{
+      "id": 2,
+      "name": "my another affiliation name",
+      "notes": "",
+      "link": ""
+    }
+  ],
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -753,7 +753,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Affiliation
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -761,15 +761,19 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "name": "my affiliation name",
+      "notes": "",
+      "link": ""
+    }
+  ],
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific affiliation.
 
 
 ### HTTP Request
@@ -784,7 +788,7 @@ id | Id of the affiliation to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific affiliaion
+## Delete a Specific affiliation
 
 
 ```shell
@@ -941,25 +945,32 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "title 1",
+      "event_name": "Event Name",
+      "location": "Toronto",
+      "date": 1362027600, //unix time
+      "time_zone": "",
+      "time": ""
+    },
+    {
+      "id": 2,
+      "title": "title 2",
+      "event_name": "Event Name 2",
+      "location": "Toronto",
+      "date": 1362028900, //unix time
+      "time_zone": "",
+      "time": ""
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all Event Apperances for an Expert.
 
 ### HTTP Request
 
@@ -975,7 +986,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Event Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -983,20 +994,27 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data":[
+    {
+      "id": 1,
+      "title": "title 1",
+      "event_name": "Event Name",
+      "location": "Toronto",
+      "date": 1362027600, //unix time
+      "time_zone": "",
+      "time": ""
+    }
+  ],
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific event appearance of an expert.
 
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/1`
 
 ### URL Parameters
 
@@ -1010,7 +1028,7 @@ username | The username of the expert to retrieve
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/1"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1029,7 +1047,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/:username/eventAppearance/2`
 
 ### URL Parameters
 
@@ -1051,29 +1069,46 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "title 1",
+      "organization": "organization 1",
+      "type": "",
+      "url": "",
+      "details": "details",
+      "date": 1497412800,
+      "time_zone": "",
+      "time": "",
+      "cover_url": "",
+      "large_cover_url": "",
+      "cover_alt_title": ""
+    },
+    {
+      "id": 2,
+      "title": "title 2",
+      "organization": "organization 2",
+      "type": "",
+      "url": "",
+      "details": "details",
+      "date": 1497412800,
+      "time_zone": "",
+      "time": "",
+      "cover_url": "",
+      "large_cover_url": "",
+      "cover_alt_title": ""
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all media appearances for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/mediaAppearance`
 
 ### Query Parameters
 
@@ -1085,7 +1120,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Media Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1093,11 +1128,23 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "title 1",
+      "organization": "organization 1",
+      "type": "",
+      "url": "",
+      "details": "details",
+      "date": 1497412800,
+      "time_zone": "",
+      "time": "",
+      "cover_url": "",
+      "large_cover_url": "",
+      "cover_alt_title": ""
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -1106,7 +1153,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/1`
 
 ### URL Parameters
 
@@ -1162,29 +1209,34 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "institution": "My Institution",
+      "degree": "My Degree",
+      "description": "",
+      "major": "My major",
+      "date": 1998
+    },
+    {
+      "id": 2,
+      "institution": "My 2nd Institution",
+      "degree": "My 2nd Degree",
+      "description": "",
+      "major": "My 2nd major",
+      "date": 1998
+    }
+  ],
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education`
 
 ### Query Parameters
 
@@ -1196,7 +1248,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Education
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1204,11 +1256,17 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "institution": "My Institution",
+      "degree": "My Degree",
+      "description": "",
+      "major": "My major",
+      "date": 1998
+    }
+  ],
+  "success": true
 }
 ```
 
