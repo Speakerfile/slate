@@ -147,7 +147,8 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 
 #Link
@@ -235,7 +236,7 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Link
 
 
 ```shell
@@ -258,13 +259,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the link
+corporation | The corporation id
+username | The username of the expert
 
 
 #Sample Talk
@@ -311,7 +314,7 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-## Get a Specific Link
+## Get a Specific Sample Talk
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/2"
@@ -335,13 +338,13 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | Id of the link to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
@@ -368,13 +371,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the link to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Accomplishment
 
@@ -443,17 +448,17 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | Id of the sample talk to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Accomplishment
 
 
 ```shell
@@ -476,13 +481,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the accomplishment to delete
+corporation | The corporation id
+username | The username of the expert
 
 
 #Affiliation
@@ -680,7 +687,9 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the Event Appearance to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Media Appearance
 
@@ -788,7 +797,9 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the Media Appearance to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Education
 
@@ -868,7 +879,7 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Education
 
 
 ```shell
@@ -891,13 +902,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the Education to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Testimonial
 
@@ -977,7 +990,7 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Testimonial
 
 
 ```shell
@@ -1000,13 +1013,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the testimonial to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Patent
 
@@ -1114,7 +1129,9 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the patent to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Research Grant
 
@@ -1216,13 +1233,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the link to research grant
+corporation | The corporation id
+username | The username of the expert
 
 #Partnerships
 
@@ -1291,13 +1310,13 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | Id of the Partnership to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
@@ -1324,13 +1343,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the Partnership to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Courses
 
@@ -1432,13 +1453,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the course to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Articles
 
@@ -1540,13 +1563,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the article to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Research Focus
 
@@ -1616,13 +1641,13 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | id of the research focus to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
@@ -1649,13 +1674,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the research focus to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Topics
 
@@ -1724,17 +1751,17 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | id of the topic to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Topic
 
 
 ```shell
@@ -1757,13 +1784,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the topic to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Industry
 
@@ -1838,11 +1867,11 @@ This endpoint retrieves a specific kitten.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | id of the industry to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve.
 
-## Delete a Specific Expert
+## Delete a Specific Insutry
 
 
 ```shell
@@ -1865,13 +1894,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the industry to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Languages
 
@@ -1940,17 +1971,17 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
+id | id of the language to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Delete a Specific Language
 
 
 ```shell
@@ -1973,13 +2004,15 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | id of the research focus to delete
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Fees
 
@@ -2025,74 +2058,9 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-## Get a Specific Link
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/2"
-  -H "Authorization: xxx-xxx-xxx"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-
-### HTTP Request
-
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve.
-
-## Delete a Specific Expert
-
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/2"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
-```
-
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ""
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-### HTTP Request
-
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
 #Availability
 
-##Get All availability
+##Get availability
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability"
   -X DELETE
@@ -2132,69 +2100,6 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
-
-## Get a Specific Availability
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability/2"
-  -H "Authorization: xxx-xxx-xxx"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-
-### HTTP Request
-
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Expert
-
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability/2"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
-```
-
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ""
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-### HTTP Request
-
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
 #Social
 
