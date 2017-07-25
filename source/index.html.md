@@ -373,22 +373,22 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "profile_id": 1,
+      "name": "link name",
+      "url": "http://www.example.com/",
+    },
+    {
+      "id": 2,
+      "profile_id": 1,
+      "name": "link name1",
+      "url": "http://www.example.com/1",
+    }
+  ]
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -415,7 +415,7 @@ available | true | If set to false, the result will include kittens that have al
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -423,11 +423,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "profile_id": 1,
+      "name": "link name",
+      "url": "http://linkurl.com"
+    }
+  ],
+  "success": true
 }
 ```
 
