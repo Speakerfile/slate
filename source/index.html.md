@@ -48,22 +48,37 @@ curl "https://public-api.expertfile.com/organization/:corporation/experts"
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+{
+  "data": {
+    "experts": [
+      {
+        "profile_id": "1",
+        "username": "myusername",
+        "corporation": "mycorporation",
+        "topics":[
+          {
+            "title": "topicname1"
+          }, 
+          {
+            "title": "topicname2"
+          }
+        ],
+        "tagline": "My tagline",
+        "avatar": {
+          "small": "my small avatar url",
+          "medium": "my medium avatar url",
+          "large": "my large avatar url",
+          "original": "my original avatar url"
+        }
+      }
+    ],
+    "total": 12,
+    "aggregations": {
+
+    }
   },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -88,7 +103,7 @@ accessToken | - | required.
 ## Get a Specific Expert
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/username"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -96,11 +111,206 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/2"
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": {
+    "accomplishment":[
+      {
+        "id": 1,
+        "profile_id": 1,
+        "title": "my accomplishment title",
+        "description": "my accomplishment description",
+        "start": 1349841600, //unix time
+        "end": 1349841600, //unix time
+        "type": 71
+      },
+      {
+        "id": 2,
+        "profile_id": 1,
+        "title": "my another accomplishment title",
+        "description": "my another accomplishment description",
+        "start": 1349841600, //unix time
+        "end": 1349841600, //unix time
+        "type": 71
+      }
+    ],
+    "account": [
+      {
+        "id": 53,
+        "firstname": "Firstname",
+        "lastname": "lastname",
+        "corporation_id": 767,
+        "job_title": "my job title",
+        "gener": 0,
+        "location_city": "Toronto",
+        "location_state": "ON",
+        "location_country": "CA",
+        "location_postal": "M5G 1L7",
+        "location_address": "my address",
+        "email": "myemail@example.com",
+        "company": "my company name",
+        "phone_number": "123-456-7890",
+        "username": "peter.evans"
+      }
+    ],
+    "affiliation": [
+      {
+        "id": 1,
+        "profile_id": 1,
+        "name": "my affiliation name",
+        "notes": "",
+        "link": ""
+      },{
+        "id": 2,
+        "profile_id": 1,
+        "name": "my another affiliation name",
+        "notes": "",
+        "link": ""
+      }
+    ],
+    "article": [],
+    "assessment": [],
+    "availability": [
+      {
+        "availability_keynote": 1,
+        "availability_moderator": 1,
+        "availability_panelist": 1,
+        "availability_workshop": 1,
+        "availability_host_mc": 1,
+        "availability_appearance": 0,
+        "availability_corptraining": 1,
+        "availability_open": 1
+      }
+    ],
+    "book": [],
+    "biography": [
+      {
+        "biography": "my biography"
+      }
+    ],
+    "course": [],
+    "corporationProfile": [
+      {
+        "id": 1,
+        "name": "name",
+        "user_name": "username",
+        "description": "",
+        "location_country": "CA",
+        "location_state": "ON",
+        "location_city": "Toronto",
+        "location_postal": "M5G 1L7",
+        "location_address": "address",
+        "website": "myswebsite.com",
+        "private_username": "xxx"
+      }
+    ],
+    "corporationSocial": [
+      {
+        "twitter": "https://twitter.com/xyz",
+        "facebook": "https://www.facebook.com/xyz",
+        "linkedin": "http://www.linkedin.com/company/xyz",
+        "gplus": "https://plus.google.com/+xyz/posts"
+      }
+    ],
+    "eventAppearance": [
+      {
+        "id": 1,
+        "profile_id": 1,
+        "title": "my event title ",
+        "event_name": "my event name",
+        "location": "Toronto",
+        "date": 1362027600, // unix time
+        "time_zone": "",
+        "time": ""
+      },{
+        "id": 2,
+        "profile_id": 1,
+        "title": "my another event title ",
+        "event_name": "my another event name",
+        "location": "Toronto",
+        "date": 1362027600,
+        "time_zone": "",
+        "time": ""
+      }
+    ],
+    "education": [
+      {
+        "id": 1,
+			  "profile_id": 1,
+			  "institution": "My Institution",
+			  "degree": "My Degree",
+			  "description": "",
+			  "major": "My majoir",
+			  "date": 1998
+      },
+      {
+        "id": 2,
+			  "profile_id": 1,
+			  "institution": "My 2nd Institution",
+			  "degree": "My 2nd Degree",
+			  "description": "",
+			  "major": "My 2nd majoir",
+			  "date": 1998
+
+      }
+    ],
+    "document": [
+      {
+        "id": 1,
+        "title": "my 1st document",
+        "url": "https://documenturl.com"
+		  },
+      {
+        "id": 2,
+        "title": "my 2nd document",
+        "url": "https://documenturl.com/2"
+      }
+    ],
+    "video": [
+      {
+        "id": 1,
+			  "title": "my 1st video",
+			  "url": "https://videourl.com"
+      },
+      {
+        "id": 2,
+			  "title": "my 2nd video",
+			  "url": "https://videourl.com/1"
+      }
+    ],
+    "language": [],
+    "partnership": [],
+    "industry": [
+      {
+        "name": "Indutry1",
+        "id": "1"
+      },
+      {
+        "name": "Industry2",
+        "id": "2"
+      }
+    ],
+    "patents": [],
+    "news": [
+      {
+        "spotlight_title": "title ",
+        "spotlight_text": "Test",
+        "news_title": "title",
+        "news_description": "Description",
+        "news_date": 1411508121,
+        "image_url": "imageurl.com",
+        "news_id": 1
+      },
+      {
+        "spotlight_title": "title 1",
+        "spotlight_text": "Test 1",
+        "news_title": "title 1",
+        "news_description": "Description 1",
+        "news_date": 1411508121,
+        "image_url": "imageurl.com",
+        "news_id": 2
+      }
+    ]
+  },
+  "success": true
 }
 ```
 
