@@ -536,6 +536,73 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
+## Get a Specific Affiliation
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the affiliation to retrieve
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific affiliaion
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accompishment/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the affiliation to delete
+corporation | The corporation id
+username | The username of the expert
+
 #Talk
 
 ##Get All Talk
@@ -579,6 +646,73 @@ Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
+
+## Get a Specific Talk
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/talk/2"
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/talk/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of the talk to retrieve
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Delete a Specific Accomplishment
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/talk/2"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ""
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/talk/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the talk to delete
+corporation | The corporation id
+username | The username of the expert
 
 #Event Appearances
 
