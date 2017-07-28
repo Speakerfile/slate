@@ -24,13 +24,11 @@ curl "https://public-api.expertfile.com/v2/oauth/token"
   -X POST
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `xxx-xxx-xxx` with your Access Token.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Expertfile expects for the Accesstoken to be included in all API requests to the server in a header that looks like the following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Bearer xxx-xxx-xxx`
 
 ###Body Parameters 
 
