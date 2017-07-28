@@ -16,6 +16,7 @@ search: true
 
 # Authentication
 
+## Oauth 2.0
 > To authorize, use this code:
 
 ```shell
