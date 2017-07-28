@@ -102,7 +102,16 @@ corporation  | The corporation id
 
 Parameter | Default | Description
 --------- | ------- | -----------
-accessToken | - | required.
+q | - | search query.
+access | public | This can be public or private.
+page_size | 10 | no. of experts to return.
+page_from | 0 | 
+countries | - |
+topics | - | 
+industries | - |
+companies | - |
+fields | - |
+sort | name | name or featured. 
 
 
 ## Get a Specific Expert
