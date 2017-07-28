@@ -20,8 +20,8 @@ search: true
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: xxx-xxx-xxx"
+curl "https://public-api.expertfile.com/v2/oauth/token"
+  -X POST
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
@@ -32,8 +32,16 @@ Kittn expects for the API key to be included in all API requests to the server i
 
 `Authorization: meowmeowmeow`
 
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+grant_type | true | 
+client_id | true | 
+client_secret| true |
+
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+ You can find you client_id and client_secret in account/api in your app dashboard. The url is https://app.expertfile.com/account/api 
 </aside>
 
 # Experts
@@ -41,8 +49,8 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ## Get All Experts
 
 ```shell
-curl "https://public-api.expertfile.com/v2/oauth/:corporation/organization/"
-  -H "Authorization: xxx-xxx-xxx"
+curl "https://public-api.expertfile.com/v2/:corporation/organization/experts"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -333,8 +341,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/2"
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data" : {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
 }
 ```
 
@@ -488,7 +499,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -678,7 +690,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -719,7 +732,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -876,7 +890,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -919,7 +934,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1068,7 +1084,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -1107,7 +1124,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1214,7 +1232,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1370,7 +1389,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -1412,7 +1432,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1583,7 +1604,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -1627,7 +1649,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1786,7 +1809,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -1830,7 +1854,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -1995,7 +2020,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -2039,7 +2065,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "deleted": true
   },
   "success": true
 }
@@ -2197,7 +2224,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id": 2,
+    "updated": true
   },
   "success": true
 }
@@ -2240,7 +2268,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -2401,7 +2430,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -2445,7 +2475,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -2607,7 +2638,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -2652,7 +2684,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -2802,7 +2835,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -2843,7 +2877,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -3005,7 +3040,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -3049,7 +3085,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "deleted": true
   },
   "success": true
 }
@@ -3218,7 +3255,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -3406,7 +3444,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -3587,7 +3626,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
@@ -3771,7 +3811,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "id" : 2
+    "id" : 2,
+    "updated": true
   },
   "success": true
 }
