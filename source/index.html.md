@@ -103,7 +103,8 @@ accessToken | - | required.
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/username"
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -324,7 +325,7 @@ username | The username of the expert to retrieve
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -356,7 +357,7 @@ username | The username of the expert to retrieve
 ##Get All Links
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link"
-  -X DELETE
+  -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -404,7 +405,7 @@ available | true | If set to false, the result will include kittens that have al
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/1"
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -437,6 +438,88 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add a Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | true | name of the link 
+url | true | the actual url 
+
+
+## Update a Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the link
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | name of the link 
+url | optional | the actual url 
+
 ## Delete a Specific Link
 
 
@@ -451,12 +534,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id": 2,
+    "deleted": true
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific link.
 
 ### HTTP Request
 
@@ -551,7 +637,86 @@ id | Id of the link to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Expert
+## Add a SampleTalk
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | true | title of the talk 
+description | true | description of the talk 
+
+## Update a SampleTalk
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id |  id of Sample Talk
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | title of the talk 
+description | optional | description of the talk 
+
+## Delete a Specific Sample Talk
 
 
 ```shell
@@ -565,12 +730,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific 
 
 ### HTTP Request
 
@@ -662,7 +829,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -672,13 +839,96 @@ id | Id of the sample talk to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add an Accomplishment
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | title of the talk 
+description | required | description of the talk 
+type | optional | Type of accomplishment. 71 for 'professional' and 73 for 'personal'
+date | optional | date in unix time
+
+##Update a specific accomplishment
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/2"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Id of accomplishment
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | title of the talk 
+description | optional | description of the talk 
+type | optional | Type of accomplishment. 71 for 'professional' and 73 for 'personal'
+date | optional | date in unix time
+
 ## Delete a Specific Accomplishment
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accompishment/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -686,12 +936,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific accomplishment.
 
 ### HTTP Request
 
@@ -778,7 +1030,7 @@ This endpoint retrieves a specific affiliation.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampleTalk/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
 
 ### URL Parameters
 
@@ -787,6 +1039,82 @@ Parameter | Description
 id | Id of the affiliation to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
+
+## Add an Affiliation
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | name of the affiliation
+
+##Update an Affiliation
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/2"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | name of the affiliation
 
 ## Delete a Specific affiliation
 
@@ -802,12 +1130,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific affiliation.
 
 ### HTTP Request
 
@@ -905,7 +1235,7 @@ username | The username of the expert to retrieve
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/talk/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -913,12 +1243,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific accomplishment.
 
 ### HTTP Request
 
@@ -953,8 +1285,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "event_name": "Event Name",
       "location": "Toronto",
       "date": 1362027600, //unix time
-      "time_zone": "",
-      "time": ""
     },
     {
       "id": 2,
@@ -962,8 +1292,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "event_name": "Event Name 2",
       "location": "Toronto",
       "date": 1362028900, //unix time
-      "time_zone": "",
-      "time": ""
     }
   ],
   "success": true
@@ -1001,8 +1329,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "event_name": "Event Name",
       "location": "Toronto",
       "date": 1362027600, //unix time
-      "time_zone": "",
-      "time": ""
     }
   ],
   "success": true
@@ -1024,6 +1350,89 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add an Event Appearance
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | title of the Event 
+event_name | required | name of the event 
+location | optional | name of the city/country where event took place
+date | optional | date in unix time
+
+##Update an Event Appearance
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/2"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventAppearance/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | title of the Event 
+event_name | optional | name of the event 
+location | optional | name of the city/country where event took place
+date | optional | date in unix time
+
 ## Delete a Specific Event Appearance
 
 
@@ -1038,12 +1447,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a Specific Event Appearance.
 
 ### HTTP Request
 
@@ -1079,8 +1490,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "url": "",
       "details": "details",
       "date": 1497412800,
-      "time_zone": "",
-      "time": "",
       "cover_url": "",
       "large_cover_url": "",
       "cover_alt_title": ""
@@ -1093,8 +1502,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "url": "",
       "details": "details",
       "date": 1497412800,
-      "time_zone": "",
-      "time": "",
       "cover_url": "",
       "large_cover_url": "",
       "cover_alt_title": ""
@@ -1137,8 +1544,6 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "url": "",
       "details": "details",
       "date": 1497412800,
-      "time_zone": "",
-      "time": "",
       "cover_url": "",
       "large_cover_url": "",
       "cover_alt_title": ""
@@ -1163,13 +1568,99 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+
+## Add a Media Appearance
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | title of the media appearance
+organiztion | required | name of the organization 
+details | required | details of the media appearance 
+type | optional | this can be one of 'print', 'online', 'tv', 'radio'
+url | optional | link to the media appearance
+date | optional | date in unix time
+
+##Update a Media Appearance
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | title of the media appearance
+organiztion | optional | name of the organization 
+details | optional | details of the media appearance 
+type | optional | this can be one of 'print', 'online', 'tv', 'radio'
+url | optional | link to the media appearance
+date | optional | date in unix time
+
 ## Delete a Specific Media Appearance
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaAppearance/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1177,12 +1668,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a Specific Media Appearance.
 
 ### HTTP Request
 
@@ -1217,7 +1710,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "degree": "My Degree",
       "description": "",
       "major": "My major",
-      "date": 1998
+      "date": 1998 // year 
     },
     {
       "id": 2,
@@ -1285,6 +1778,91 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Education
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+institution | required | name of the instituion
+degree | required | degree obtained.
+major | optional | Level of study. Bachelors/Masters/Phd
+description | optional | additional information for the degree
+date | optional | year of graduation. Enter '1998' if graduation year is 1998
+
+## Update an Education 
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+institution | optional | name of the instituion
+degree | optional | degree obtained.
+major | optional | Level of study. Bachelors/Masters/Phd
+description | optional | additional information for the degree
+date | optional | year of graduation. Enter '1998' if graduation year is 1998
+
+
 ## Delete a Specific Education
 
 
@@ -1299,12 +1877,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific education.
 
 ### HTTP Request
 
@@ -1389,7 +1969,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
       "title": "title",
       "email": "",
       "company": "company",
-      "url": "https://url.com",
+      "url": "https://url.com", //company url
       "recommendation": "my amazing recommendation",
       "date": null
     }
@@ -1413,6 +1993,91 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Testimonial
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | name of the person
+title | required | job title of the person
+company | required | company of the person
+recommendation | required | recommendation note
+url | optional | url of the company where person works
+
+## Update a Testimonial
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | name of the person
+title | optional | job title of the person
+company | optional | company of the person
+recommendation | optional | recommendation note
+url | optional | url of the company where person works
+
+
 ## Delete a Specific Testimonial
 
 
@@ -1427,12 +2092,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific testimonial.
 
 ### HTTP Request
 
@@ -1460,7 +2127,24 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 
 {
-  "data": [],
+  "data": [
+    {
+      "id": 1,
+      "title": "Title1",
+      "detail": "detail1",
+      "number": "100789",
+      "date": 1499140800,
+      "url": "http://www.example.com"
+    },
+    {
+      "id": 2,
+      "title": "Title2",
+      "detail": "detail2",
+      "number": "100789",
+      "date": 1499140800,
+      "url": "http://www.example.com"
+    }
+  ],
   "success": true
 }
 
@@ -1482,7 +2166,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Patent
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1490,7 +2174,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "data": [],
+  "data": [{
+      "id": 1,
+      "title": "Title1",
+      "detail": "detail1",
+      "number": "100789",
+      "date": 1499140800,
+      "url": "http://www.example.com"
+  }],
   "success": true
 }
 ```
@@ -1500,7 +2191,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/<ID>`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/1`
 
 ### URL Parameters
 
@@ -1510,13 +2201,97 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Patent
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+number | required | patent number
+title | required | title of the patent
+detail | required | description of the patent
+date | optional | date of the patent granted in unix time
+url | optional | url of the patent
+
+##Update a Patent
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+number | optional | patent number
+title | optional | title of the patent
+detail | optional | description of the patent
+date | optional | date of the patent granted in unix time
+url | optional | url of the patent
+
 ## Delete a Specific Patent
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1524,12 +2299,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Patent.
 
 ### HTTP Request
 
@@ -1548,29 +2325,35 @@ username | The username of the expert
 ##Get All Reseach Grant
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "title1",
+      "organization": "organization1",
+      "url": "http://www.example.com",
+      "details": "detail1",
+      "date": 1499140800,
+      "amount": "100"
+    },
+    {
+      "id": 2,
+      "title": "title1",
+      "organization": "organization2",
+      "url": "http://www.example.com",
+      "details": "detail2",
+      "date": 1499140800,
+      "amount": "100"
+    }
+  ]
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -1597,11 +2380,18 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "title1",
+      "organization": "organization1",
+      "url": "http://www.example.com",
+      "details": "detail1",
+      "date": 1499140800,
+      "amount": "100"
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -1620,13 +2410,99 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Research Grant
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+organization | required | organization to give grant
+title | required | title of the grant
+detail | required | description of the grant
+date | optional | date in unix time
+url | optional | url
+amount | optional | amount granted
+
+##Update a Research Grant
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+organization | optional | organization to give grant
+title | optional | title of the grant
+detail | optional | description of the grant
+date | optional | date in unix time
+url | optional | url
+amount | optional | amount granted
+
 ## Delete a Specific Research Grant
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchGrant/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1634,12 +2510,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific research grant.
 
 ### HTTP Request
 
@@ -1658,32 +2536,39 @@ username | The username of the expert
 ##Get All partnerships
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership"
-  -X DELETE
+  -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "title1",
+      "individual": "partner name1",
+      "organization": "organization",
+      "url": "http://www.example.com",
+      "details": "detail1",
+      "date": 1499140800
+    },
+    {
+      "id": 2,
+      "title": "title2",
+      "individual": "partner name",
+      "organization": "organization",
+      "url": "http://www.example.com",
+      "details": "detail1",
+      "date": 1499140800
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all partnerships for an expert.
 
 ### HTTP Request
 
@@ -1699,7 +2584,7 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Partnership
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/2"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/1"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1707,15 +2592,22 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "title1",
+      "individual": "partner name1",
+      "organization": "organization",
+      "url": "http://www.example.com",
+      "details": "detail1",
+      "date": 1499140800
+    }
+  ],
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific partnership for an expert.
 
 
 ### HTTP Request
@@ -1730,13 +2622,100 @@ id | Id of the Partnership to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Partnership
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | partnership title
+name | required | partner name
+details | required | description of the partnership
+date | optional | date in unix time
+url | optional | url
+organization | optional | organization
+
+##Update a Partnership
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | partnership title
+name | optional | partner name
+details | optional | description of the partnership
+date | optional | date in unix time
+url | optional | url
+organization | optional | organization
+
+
 ## Delete a Specific Partnership
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1744,12 +2723,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific partnership.
 
 ### HTTP Request
 
@@ -1768,29 +2749,30 @@ username | The username of the expert to retrieve
 ##Get All Courses
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "course title",
+      "details": "course detail",
+      "url": "http://www.example.com"
+    },
+    {
+      "id": 2,
+      "title": "course title2",
+      "details": "course detail2",
+      "url": "http://www.example2.com"
+    }
+  ],
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -1817,11 +2799,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "course title",
+      "details": "course detail",
+      "url": "http://www.example.com"
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -1840,13 +2826,93 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Course
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | course title
+details | required | description/details of the course
+url | optional | url
+
+##Update a Specific Course
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/2"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint updates a specific link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/2`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | course title
+details | optional | description/details of the course
+url | optional | url
+
 ## Delete a Specific Course
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1854,12 +2920,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific course.
 
 ### HTTP Request
 
@@ -1878,32 +2946,39 @@ username | The username of the expert to retrieve
 ##Get All Articles
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "article title",
+      "publisher": "article publication",
+      "details": "article detail",
+      "date": 1499140800,
+      "url": "http://www.example.com",
+      "authors": "author"
+    },
+    {
+      "id": 2,
+      "title": "article title2",
+      "publisher": "article publication2",
+      "details": "article detail2",
+      "date": 1499140800,
+      "url": "http://www.example2.com",
+      "authors": "author2"
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all articles for an expert.
 
 ### HTTP Request
 
@@ -1927,11 +3002,18 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "title": "article title",
+      "publisher": "article publication",
+      "details": "article detail",
+      "date": 1499140800,
+      "url": "http://www.example.com",
+      "authors": "author"
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -1950,13 +3032,99 @@ id | Id of the link to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Article
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | course title
+publisher | required | publisher name
+details | required | description/details of the course
+url | optional | url
+authors | optional | co-authors
+url | optional | link to the article
+
+##Update a Artcile
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint updates a specific article for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | course title
+publisher | optional | publisher name
+details | optional | description/details of the course
+url | optional | url
+authors | optional | co-authors
+url | optional | link to the article
+
 ## Delete a Specific Article
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -1964,12 +3132,14 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id" : 2
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific article.
 
 ### HTTP Request
 
@@ -1988,7 +3158,7 @@ username | The username of the expert to retrieve
 ##Get All Research Focus
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus"
-  -X DELETE
+  -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -2025,7 +3195,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 }
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all research focus for an expert.
 
 ### HTTP Request
 
@@ -2042,7 +3212,7 @@ available | true | If set to false, the result will include kittens that have al
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/2"
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -2081,6 +3251,91 @@ id | id of the research focus to retrieve
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Research Focus
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a research focus for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | course title
+details | required | description/details of the course
+url | optional | url
+date | optional | date in unix format
+subtitle | optional | 
+
+##Update a Research Focus
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint updates a specific research focus for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchFocus/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | optional | course title
+details | optional | description/details of the course
+url | optional | url
+date | optional | date in unix format
+subtitle | optional | 
+
 ## Delete a Specific Research Focus
 
 
@@ -2095,12 +3350,16 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific research focus.
 
 ### HTTP Request
 
@@ -2119,8 +3378,8 @@ username | The username of the expert to retrieve
 ##Get All Topics
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -2158,7 +3417,7 @@ available | true | If set to false, the result will include kittens that have al
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/2"
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -2190,13 +3449,90 @@ id | id of the topic to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+## Add Topic
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | topic name
+
+
+## Update Topic
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/2"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint updates a specific topic.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | topic name
+
 ## Delete a Specific Topic
 
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2204,12 +3540,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific topic for an expert.
 
 ### HTTP Request
 
@@ -2298,13 +3637,89 @@ id | id of the industry to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve.
 
-## Delete a Specific Insutry
+## Add Industry
 
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | Industry name
+
+##Update Industry
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/2"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | Industry name
+
+
+## Delete a Specific Insutry
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/2"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2312,12 +3727,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data" : {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific Industry.
 
 ### HTTP Request
 
@@ -2336,29 +3754,26 @@ username | The username of the expert to retrieve
 ##Get All languages
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Language1"
+    },
+    {
+      "id": 2,
+      "name": "Language2"
+    }
+  ],
+  "success": true
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -2377,23 +3792,26 @@ available | true | If set to false, the result will include kittens that have al
 ## Get a Specific Languages
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/2"
-  -H "Authorization: xxx-xxx-xxx"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/1"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "id": 1,
+      "name": "Language1"
+    }
+  ],
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific language belonging to the expert.
 
 
 ### HTTP Request
@@ -2408,8 +3826,84 @@ id | id of the language to retrieve.
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Delete a Specific Language
+## Add Language
 
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | langauge name
+
+
+##Update a Language
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/2"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | optional | langauge name
+
+## Delete a Specific Language
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/2"
@@ -2422,12 +3916,15 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 
 ```json
 {
-  "id": 2,
-  "deleted" : ""
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific language for an expert.
 
 ### HTTP Request
 
@@ -2454,25 +3951,18 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "data": [
+    {
+      "fee_min": 100,
+      "fee_max": 1000
+    }
+  ],
+  "success": true
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves fees for an expert.
 
 ### HTTP Request
 
@@ -2485,13 +3975,52 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
+## Add fees
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fees/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+fee_minx | required | min fees
+fee_max | required | max fees
+
 #Availability
 
 ##Get availability
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 > The above command returns JSON structured like this:
@@ -2533,7 +4062,7 @@ available | true | If set to false, the result will include kittens that have al
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2560,7 +4089,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 }
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves link for social profiles for an expert.
 
 ### HTTP Request
 
@@ -2573,6 +4102,45 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
+## Add social
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###QUERY Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+title | required | course title
+details | required | description/details of the course
+url | optional | url
 
 
 #Youtube
@@ -2580,8 +4148,8 @@ available | true | If set to false, the result will include kittens that have al
 ##Get All Youtube Media
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2632,8 +4200,8 @@ available | true | If set to false, the result will include kittens that have al
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2676,8 +4244,8 @@ available | true | If set to false, the result will include kittens that have al
 ##Get All Youtube Media
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2688,23 +4256,21 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "title": "Title",
-      "description": "description",
-      "watch_page_url": "watch page url",
-      "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
+      "title": "Video title",
+      "description": "",
+      "url": "http://vimeo.com/1",
+      "external_id": "1", //vimeo video id. 
+      "thumbnail_small": "http://i.vimeocdn.com/video/1.jpg",
       "thumbnail_alt_title": null
     },
     {
       "id": 2,
-      "title": "Title 2",
-      "description": "description 2",
-      "watch_page_url": "watch page url",
-      "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
-      "thumbnail_alt_title": null 
+      "title": "Video title",
+      "description": "",
+      "url": "http://vimeo.com/1",
+      "external_id": "2",
+      "thumbnail_small": "http://i.vimeocdn.com/video/1.jpg",
+      "thumbnail_alt_title": null
     }
   ],
   "success": true
@@ -2728,8 +4294,8 @@ available | true | If set to false, the result will include kittens that have al
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2740,12 +4306,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "title": "Title",
-      "description": "description",
-      "watch_page_url": "watch page url",
-      "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
+      "title": "Video title",
+      "description": "",
+      "url": "http://vimeo.com/1",
+      "external_id": "1", //vimeo video id. 
+      "thumbnail_small": "http://i.vimeocdn.com/video/1.jpg",
       "thumbnail_alt_title": null
     }
   ],
@@ -2771,8 +4336,8 @@ available | true | If set to false, the result will include kittens that have al
 ##Get All Youtube Media
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2783,23 +4348,21 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "title": "Title",
-      "description": "description",
-      "watch_page_url": "watch page url",
+      "title": "title 1",
+      "description": "",
+      "url": "slideshare url",
+      "embed": "slideshare embed url",
       "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
-      "thumbnail_alt_title": null
+      "external_id": "1"// slideshare docuement id
     },
     {
       "id": 2,
-      "title": "Title 2",
-      "description": "description 2",
-      "watch_page_url": "watch page url",
+      "title": "title 2",
+      "description": "",
+      "url": "slideshare url",
+      "embed": "slideshare embed url",
       "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
-      "thumbnail_alt_title": null 
+      "external_id": "1"// slideshare docuement id
     }
   ],
   "success": true
@@ -2819,12 +4382,12 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-##Get a Specific youtube media
+##Get a Specific slideshare media
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2835,13 +4398,12 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
   "data": [
     {
       "id": 1,
-      "title": "Title",
-      "description": "description",
-      "watch_page_url": "watch page url",
+      "title": "title 1",
+      "description": "",
+      "url": "slideshare url",
+      "embed": "slideshare embed url",
       "thumbnail_url": "thumbnail url",
-      "flash_player_url": "flashplayerurl",
-      "video_id": "video id",
-      "thumbnail_alt_title": null
+      "external_id": "1"// slideshare docuement id
     }
   ],
   "success": true
@@ -2863,11 +4425,11 @@ available | true | If set to false, the result will include kittens that have al
 
 #Documents
 
-##Get All Youtube Media
+##Get All Document Media
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2914,12 +4476,12 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-##Get a Specific youtube media
+##Get a Specific document
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -2960,11 +4522,11 @@ available | true | If set to false, the result will include kittens that have al
 
 #Photo
 
-##Get All Youtube Media
+##Get All Photos
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -3011,12 +4573,11 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-##Get a Specific youtube media
-
+##Get a Specific Photo
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -3056,11 +4617,11 @@ available | true | If set to false, the result will include kittens that have al
 
 #Video
 
-##Get All Youtube Media
+##Get All Videos (Uploaded)
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video"
   -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
@@ -3107,12 +4668,12 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-##Get a Specific youtube media
+##Get a Specific Video (Uploaded)
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id"
-  -X DELETE
-  -H "Authorization: xxx-xxx-xxx"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
 
