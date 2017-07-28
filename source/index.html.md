@@ -41,7 +41,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ## Get All Experts
 
 ```shell
-curl "https://public-api.expertfile.com/organization/:corporation/experts"
+curl "https://public-api.expertfile.com/v2/oauth/:corporation/organization/"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -393,12 +393,6 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Link
 
@@ -472,7 +466,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | true | name of the link 
@@ -514,7 +508,7 @@ id | id of the link
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | name of the link 
@@ -593,12 +587,6 @@ This endpoint retrieves all Sample Talks.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Sample Talk
 
@@ -670,7 +658,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | true | title of the talk 
@@ -710,7 +698,7 @@ id |  id of Sample Talk
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | title of the talk 
@@ -792,12 +780,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Accomplishment
 
@@ -872,7 +854,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | title of the talk 
@@ -914,7 +896,7 @@ id | Id of accomplishment
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | title of the talk 
@@ -995,12 +977,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Affiliation
 
@@ -1073,7 +1049,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | required | name of the affiliation
@@ -1111,7 +1087,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | name of the affiliation
@@ -1188,12 +1164,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Talk
 
@@ -1304,12 +1274,6 @@ This endpoint retrieves all Event Apperances for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Event Appearance
 
@@ -1383,7 +1347,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | title of the Event 
@@ -1425,7 +1389,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | title of the Event 
@@ -1517,12 +1481,6 @@ This endpoint retrieves all media appearances for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts/mediaAppearance`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Media Appearance
 
@@ -1602,7 +1560,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | title of the media appearance
@@ -1644,7 +1602,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | title of the media appearance
@@ -1731,12 +1689,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Education
 
@@ -1811,7 +1763,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 institution | required | name of the instituion
@@ -1853,7 +1805,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 institution | optional | name of the instituion
@@ -1943,12 +1895,6 @@ This endpoint retrieves all reccomendations for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 
 ## Get a Specific Testimonial
@@ -2026,7 +1972,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | required | name of the person
@@ -2068,7 +2014,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | name of the person
@@ -2156,12 +2102,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Patent
 
@@ -2234,7 +2174,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 number | required | patent number
@@ -2276,7 +2216,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 number | optional | patent number
@@ -2362,12 +2302,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Research grant
 
@@ -2443,7 +2377,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 organization | required | organization to give grant
@@ -2486,7 +2420,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 organization | optional | organization to give grant
@@ -2574,12 +2508,6 @@ This endpoint retrieves all partnerships for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Partnership
 
@@ -2655,7 +2583,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | partnership title
@@ -2698,7 +2626,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | partnership title
@@ -2781,12 +2709,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Course
 
@@ -2859,7 +2781,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | course title
@@ -2899,7 +2821,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | course title
@@ -2984,12 +2906,6 @@ This endpoint retrieves all articles for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Article
 
@@ -3065,7 +2981,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | course title
@@ -3108,7 +3024,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | course title
@@ -3201,12 +3117,6 @@ This endpoint retrieves all research focus for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Research Focus
 
@@ -3284,7 +3194,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | course title
@@ -3327,7 +3237,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | course title
@@ -3406,12 +3316,6 @@ This endpoint retrieves all Topics for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Topic
 
@@ -3482,7 +3386,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | required | topic name
@@ -3521,7 +3425,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | topic name
@@ -3595,12 +3499,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Industry
 
@@ -3670,7 +3568,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | required | Industry name
@@ -3708,7 +3606,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | Industry name
@@ -3782,12 +3680,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Get a Specific Languages
 
@@ -3859,7 +3751,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | required | langauge name
@@ -3898,7 +3790,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 name | optional | langauge name
@@ -3968,12 +3860,6 @@ This endpoint retrieves fees for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Add fees
 
@@ -4008,7 +3894,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 fee_minx | required | min fees
@@ -4049,12 +3935,6 @@ This endpoint retrieves all kittens.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/availability`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 #Social
 
@@ -4095,12 +3975,6 @@ This endpoint retrieves link for social profiles for an expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ## Add social
 
@@ -4135,7 +4009,7 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert
 
-###QUERY Parameters
+###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | course title
@@ -4189,12 +4063,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific youtube media
 
@@ -4231,12 +4099,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 
 #Vimeo
@@ -4283,12 +4145,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific youtube media
 
@@ -4324,12 +4180,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 #Slideshare
 
@@ -4375,12 +4225,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific slideshare media
 
@@ -4416,12 +4260,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 #Documents
 
@@ -4469,12 +4307,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific document
 
@@ -4511,12 +4343,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 
 
@@ -4566,12 +4392,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific Photo
 ```shell
@@ -4607,12 +4427,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 
 #Video
@@ -4661,12 +4475,6 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/social`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 ##Get a Specific Video (Uploaded)
 
@@ -4703,10 +4511,4 @@ This endpoint retrieves all youtube media for an Expert.
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
