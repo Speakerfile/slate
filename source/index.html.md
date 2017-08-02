@@ -24,7 +24,7 @@ curl "https://public-api.expertfile.com/v2/oauth/token"
 
 > Make sure to replace `xxx-xxx-xxx` with your Access Token.
 
-Expertfile expects for the Accesstoken to be included in all API requests to the server in a header that looks like the following:
+Expertfile expects an access token to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: Bearer xxx-xxx-xxx`
 
@@ -85,7 +85,7 @@ curl "https://public-api.expertfile.com/v2/:corporation/organization/experts"
 }
 ```
 
-This endpoint retrieves all experts.
+This endpoint retrieves all Experts.
 
 ### HTTP Request
 
@@ -318,9 +318,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/use
   "success": true
 }
 ```
-
-This endpoint retrieves a specific kitten.
-
+This endpoint retrieves a specific Expert.
 
 ### HTTP Request
 
@@ -355,7 +353,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:id
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint deletes a specific Expert.
 
 ### HTTP Request
 
@@ -513,11 +511,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a link for expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id`
 
 ### URL Parameters
 
@@ -671,7 +669,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Sample Talk for an expert.
 
 ### HTTP Request
 
@@ -711,11 +709,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Sample Talk for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id`
 
 ### URL Parameters
 
@@ -753,7 +751,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific 
+This endpoint deletes a specific Sample Talk
 
 ### HTTP Request
 
@@ -839,7 +837,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Accomplishment.
 
 
 ### HTTP Request
@@ -874,7 +872,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Accomplishment for an expert.
 
 ### HTTP Request
 
@@ -895,11 +893,11 @@ description | required | description of the talk
 type | optional | Type of accomplishment. 71 for 'professional' and 73 for 'personal'
 date | optional | date in unix time
 
-##Update a specific accomplishment
+##Update a Specific Accomplishment
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id"
-  -X POST
+  -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
 
@@ -916,11 +914,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates an Accomplishment for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -960,7 +958,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific accomplishment.
+This endpoint deletes a specific Accomplishment.
 
 ### HTTP Request
 
@@ -1021,6 +1019,7 @@ username | The username of the expert to retrieve
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"
+  -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1040,7 +1039,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific affiliation.
+This endpoint retrieves a specific Affiliation.
 
 
 ### HTTP Request
@@ -1075,7 +1074,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Affiliation for an expert.
 
 ### HTTP Request
 
@@ -1097,7 +1096,7 @@ name | required | name of the affiliation
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"
-  -X POST
+  -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1114,11 +1113,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates an Affiliation for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id`
 
 ### URL Parameters
 
@@ -1154,7 +1153,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific affiliation.
+This endpoint deletes a specific Affiliation.
 
 ### HTTP Request
 
@@ -1202,7 +1201,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all Event Apperances for an Expert.
+This endpoint retrieves all Event Apperances for an expert.
 
 ### HTTP Request
 
@@ -1218,6 +1217,7 @@ username | The username of the expert to retrieve
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id"
+  -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1238,7 +1238,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific event appearance of an expert.
+This endpoint retrieves a specific event appearance for an expert.
 
 
 ### HTTP Request
@@ -1273,7 +1273,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Event Appearance for an expert.
 
 ### HTTP Request
 
@@ -1316,11 +1316,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates an Event Appearance for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id`
 
 ### URL Parameters
 
@@ -1359,7 +1359,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a Specific Event Appearance.
+This endpoint deletes a specific Event Appearance.
 
 ### HTTP Request
 
@@ -1416,7 +1416,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all media appearances for an expert.
+This endpoint retrieves all Media Appearances for an expert.
 
 ### HTTP Request
 
@@ -1456,7 +1456,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Media Appearance.
 
 
 ### HTTP Request
@@ -1492,7 +1492,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Media Appearance for an expert.
 
 ### HTTP Request
 
@@ -1535,11 +1535,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Media Appearance for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id`
 
 ### URL Parameters
 
@@ -1552,7 +1552,7 @@ username | The username of the expert
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | title of the media appearance
-organiztion | optional | name of the organization 
+organization | optional | name of the organization 
 details | optional | details of the media appearance 
 type | optional | this can be one of 'print', 'online', 'tv', 'radio'
 url | optional | link to the media appearance
@@ -1580,7 +1580,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a Specific Media Appearance.
+This endpoint deletes a specific Media Appearance.
 
 ### HTTP Request
 
@@ -1667,7 +1667,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Education.
 
 
 ### HTTP Request
@@ -1702,7 +1702,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Education for an expert.
 
 ### HTTP Request
 
@@ -1727,8 +1727,8 @@ date | optional | year of graduation. Enter '1998' if graduation year is 1998
 ## Update an Education 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/"
-  -X POST
+curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id"
+  -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1745,11 +1745,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates an Education for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id`
 
 ### URL Parameters
 
@@ -1790,7 +1790,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific education.
+This endpoint deletes a specific Education.
 
 ### HTTP Request
 
@@ -1843,7 +1843,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all reccomendations for an expert.
+This endpoint retrieves all Testimonials for an expert.
 
 ### HTTP Request
 
@@ -1883,7 +1883,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Testimonial.
 
 
 ### HTTP Request
@@ -1918,7 +1918,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Testimonial for an expert.
 
 ### HTTP Request
 
@@ -1961,11 +1961,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Testimonial for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id`
 
 ### URL Parameters
 
@@ -2006,7 +2006,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific testimonial.
+This endpoint deletes a specific Testimonial.
 
 ### HTTP Request
 
@@ -2057,7 +2057,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 
 ```
 
-This endpoint retrieves all patents.
+This endpoint retrieves all Patents.
 
 ### HTTP Request
 
@@ -2092,7 +2092,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Patent.
 
 
 ### HTTP Request
@@ -2127,7 +2127,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Patent for an expert.
 
 ### HTTP Request
 
@@ -2170,11 +2170,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Patent for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id`
 
 ### URL Parameters
 
@@ -2214,7 +2214,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific Patent.
+This endpoint deletes a specific Patent.
 
 ### HTTP Request
 
@@ -2302,7 +2302,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Research Grant.
 
 
 ### HTTP Request
@@ -2337,7 +2337,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Research Grant for an expert.
 
 ### HTTP Request
 
@@ -2381,11 +2381,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Research Grant for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id`
 
 ### URL Parameters
 
@@ -2426,7 +2426,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific research grant.
+This endpoint deletes a specific Research Grant.
 
 ### HTTP Request
 
@@ -2442,7 +2442,7 @@ username | The username of the expert
 
 #Partnerships
 
-##Get All partnerships
+##Get All Partnerships
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership"
   -X GET
@@ -2477,7 +2477,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all partnerships for an expert.
+This endpoint retrieves all Partnerships for an expert.
 
 ### HTTP Request
 
@@ -2515,7 +2515,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific partnership for an expert.
+This endpoint retrieves a specific Partnership for an expert.
 
 
 ### HTTP Request
@@ -2550,7 +2550,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Partnership for an expert.
 
 ### HTTP Request
 
@@ -2567,7 +2567,7 @@ username | The username of the expert
 Parameter | Required | Description
 --------- | -------- | ----------
 title | required | partnership title
-name | required | partner name
+individual | required | partner name
 details | required | description of the partnership
 date | optional | date in unix time
 url | optional | url
@@ -2594,11 +2594,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Partnership for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id`
 
 ### URL Parameters
 
@@ -2611,7 +2611,7 @@ username | The username of the expert
 Parameter | Required | Description
 --------- | -------- | ----------
 title | optional | partnership title
-name | optional | partner name
+individual | optional | partner name
 details | optional | description of the partnership
 date | optional | date in unix time
 url | optional | url
@@ -2640,7 +2640,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific partnership.
+This endpoint deletes a specific Partnership.
 
 ### HTTP Request
 
@@ -2685,7 +2685,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all courses.
+This endpoint retrieves all Courses.
 
 ### HTTP Request
 
@@ -2720,7 +2720,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Course.
 
 
 ### HTTP Request
@@ -2755,7 +2755,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Course for an expert.
 
 ### HTTP Request
 
@@ -2796,11 +2796,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint updates a specific link for expert.
+This endpoint updates a Course for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id`
 
 ### URL Parameters
 
@@ -2838,7 +2838,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific course.
+This endpoint deletes a specific Course.
 
 ### HTTP Request
 
@@ -2889,7 +2889,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all articles for an expert.
+This endpoint retrieves all Articles for an expert.
 
 ### HTTP Request
 
@@ -2927,7 +2927,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Article.
 
 
 ### HTTP Request
@@ -2962,7 +2962,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Article for an expert.
 
 ### HTTP Request
 
@@ -3006,11 +3006,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint updates a specific article for expert.
+This endpoint updates a specific Article for expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id`
 
 ### URL Parameters
 
@@ -3051,7 +3051,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific article.
+This endpoint deletes a specific Article.
 
 ### HTTP Request
 
@@ -3107,7 +3107,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all research focus for an expert.
+This endpoint retrieves all Research Focus for an expert.
 
 ### HTTP Request
 
@@ -3147,7 +3147,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific Research Focus.
 
 
 ### HTTP Request
@@ -3182,7 +3182,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a research focus for expert.
+This endpoint adds a Research Focus for an expert.
 
 ### HTTP Request
 
@@ -3226,11 +3226,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint updates a specific research focus for expert.
+This endpoint updates a specific Research Focus for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/`
 
 ### URL Parameters
 
@@ -3271,7 +3271,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific research focus.
+This endpoint deletes a specific Research Focus.
 
 ### HTTP Request
 
@@ -3312,7 +3312,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all Topics for an Expert.
+This endpoint retrieves all Topics for an expert.
 
 ### HTTP Request
 
@@ -3380,7 +3380,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Topic for an expert.
 
 ### HTTP Request
 
@@ -3420,11 +3420,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint updates a specific topic.
+This endpoint updates a specific Topic.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id`
 
 ### URL Parameters
 
@@ -3460,7 +3460,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific topic for an expert.
+This endpoint deletes a specific Topic for an expert.
 
 ### HTTP Request
 
@@ -3501,7 +3501,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all industries.
+This endpoint retrieves all Industries.
 
 ### HTTP Request
 
@@ -3568,7 +3568,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds an Industry for an expert.
 
 ### HTTP Request
 
@@ -3590,7 +3590,7 @@ name | required | Industry name
 
 ```shell
 curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id"
-  -X POST
+  -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -3607,11 +3607,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Industry for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id`
 
 ### URL Parameters
 
@@ -3688,7 +3688,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all languages.
+This endpoint retrieves all Languages.
 
 ### HTTP Request
 
@@ -3721,8 +3721,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific language belonging to the expert.
-
+This endpoint retrieves a specific Language.
 
 ### HTTP Request
 
@@ -3756,7 +3755,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Language for an expert.
 
 ### HTTP Request
 
@@ -3796,7 +3795,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint updates a Language for an expert.
 
 ### HTTP Request
 
@@ -3835,7 +3834,8 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint deletes a specific language for an expert.
+This endpoint deletes a specific Language.
+
 
 ### HTTP Request
 
@@ -3851,9 +3851,9 @@ username | The username of the expert to retrieve
 
 #Fees
 
-##Get All fees
+##Get All Fees
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3873,21 +3873,21 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves fees for an expert.
+This endpoint retrieves Fees for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee`
 
 Parameter | Description
 --------- | -----------
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-## Add fees
+## Add Fees
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3904,11 +3904,11 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds a Fees for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee`
 
 ### URL Parameters
 
@@ -3920,7 +3920,7 @@ username | The username of the expert
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-fee_minx | required | min fees
+fee_min | required | min fees
 fee_max | required | max fees
 
 #Availability
@@ -3996,7 +3996,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves link for social profiles for an expert.
+This endpoint retrieves all Social Links.
 
 ### HTTP Request
 
@@ -4027,7 +4027,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint adds a link for expert.
+This endpoint adds Social Links for an expert.
 
 ### HTTP Request
 
@@ -4088,7 +4088,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all youtube media for an Expert.
+This endpoint retrieves all YouTube media for an expert.
 
 ### HTTP Request
 
@@ -4179,7 +4179,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all Vimeo item for an Expert.
+This endpoint retrieves all Vimeo item for an expert.
 
 ### HTTP Request
 
@@ -4268,7 +4268,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all SlideShare media for an Expert.
+This endpoint retrieves all SlideShare media for an expert.
 
 ### HTTP Request
 
@@ -4307,7 +4307,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all youtube media for an Expert.
+This endpoint retrieves all SlideShare media for an expert.
 
 ### HTTP Request
 
@@ -4359,7 +4359,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all documents.
+This endpoint retrieves all Documents.
 
 ### HTTP Request
 
@@ -4451,7 +4451,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all photos for an Expert.
+This endpoint retrieves all Photos for an expert.
 
 ### HTTP Request
 
@@ -4490,7 +4490,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific photo.
+This endpoint retrieves a specific Photo.
 
 ### HTTP Request
 
@@ -4543,7 +4543,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves all videos for an Expert.
+This endpoint retrieves all Videos for an expert.
 
 ### HTTP Request
 
@@ -4583,7 +4583,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 }
 ```
 
-This endpoint retrieves a specific video.
+This endpoint retrieves a specific Video.
 
 ### HTTP Request
 
