@@ -293,7 +293,7 @@
                     <a href="#add-an-accomplishment" class="toc-h2 toc-link" data-title="Accomplishment">Add an Accomplishment</a>
                   </li>
                   <li>
-                    <a href="#update-a-specific-accomplishment" class="toc-h2 toc-link" data-title="Accomplishment">Update a specific accomplishment</a>
+                    <a href="#update-a-specific-accomplishment" class="toc-h2 toc-link" data-title="Accomplishment">Update a Specific Accomplishment</a>
                   </li>
                   <li>
                     <a href="#delete-a-specific-accomplishment" class="toc-h2 toc-link" data-title="Accomplishment">Delete a Specific Accomplishment</a>
@@ -444,7 +444,7 @@
             <a href="#partnerships" class="toc-h1 toc-link" data-title="Partnerships">Partnerships</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-partnerships" class="toc-h2 toc-link" data-title="Partnerships">Get All partnerships</a>
+                    <a href="#get-all-partnerships" class="toc-h2 toc-link" data-title="Partnerships">Get All Partnerships</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-partnership" class="toc-h2 toc-link" data-title="Partnerships">Get a Specific Partnership</a>
@@ -584,10 +584,10 @@
             <a href="#fees" class="toc-h1 toc-link" data-title="Fees">Fees</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-fees" class="toc-h2 toc-link" data-title="Fees">Get All fees</a>
+                    <a href="#get-all-fees" class="toc-h2 toc-link" data-title="Fees">Get All Fees</a>
                   </li>
                   <li>
-                    <a href="#add-fees" class="toc-h2 toc-link" data-title="Fees">Add fees</a>
+                    <a href="#add-fees" class="toc-h2 toc-link" data-title="Fees">Add Fees</a>
                   </li>
               </ul>
           </li>
@@ -693,7 +693,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <p>Make sure to replace <code>xxx-xxx-xxx</code> with your Access Token.</p>
 </blockquote>
 
-<p>Expertfile expects for the Accesstoken to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Expertfile expects an access token to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code>Authorization: Bearer xxx-xxx-xxx</code></p>
 <h3 id='body-parameters'>Body Parameters</h3>
@@ -762,7 +762,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all experts.</p>
+<p>This endpoint retrieves all Experts.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts</code></p>
 <h3 id='url-parameters'>Url Parameters</h3>
@@ -1037,7 +1037,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Expert.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
@@ -1071,7 +1071,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint deletes a specific Expert.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -1239,9 +1239,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a link for expert.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1416,7 +1416,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Sample Talk for an expert.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/</code></p>
 <h3 id='url-parameters-11'>URL Parameters</h3>
@@ -1469,9 +1469,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Sample Talk for an expert.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id</code></p>
 <h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1526,7 +1526,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific </p>
+<p>This endpoint deletes a specific Sample Talk</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id</code></p>
 <h3 id='url-parameters-13'>URL Parameters</h3>
@@ -1617,7 +1617,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Accomplishment.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
 <h3 id='url-parameters-14'>URL Parameters</h3>
@@ -1654,7 +1654,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Accomplishment for an expert.</p>
 <h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/</code></p>
 <h3 id='url-parameters-15'>URL Parameters</h3>
@@ -1702,8 +1702,8 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>date in unix time</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-specific-accomplishment'>Update a specific accomplishment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id"</span>
-  -X POST
+<h2 id='update-a-specific-accomplishment'>Update a Specific Accomplishment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id"</span>
+  -X PUT
   -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -1717,9 +1717,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates an Accomplishment for an expert.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
 <h3 id='url-parameters-16'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1784,7 +1784,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific accomplishment.</p>
+<p>This endpoint deletes a specific Accomplishment.</p>
 <h3 id='http-request-18'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
 <h3 id='url-parameters-17'>URL Parameters</h3>
@@ -1851,6 +1851,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-affiliation'>Get a Specific Affiliation</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"</span>
+  -X GET
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -1868,7 +1869,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific affiliation.</p>
+<p>This endpoint retrieves a specific Affiliation.</p>
 <h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id</code></p>
 <h3 id='url-parameters-18'>URL Parameters</h3>
@@ -1905,7 +1906,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Affiliation for an expert.</p>
 <h3 id='http-request-21'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/</code></p>
 <h3 id='url-parameters-19'>URL Parameters</h3>
@@ -1939,7 +1940,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </tr>
 </tbody></table>
 <h2 id='update-an-affiliation'>Update an Affiliation</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"</span>
-  -X POST
+  -X PUT
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -1953,9 +1954,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates an Affiliation for an expert.</p>
 <h3 id='http-request-22'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id</code></p>
 <h3 id='url-parameters-20'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2001,7 +2002,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific affiliation.</p>
+<p>This endpoint deletes a specific Affiliation.</p>
 <h3 id='http-request-23'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id</code></p>
 <h3 id='url-parameters-21'>URL Parameters</h3>
@@ -2051,7 +2052,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all Event Apperances for an Expert.</p>
+<p>This endpoint retrieves all Event Apperances for an expert.</p>
 <h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance</code></p>
 
@@ -2071,6 +2072,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-event-appearance'>Get a Specific Event Appearance</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id"</span>
+  -X GET
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -2089,7 +2091,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific event appearance of an expert.</p>
+<p>This endpoint retrieves a specific event appearance for an expert.</p>
 <h3 id='http-request-25'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id</code></p>
 <h3 id='url-parameters-22'>URL Parameters</h3>
@@ -2126,7 +2128,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Event Appearance for an expert.</p>
 <h3 id='http-request-26'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/</code></p>
 <h3 id='url-parameters-23'>URL Parameters</h3>
@@ -2189,9 +2191,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates an Event Appearance for an expert.</p>
 <h3 id='http-request-27'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id</code></p>
 <h3 id='url-parameters-24'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2252,7 +2254,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a Specific Event Appearance.</p>
+<p>This endpoint deletes a specific Event Appearance.</p>
 <h3 id='http-request-28'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/:username/eventappearance/:id</code></p>
 <h3 id='url-parameters-25'>URL Parameters</h3>
@@ -2312,7 +2314,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all media appearances for an expert.</p>
+<p>This endpoint retrieves all Media Appearances for an expert.</p>
 <h3 id='http-request-29'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance</code></p>
 
@@ -2355,7 +2357,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Media Appearance.</p>
 <h3 id='http-request-30'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id</code></p>
 <h3 id='url-parameters-26'>URL Parameters</h3>
@@ -2392,7 +2394,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Media Appearance for an expert.</p>
 <h3 id='http-request-31'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/</code></p>
 <h3 id='url-parameters-27'>URL Parameters</h3>
@@ -2465,9 +2467,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Media Appearance for an expert.</p>
 <h3 id='http-request-32'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id</code></p>
 <h3 id='url-parameters-28'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2498,7 +2500,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>title of the media appearance</td>
 </tr>
 <tr>
-<td>organiztion</td>
+<td>organization</td>
 <td>optional</td>
 <td>name of the organization</td>
 </tr>
@@ -2538,7 +2540,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a Specific Media Appearance.</p>
+<p>This endpoint deletes a specific Media Appearance.</p>
 <h3 id='http-request-33'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/:id</code></p>
 <h3 id='url-parameters-29'>URL Parameters</h3>
@@ -2630,7 +2632,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Education.</p>
 <h3 id='http-request-35'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/:id</code></p>
 <h3 id='url-parameters-30'>URL Parameters</h3>
@@ -2667,7 +2669,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Education for an expert.</p>
 <h3 id='http-request-36'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/</code></p>
 <h3 id='url-parameters-31'>URL Parameters</h3>
@@ -2720,8 +2722,8 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>year of graduation. Enter &#39;1998&#39; if graduation year is 1998</td>
 </tr>
 </tbody></table>
-<h2 id='update-an-education'>Update an Education</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/"</span>
-  -X POST
+<h2 id='update-an-education'>Update an Education</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id"</span>
+  -X PUT
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -2735,9 +2737,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates an Education for an expert.</p>
 <h3 id='http-request-37'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id</code></p>
 <h3 id='url-parameters-32'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2803,7 +2805,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific education.</p>
+<p>This endpoint deletes a specific Education.</p>
 <h3 id='http-request-38'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
 <h3 id='url-parameters-33'>URL Parameters</h3>
@@ -2859,7 +2861,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all reccomendations for an expert.</p>
+<p>This endpoint retrieves all Testimonials for an expert.</p>
 <h3 id='http-request-39'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial</code></p>
 
@@ -2901,7 +2903,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Testimonial.</p>
 <h3 id='http-request-40'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id</code></p>
 <h3 id='url-parameters-34'>URL Parameters</h3>
@@ -2938,7 +2940,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Testimonial for an expert.</p>
 <h3 id='http-request-41'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/</code></p>
 <h3 id='url-parameters-35'>URL Parameters</h3>
@@ -3006,9 +3008,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Testimonial for an expert.</p>
 <h3 id='http-request-42'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id</code></p>
 <h3 id='url-parameters-36'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3074,7 +3076,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific testimonial.</p>
+<p>This endpoint deletes a specific Testimonial.</p>
 <h3 id='http-request-43'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id</code></p>
 <h3 id='url-parameters-37'>URL Parameters</h3>
@@ -3128,7 +3130,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint retrieves all patents.</p>
+<p>This endpoint retrieves all Patents.</p>
 <h3 id='http-request-44'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent</code></p>
 
@@ -3166,7 +3168,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Patent.</p>
 <h3 id='http-request-45'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id</code></p>
 <h3 id='url-parameters-38'>URL Parameters</h3>
@@ -3203,7 +3205,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Patent for an expert.</p>
 <h3 id='http-request-46'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/</code></p>
 <h3 id='url-parameters-39'>URL Parameters</h3>
@@ -3271,9 +3273,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Patent for an expert.</p>
 <h3 id='http-request-47'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id</code></p>
 <h3 id='url-parameters-40'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3339,7 +3341,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific Patent.</p>
+<p>This endpoint deletes a specific Patent.</p>
 <h3 id='http-request-48'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id</code></p>
 <h3 id='url-parameters-41'>URL Parameters</h3>
@@ -3433,7 +3435,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Research Grant.</p>
 <h3 id='http-request-50'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id</code></p>
 <h3 id='url-parameters-42'>URL Parameters</h3>
@@ -3470,7 +3472,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Research Grant for an expert.</p>
 <h3 id='http-request-51'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/</code></p>
 <h3 id='url-parameters-43'>URL Parameters</h3>
@@ -3543,9 +3545,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Research Grant for an expert.</p>
 <h3 id='http-request-52'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id</code></p>
 <h3 id='url-parameters-44'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3616,7 +3618,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific research grant.</p>
+<p>This endpoint deletes a specific Research Grant.</p>
 <h3 id='http-request-53'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id</code></p>
 <h3 id='url-parameters-45'>URL Parameters</h3>
@@ -3639,7 +3641,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>The username of the expert</td>
 </tr>
 </tbody></table>
-<h1 id='partnerships'>Partnerships</h1><h2 id='get-all-partnerships'>Get All partnerships</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership"</span>
+<h1 id='partnerships'>Partnerships</h1><h2 id='get-all-partnerships'>Get All Partnerships</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership"</span>
   -X GET
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
@@ -3670,7 +3672,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all partnerships for an expert.</p>
+<p>This endpoint retrieves all Partnerships for an expert.</p>
 <h3 id='http-request-54'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership</code></p>
 
@@ -3711,7 +3713,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific partnership for an expert.</p>
+<p>This endpoint retrieves a specific Partnership for an expert.</p>
 <h3 id='http-request-55'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id</code></p>
 <h3 id='url-parameters-46'>URL Parameters</h3>
@@ -3748,7 +3750,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Partnership for an expert.</p>
 <h3 id='http-request-56'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/</code></p>
 <h3 id='url-parameters-47'>URL Parameters</h3>
@@ -3781,7 +3783,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>partnership title</td>
 </tr>
 <tr>
-<td>name</td>
+<td>individual</td>
 <td>required</td>
 <td>partner name</td>
 </tr>
@@ -3821,9 +3823,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Partnership for an expert.</p>
 <h3 id='http-request-57'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id</code></p>
 <h3 id='url-parameters-48'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3854,7 +3856,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>partnership title</td>
 </tr>
 <tr>
-<td>name</td>
+<td>individual</td>
 <td>optional</td>
 <td>partner name</td>
 </tr>
@@ -3894,7 +3896,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific partnership.</p>
+<p>This endpoint deletes a specific Partnership.</p>
 <h3 id='http-request-58'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id</code></p>
 <h3 id='url-parameters-49'>URL Parameters</h3>
@@ -3942,7 +3944,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all courses.</p>
+<p>This endpoint retrieves all Courses.</p>
 <h3 id='http-request-59'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course</code></p>
 
@@ -3980,7 +3982,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Course.</p>
 <h3 id='http-request-60'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:id</code></p>
 <h3 id='url-parameters-50'>URL Parameters</h3>
@@ -4017,7 +4019,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Course for an expert.</p>
 <h3 id='http-request-61'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/</code></p>
 <h3 id='url-parameters-51'>URL Parameters</h3>
@@ -4075,9 +4077,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates a specific link for expert.</p>
+<p>This endpoint updates a Course for an expert.</p>
 <h3 id='http-request-62'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id</code></p>
 <h3 id='url-parameters-52'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -4133,7 +4135,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific course.</p>
+<p>This endpoint deletes a specific Course.</p>
 <h3 id='http-request-63'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id</code></p>
 <h3 id='url-parameters-53'>URL Parameters</h3>
@@ -4187,7 +4189,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all articles for an expert.</p>
+<p>This endpoint retrieves all Articles for an expert.</p>
 <h3 id='http-request-64'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article</code></p>
 
@@ -4228,7 +4230,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Article.</p>
 <h3 id='http-request-65'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:id</code></p>
 <h3 id='url-parameters-54'>URL Parameters</h3>
@@ -4265,7 +4267,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Article for an expert.</p>
 <h3 id='http-request-66'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/</code></p>
 <h3 id='url-parameters-55'>URL Parameters</h3>
@@ -4338,9 +4340,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates a specific article for expert.</p>
+<p>This endpoint updates a specific Article for expert.</p>
 <h3 id='http-request-67'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id</code></p>
 <h3 id='url-parameters-56'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -4411,7 +4413,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific article.</p>
+<p>This endpoint deletes a specific Article.</p>
 <h3 id='http-request-68'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id</code></p>
 <h3 id='url-parameters-57'>URL Parameters</h3>
@@ -4469,7 +4471,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all research focus for an expert.</p>
+<p>This endpoint retrieves all Research Focus for an expert.</p>
 <h3 id='http-request-69'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/</code></p>
 
@@ -4512,7 +4514,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific Research Focus.</p>
 <h3 id='http-request-70'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id</code></p>
 <h3 id='url-parameters-58'>URL Parameters</h3>
@@ -4549,7 +4551,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a research focus for expert.</p>
+<p>This endpoint adds a Research Focus for an expert.</p>
 <h3 id='http-request-71'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/</code></p>
 <h3 id='url-parameters-59'>URL Parameters</h3>
@@ -4617,9 +4619,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates a specific research focus for expert.</p>
+<p>This endpoint updates a specific Research Focus for an expert.</p>
 <h3 id='http-request-72'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/</code></p>
 <h3 id='url-parameters-60'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -4686,7 +4688,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific research focus.</p>
+<p>This endpoint deletes a specific Research Focus.</p>
 <h3 id='http-request-73'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id</code></p>
 <h3 id='url-parameters-61'>URL Parameters</h3>
@@ -4730,7 +4732,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all Topics for an Expert.</p>
+<p>This endpoint retrieves all Topics for an expert.</p>
 <h3 id='http-request-74'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/</code></p>
 
@@ -4803,7 +4805,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Topic for an expert.</p>
 <h3 id='http-request-76'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/</code></p>
 <h3 id='url-parameters-63'>URL Parameters</h3>
@@ -4851,9 +4853,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates a specific topic.</p>
+<p>This endpoint updates a specific Topic.</p>
 <h3 id='http-request-77'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id</code></p>
 <h3 id='url-parameters-64'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -4899,7 +4901,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific topic for an expert.</p>
+<p>This endpoint deletes a specific Topic for an expert.</p>
 <h3 id='http-request-78'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id</code></p>
 <h3 id='url-parameters-65'>URL Parameters</h3>
@@ -4943,7 +4945,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all industries.</p>
+<p>This endpoint retrieves all Industries.</p>
 <h3 id='http-request-79'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/</code></p>
 
@@ -5015,7 +5017,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds an Industry for an expert.</p>
 <h3 id='http-request-81'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/</code></p>
 <h3 id='url-parameters-67'>URL Parameters</h3>
@@ -5049,7 +5051,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </tr>
 </tbody></table>
 <h2 id='update-industry'>Update Industry</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id"</span>
-  -X POST
+  -X PUT
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
 <blockquote>
@@ -5063,9 +5065,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Industry for an expert.</p>
 <h3 id='http-request-82'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id</code></p>
+<p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id</code></p>
 <h3 id='url-parameters-68'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -5155,7 +5157,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all languages.</p>
+<p>This endpoint retrieves all Languages.</p>
 <h3 id='http-request-84'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/</code></p>
 
@@ -5191,7 +5193,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific language belonging to the expert.</p>
+<p>This endpoint retrieves a specific Language.</p>
 <h3 id='http-request-85'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id</code></p>
 <h3 id='url-parameters-70'>URL Parameters</h3>
@@ -5228,7 +5230,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Language for an expert.</p>
 <h3 id='http-request-86'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/</code></p>
 <h3 id='url-parameters-71'>URL Parameters</h3>
@@ -5276,7 +5278,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint updates a Language for an expert.</p>
 <h3 id='http-request-87'>HTTP Request</h3>
 <p><code>PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id</code></p>
 <h3 id='url-parameters-72'>URL Parameters</h3>
@@ -5324,7 +5326,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific language for an expert.</p>
+<p>This endpoint deletes a specific Language.</p>
 <h3 id='http-request-88'>HTTP Request</h3>
 <p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id</code></p>
 <h3 id='url-parameters-73'>URL Parameters</h3>
@@ -5347,7 +5349,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>The username of the expert to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='fees'>Fees</h1><h2 id='get-all-fees'>Get All fees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/"</span>
+<h1 id='fees'>Fees</h1><h2 id='get-all-fees'>Get All Fees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"</span>
   -X GET
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
@@ -5364,9 +5366,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves fees for an expert.</p>
+<p>This endpoint retrieves Fees for an expert.</p>
 <h3 id='http-request-89'>HTTP Request</h3>
-<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/</code></p>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee</code></p>
 
 <table><thead>
 <tr>
@@ -5383,7 +5385,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>The username of the expert to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='add-fees'>Add fees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/"</span>
+<h2 id='add-fees'>Add Fees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"</span>
   -X POST
   -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
 </code></pre>
@@ -5397,9 +5399,9 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds a Fees for an expert.</p>
 <h3 id='http-request-90'>HTTP Request</h3>
-<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fees/</code></p>
+<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee</code></p>
 <h3 id='url-parameters-74'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -5425,7 +5427,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>fee_minx</td>
+<td>fee_min</td>
 <td>required</td>
 <td>min fees</td>
 </tr>
@@ -5503,7 +5505,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves link for social profiles for an expert.</p>
+<p>This endpoint retrieves all Social Links.</p>
 <h3 id='http-request-92'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/social</code></p>
 
@@ -5536,7 +5538,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a link for expert.</p>
+<p>This endpoint adds Social Links for an expert.</p>
 <h3 id='http-request-93'>HTTP Request</h3>
 <p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/</code></p>
 <h3 id='url-parameters-75'>URL Parameters</h3>
@@ -5612,7 +5614,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all youtube media for an Expert.</p>
+<p>This endpoint retrieves all YouTube media for an expert.</p>
 <h3 id='http-request-94'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/:username/media/youtube</code></p>
 
@@ -5708,7 +5710,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all Vimeo item for an Expert.</p>
+<p>This endpoint retrieves all Vimeo item for an expert.</p>
 <h3 id='http-request-96'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/vimeo</code></p>
 
@@ -5803,7 +5805,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all SlideShare media for an Expert.</p>
+<p>This endpoint retrieves all SlideShare media for an expert.</p>
 <h3 id='http-request-98'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/:username/media/slideshare</code></p>
 
@@ -5844,7 +5846,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all youtube media for an Expert.</p>
+<p>This endpoint retrieves all SlideShare media for an expert.</p>
 <h3 id='http-request-99'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/slideshare/:id</code></p>
 
@@ -5900,7 +5902,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all documents.</p>
+<p>This endpoint retrieves all Documents.</p>
 <h3 id='http-request-100'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/document</code></p>
 
@@ -5998,7 +6000,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all photos for an Expert.</p>
+<p>This endpoint retrieves all Photos for an expert.</p>
 <h3 id='http-request-102'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo</code></p>
 
@@ -6040,7 +6042,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific photo.</p>
+<p>This endpoint retrieves a specific Photo.</p>
 <h3 id='http-request-103'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo/:id</code></p>
 
@@ -6096,7 +6098,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all videos for an Expert.</p>
+<p>This endpoint retrieves all Videos for an expert.</p>
 <h3 id='http-request-104'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video</code></p>
 
@@ -6138,7 +6140,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific video.</p>
+<p>This endpoint retrieves a specific Video.</p>
 <h3 id='http-request-105'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video/:id</code></p>
 
