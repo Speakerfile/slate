@@ -439,7 +439,7 @@ location_country | optional | country
 location_postal | optional | postal code
 location_address | optional | address
 is_private | optional | is private
-is_public | optional | is public
+is_published | optional | is published
 
 
 ## Delete a Specific Expert
