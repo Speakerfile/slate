@@ -45,7 +45,7 @@ client_secret| true | your organization client secret
 ## Get All Experts
 
 ```shell
-curl "https://public-api.expertfile.com/v2/:corporation/organization/experts"
+curl "https://public-api.expertfile.com/v2/:corporation/organization/expert"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -89,7 +89,7 @@ This endpoint retrieves all Experts.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert`
 
 ### Url Parameters
 
@@ -116,7 +116,7 @@ sort | name | name or featured.
 ## Get a Specific Expert
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/username"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/username"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -322,7 +322,7 @@ This endpoint retrieves a specific Expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username`
 
 ### URL Parameters
 
@@ -331,11 +331,122 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+##Add an Expert
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "firstname" : "firstName",
+      "lastname" : "lastName",
+      "job_title" : "jobTitle",
+      "email" : "you@email.com",
+      "company" : "companyName",
+      "phone_number" : "phoneNumber",
+      "location_city" : "city",
+      "location_state" : "state_province",
+      "location_country" : "country",
+      "location_postal" : "postalCode",
+      "location_address" :"address"    
+    }
+  ],
+  "success": true
+}
+```
+
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+firstname | true | first name
+lastname | true | last name
+job_title | true | job title
+email | true | email address
+company | true | company
+phone_number | optional | company
+location_city | optional | city
+location_state | optional | state or province
+location_country | optional | country
+location_postal | optional | postal code
+location_address | optional | address
+
+## Update an Expert
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "username": "you.username",
+    "updated": true
+  },
+  "success": true
+}
+```
+
+This endpoint updates a link for expert.
+
+### HTTP Request
+
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+firstname | true | first name
+lastname | true | last name
+job_title | true | job title
+email | true | email address
+company | true | company
+phone_number | optional | company
+location_city | optional | city
+location_state | optional | state or province
+location_country | optional | country
+location_postal | optional | postal code
+location_address | optional | address
+is_private | optional | is private
+is_public | optional | is public
+
+
 ## Delete a Specific Expert
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -357,7 +468,7 @@ This endpoint deletes a specific Expert.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username`
 
 ### URL Parameters
 
@@ -366,12 +477,175 @@ Parameter | Description
 corporation | The corporation id
 username | The username of the expert to retrieve
 
+#Biography
+
+##Get Biography
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/biography"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "biography" : "your biography"
+    }
+  ]
+}
+```
+
+This endpoint retrieves an expert's biography
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/biography`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+## Add Biography
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/biography"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      { "id" : null }
+    }
+  ]
+}
+```
+
+This endpoint adds a Biography.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/biography`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+description | optional | biography content 
+
+
+
+#Tagline
+
+##Get Tagline
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tagline"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "tagline" : "your tagline"
+    }
+  ]
+}
+```
+
+This endpoint retrieves an expert's tagline
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tagline`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+## Add Tagline
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tagline"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "tagline" : {
+        { "id" : null }
+      }
+    }
+  ]
+}
+```
+
+This endpoint adds a tagline.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tagline`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+tagline | optional | tagline content 
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
 
 #Link
 
 ##Get All Links
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -399,7 +673,7 @@ This endpoint retrieves all Links.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link`
 
 ### URL Parameters
 
@@ -413,7 +687,7 @@ username | The username of the expert to retrieve
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -438,7 +712,7 @@ This endpoint retrieves a specific Link.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
 
 ### URL Parameters
 
@@ -452,7 +726,7 @@ username | The username of the expert to retrieve
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -473,7 +747,7 @@ This endpoint adds a link for expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/`
 
 ### URL Parameters
 
@@ -493,7 +767,7 @@ url | true | the actual url
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id"
   -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -515,7 +789,7 @@ This endpoint updates a link for expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
 
 ### URL Parameters
 
@@ -535,7 +809,7 @@ url | optional | the actual url
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -557,7 +831,7 @@ This endpoint deletes a specific link.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/link/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/link/:id`
 
 ### URL Parameters
 
@@ -572,7 +846,7 @@ username | The username of the expert
 
 ##Get All Sample Talks
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -602,7 +876,7 @@ This endpoint retrieves all Sample Talks.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk`
 
 ### URL Parameters
 
@@ -614,7 +888,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Sample Talk
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -639,7 +913,7 @@ This endpoint retrieves a specific Sample Talk.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id`
 
 ### URL Parameters
 
@@ -652,7 +926,7 @@ username | The username of the expert to retrieve
 ## Add a SampleTalk
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -673,7 +947,7 @@ This endpoint adds a Sample Talk for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/`
 
 ### URL Parameters
 
@@ -691,7 +965,7 @@ description | true | description of the talk
 ## Update a SampleTalk
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -713,7 +987,7 @@ This endpoint updates a Sample Talk for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id`
 
 ### URL Parameters
 
@@ -733,7 +1007,7 @@ description | optional | description of the talk
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -755,7 +1029,7 @@ This endpoint deletes a specific Sample Talk
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/sampletalk/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/sampletalk/:id`
 
 ### URL Parameters
 
@@ -769,7 +1043,7 @@ username | The username of the expert
 
 ##Get All Accomplishment
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -804,7 +1078,7 @@ This endpoint retrieves all Accomplishments.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment`
 
 Parameter | Description
 --------- | -----------
@@ -815,7 +1089,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Accomplishment
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -842,7 +1116,7 @@ This endpoint retrieves a specific Accomplishment.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -855,7 +1129,7 @@ username | The username of the expert to retrieve
 ## Add an Accomplishment
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -876,7 +1150,7 @@ This endpoint adds an Accomplishment for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/`
 
 ### URL Parameters
 
@@ -896,7 +1170,7 @@ date | optional | date in unix time
 ##Update a Specific Accomplishment
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id"
   -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -918,7 +1192,7 @@ This endpoint updates an Accomplishment for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -940,7 +1214,7 @@ date | optional | date in unix time
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accompishment/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accompishment/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -962,7 +1236,7 @@ This endpoint deletes a specific Accomplishment.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -977,7 +1251,7 @@ username | The username of the expert
 
 ##Get All Affiliation
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1008,7 +1282,7 @@ This endpoint retrieves all Affiliations.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation`
 
 Parameter | Description
 --------- | -----------
@@ -1018,7 +1292,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Affiliation
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1044,7 +1318,7 @@ This endpoint retrieves a specific Affiliation.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
 
 ### URL Parameters
 
@@ -1057,7 +1331,7 @@ username | The username of the expert to retrieve
 ## Add an Affiliation
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1078,7 +1352,7 @@ This endpoint adds an Affiliation for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/`
 
 ### URL Parameters
 
@@ -1095,7 +1369,7 @@ name | required | name of the affiliation
 ##Update an Affiliation
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1117,7 +1391,7 @@ This endpoint updates an Affiliation for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
 
 ### URL Parameters
 
@@ -1135,7 +1409,7 @@ name | optional | name of the affiliation
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1157,7 +1431,7 @@ This endpoint deletes a specific Affiliation.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/affiliation/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/affiliation/:id`
 
 ### URL Parameters
 
@@ -1171,7 +1445,7 @@ username | The username of the expert
 
 ##Get All Event Appearances
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1205,7 +1479,7 @@ This endpoint retrieves all Event Apperances for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance`
 
 Parameter | Description
 --------- | -----------
@@ -1216,7 +1490,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Event Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1243,7 +1517,7 @@ This endpoint retrieves a specific event appearance for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/:id`
 
 ### URL Parameters
 
@@ -1256,7 +1530,7 @@ username | The username of the expert to retrieve
 ## Add an Event Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -1277,7 +1551,7 @@ This endpoint adds an Event Appearance for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/`
 
 ### URL Parameters
 
@@ -1298,7 +1572,7 @@ date | optional | date in unix time
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/:id"
   -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -1320,7 +1594,7 @@ This endpoint updates an Event Appearance for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/:id`
 
 ### URL Parameters
 
@@ -1341,7 +1615,7 @@ date | optional | date in unix time
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/eventappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/eventappearance/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1377,7 +1651,7 @@ username | The username of the expert
 
 ##Get All Media Appearance
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1420,7 +1694,7 @@ This endpoint retrieves all Media Appearances for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance`
 
 Parameter | Description
 --------- | -----------
@@ -1430,7 +1704,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Media Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/:id"
   -H "Authorization: xxx-xxx-xxx"
 ```
 
@@ -1461,7 +1735,7 @@ This endpoint retrieves a specific Media Appearance.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/:id`
 
 ### URL Parameters
 
@@ -1475,7 +1749,7 @@ username | The username of the expert to retrieve
 ## Add a Media Appearance
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1496,7 +1770,7 @@ This endpoint adds a Media Appearance for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/`
 
 ### URL Parameters
 
@@ -1517,7 +1791,7 @@ date | optional | date in unix time
 
 ##Update a Media Appearance
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1539,7 +1813,7 @@ This endpoint updates a Media Appearance for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/:id`
 
 ### URL Parameters
 
@@ -1562,7 +1836,7 @@ date | optional | date in unix time
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/mediaappearance/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/mediaappearance/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -1584,7 +1858,7 @@ This endpoint deletes a specific Media Appearance.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/:id`
 
 ### URL Parameters
 
@@ -1598,7 +1872,7 @@ username | The username of the expert
 
 ##Get All Education
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1634,7 +1908,7 @@ This endpoint retrieves all Education.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education`
 
 Parameter | Description
 --------- | -----------
@@ -1644,7 +1918,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Education
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1672,7 +1946,7 @@ This endpoint retrieves a specific Education.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/:id`
 
 ### URL Parameters
 
@@ -1685,7 +1959,7 @@ username | The username of the expert to retrieve
 ## Add Education
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1706,7 +1980,7 @@ This endpoint adds an Education for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/`
 
 ### URL Parameters
 
@@ -1727,7 +2001,7 @@ date | optional | year of graduation. Enter '1998' if graduation year is 1998
 ## Update an Education 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1749,7 +2023,7 @@ This endpoint updates an Education for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/:id`
 
 ### URL Parameters
 
@@ -1772,7 +2046,7 @@ date | optional | year of graduation. Enter '1998' if graduation year is 1998
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/education/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/education/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1794,7 +2068,7 @@ This endpoint deletes a specific Education.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -1808,7 +2082,7 @@ username | The username of the expert
 
 ##Get All Testimonial
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1847,7 +2121,7 @@ This endpoint retrieves all Testimonials for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial`
 
 Parameter | Description
 --------- | -----------
@@ -1858,7 +2132,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Testimonial
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1888,7 +2162,7 @@ This endpoint retrieves a specific Testimonial.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id`
 
 ### URL Parameters
 
@@ -1901,7 +2175,7 @@ username | The username of the expert to retrieve
 ## Add Testimonial
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1922,7 +2196,7 @@ This endpoint adds an Testimonial for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/`
 
 ### URL Parameters
 
@@ -1943,7 +2217,7 @@ url | optional | url of the company where person works
 ## Update a Testimonial
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -1965,7 +2239,7 @@ This endpoint updates a Testimonial for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id`
 
 ### URL Parameters
 
@@ -1988,7 +2262,7 @@ url | optional | url of the company where person works
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/testimonial/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/testimonial/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2010,7 +2284,7 @@ This endpoint deletes a specific Testimonial.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/accomplishment/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/accomplishment/:id`
 
 ### URL Parameters
 
@@ -2024,7 +2298,7 @@ username | The username of the expert
 
 ##Get All Patent
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2061,7 +2335,7 @@ This endpoint retrieves all Patents.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent`
 
 Parameter | Description
 --------- | -----------
@@ -2071,7 +2345,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Patent
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2097,7 +2371,7 @@ This endpoint retrieves a specific Patent.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id`
 
 ### URL Parameters
 
@@ -2110,7 +2384,7 @@ username | The username of the expert to retrieve
 ## Add Patent
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2131,7 +2405,7 @@ This endpoint adds a Patent for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/`
 
 ### URL Parameters
 
@@ -2152,7 +2426,7 @@ url | optional | url of the patent
 ##Update a Patent
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2174,7 +2448,7 @@ This endpoint updates a Patent for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id`
 
 ### URL Parameters
 
@@ -2196,7 +2470,7 @@ url | optional | url of the patent
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2218,7 +2492,7 @@ This endpoint deletes a specific Patent.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/patent/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/patent/:id`
 
 ### URL Parameters
 
@@ -2232,7 +2506,7 @@ username | The username of the expert
 
 ##Get All Research Grant
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2268,7 +2542,7 @@ This endpoint retrieves all Reseach Grants.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant`
 
 Parameter | Description
 --------- | -----------
@@ -2278,7 +2552,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Research grant
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2307,7 +2581,7 @@ This endpoint retrieves a specific Research Grant.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id`
 
 ### URL Parameters
 
@@ -2320,7 +2594,7 @@ username | The username of the expert to retrieve
 ## Add Research Grant
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2341,7 +2615,7 @@ This endpoint adds a Research Grant for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/`
 
 ### URL Parameters
 
@@ -2363,7 +2637,7 @@ amount | optional | amount granted
 ##Update a Research Grant
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2385,7 +2659,7 @@ This endpoint updates a Research Grant for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id`
 
 ### URL Parameters
 
@@ -2408,7 +2682,7 @@ amount | optional | amount granted
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2430,7 +2704,7 @@ This endpoint deletes a specific Research Grant.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchgrant/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchgrant/:id`
 
 ### URL Parameters
 
@@ -2444,7 +2718,7 @@ username | The username of the expert
 
 ##Get All Partnerships
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2481,7 +2755,7 @@ This endpoint retrieves all Partnerships for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership`
 
 Parameter | Description
 --------- | -----------
@@ -2491,7 +2765,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Partnership
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2520,7 +2794,7 @@ This endpoint retrieves a specific Partnership for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
 
 ### URL Parameters
 
@@ -2533,7 +2807,7 @@ username | The username of the expert to retrieve
 ## Add Partnership
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2554,7 +2828,7 @@ This endpoint adds a Partnership for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/`
 
 ### URL Parameters
 
@@ -2576,7 +2850,7 @@ organization | optional | organization
 ##Update a Partnership
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2598,7 +2872,7 @@ This endpoint updates a Partnership for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
 
 ### URL Parameters
 
@@ -2622,7 +2896,7 @@ organization | optional | organization
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2644,7 +2918,7 @@ This endpoint deletes a specific Partnership.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/partnership/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/partnership/:id`
 
 ### URL Parameters
 
@@ -2658,7 +2932,7 @@ username | The username of the expert to retrieve
 
 ##Get All Courses
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2689,7 +2963,7 @@ This endpoint retrieves all Courses.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course`
 
 Parameter | Description
 --------- | -----------
@@ -2699,7 +2973,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Course
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2725,7 +2999,7 @@ This endpoint retrieves a specific Course.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:id`
 
 ### URL Parameters
 
@@ -2738,7 +3012,7 @@ username | The username of the expert to retrieve
 ## Add Course
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2759,7 +3033,7 @@ This endpoint adds a Course for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/`
 
 ### URL Parameters
 
@@ -2778,7 +3052,7 @@ url | optional | url
 ##Update a Specific Course
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id"
   -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2800,7 +3074,7 @@ This endpoint updates a Course for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id`
 
 ### URL Parameters
 
@@ -2820,7 +3094,7 @@ url | optional | url
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2842,7 +3116,7 @@ This endpoint deletes a specific Course.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/course/:id`
 
 ### URL Parameters
 
@@ -2856,7 +3130,7 @@ username | The username of the expert to retrieve
 
 ##Get All Articles
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2893,7 +3167,7 @@ This endpoint retrieves all Articles for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article`
 
 Parameter | Description
 --------- | -----------
@@ -2903,7 +3177,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Article
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -2932,7 +3206,7 @@ This endpoint retrieves a specific Article.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:id`
 
 ### URL Parameters
 
@@ -2945,7 +3219,7 @@ username | The username of the expert to retrieve
 ## Add Article
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -2966,7 +3240,7 @@ This endpoint adds an Article for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/`
 
 ### URL Parameters
 
@@ -2988,7 +3262,7 @@ url | optional | link to the article
 ##Update a Artcile
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3010,7 +3284,7 @@ This endpoint updates a specific Article for expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id`
 
 ### URL Parameters
 
@@ -3025,7 +3299,6 @@ Parameter | Required | Description
 title | optional | course title
 publisher | optional | publisher name
 details | optional | description/details of the course
-url | optional | url
 authors | optional | co-authors
 url | optional | link to the article
 
@@ -3033,7 +3306,7 @@ url | optional | link to the article
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3055,7 +3328,7 @@ This endpoint deletes a specific Article.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/article/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/article/:id`
 
 ### URL Parameters
 
@@ -3069,7 +3342,7 @@ username | The username of the expert to retrieve
 
 ##Get All Research Focus
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3111,7 +3384,7 @@ This endpoint retrieves all Research Focus for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/`
 
 Parameter | Description
 --------- | -----------
@@ -3121,7 +3394,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Research Focus
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3152,7 +3425,7 @@ This endpoint retrieves a specific Research Focus.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/:id`
 
 ### URL Parameters
 
@@ -3165,7 +3438,7 @@ username | The username of the expert to retrieve
 ## Add Research Focus
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3186,7 +3459,7 @@ This endpoint adds a Research Focus for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/`
 
 ### URL Parameters
 
@@ -3208,7 +3481,7 @@ subtitle | optional |
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/"
   -X PUT
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3230,7 +3503,7 @@ This endpoint updates a specific Research Focus for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/`
 
 ### URL Parameters
 
@@ -3252,7 +3525,7 @@ subtitle | optional |
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3275,7 +3548,7 @@ This endpoint deletes a specific Research Focus.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/researchfocus/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/researchfocus/:id`
 
 ### URL Parameters
 
@@ -3289,7 +3562,7 @@ username | The username of the expert to retrieve
 
 ##Get All Topics
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3316,7 +3589,7 @@ This endpoint retrieves all Topics for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/`
 
 Parameter | Description
 --------- | -----------
@@ -3326,7 +3599,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Topic
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3350,7 +3623,7 @@ This endpoint retrieves a specific Topic for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id`
 
 ### URL Parameters
 
@@ -3363,7 +3636,7 @@ username | The username of the expert to retrieve
 ## Add Topic
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/"
   -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3384,7 +3657,7 @@ This endpoint adds a Topic for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/`
 
 ### URL Parameters
 
@@ -3399,50 +3672,11 @@ Parameter | Required | Description
 name | required | topic name
 
 
-## Update Topic
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id"
-  -X PUT
-  -H "Authorization: Bearer xxx-xxx-xxx"
-```
-
-
-> if successful, The above command returns JSON structured like this:
-
-```json
-{
-  "data": {
-    "id" : 2,
-    "updated": true
-  },
-  "success": true
-}
-```
-
-This endpoint updates a specific Topic.
-
-### HTTP Request
-
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-corporation | The corporation id
-username | The username of the expert
-
-###Body Parameters
-Parameter | Required | Description
---------- | -------- | ----------
-name | optional | topic name
-
 ## Delete a Specific Topic
 
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3464,7 +3698,7 @@ This endpoint deletes a specific Topic for an expert.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/topic/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/topic/:id`
 
 ### URL Parameters
 
@@ -3478,7 +3712,7 @@ username | The username of the expert to retrieve
 
 ##Get All Industry
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3505,7 +3739,7 @@ This endpoint retrieves all Industries.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/`
 
 Parameter | Description
 --------- | -----------
@@ -3515,7 +3749,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Industry
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3538,7 +3772,7 @@ This endpoint retrieves a specific Industry for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id`
 
 ### URL Parameters
 
@@ -3551,7 +3785,7 @@ username | The username of the expert to retrieve.
 ## Add Industry
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3572,7 +3806,7 @@ This endpoint adds an Industry for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/`
 
 ### URL Parameters
 
@@ -3586,50 +3820,12 @@ Parameter | Required | Description
 --------- | -------- | ----------
 name | required | Industry name
 
-##Update Industry
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id"
-  -X PUT
-  -H "Authorization: xxx-xxx-xxx"
-```
-
-
-> if successful, The above command returns JSON structured like this:
-
-```json
-{
-  "data": {
-    "id" : 2,
-    "updated": true
-  },
-  "success": true
-}
-```
-
-This endpoint updates a Industry for an expert.
-
-### HTTP Request
-
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-corporation | The corporation id
-username | The username of the expert
-
-###Body Parameters
-Parameter | Required | Description
---------- | -------- | ----------
-name | optional | Industry name
 
 
 ## Delete a Specific Insutry
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id"
   -X DELETE
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3651,7 +3847,7 @@ This endpoint deletes a specific Industry.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/industry/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id`
 
 ### URL Parameters
 
@@ -3665,7 +3861,7 @@ username | The username of the expert to retrieve
 
 ##Get All languages
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3692,7 +3888,7 @@ This endpoint retrieves all Languages.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/`
 
 Parameter | Description
 --------- | -----------
@@ -3702,7 +3898,7 @@ username | The username of the expert to retrieve
 ## Get a Specific Languages
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3725,7 +3921,7 @@ This endpoint retrieves a specific Language.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
 
 ### URL Parameters
 
@@ -3738,7 +3934,7 @@ username | The username of the expert to retrieve
 ## Add Language
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3759,7 +3955,7 @@ This endpoint adds a Language for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/`
 
 ### URL Parameters
 
@@ -3777,7 +3973,7 @@ name | required | langauge name
 ##Update a Language
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id"
   -X PUT
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3799,7 +3995,7 @@ This endpoint updates a Language for an expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
 
 ### URL Parameters
 
@@ -3816,7 +4012,7 @@ name | optional | langauge name
 ## Delete a Specific Language
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id"
   -X DELETE
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3839,7 +4035,7 @@ This endpoint deletes a specific Language.
 
 ### HTTP Request
 
-`DELETE https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/language/:id`
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/language/:id`
 
 ### URL Parameters
 
@@ -3853,7 +4049,7 @@ username | The username of the expert to retrieve
 
 ##Get All Fees
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fee"
   -X GET
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3877,7 +4073,7 @@ This endpoint retrieves Fees for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fee`
 
 Parameter | Description
 --------- | -----------
@@ -3887,7 +4083,7 @@ username | The username of the expert to retrieve
 ## Add Fees
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fee"
   -X POST
   -H "Authorization: xxx-xxx-xxx"
 ```
@@ -3908,7 +4104,7 @@ This endpoint adds a Fees for an expert.
 
 ### HTTP Request
 
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/fee`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/fee`
 
 ### URL Parameters
 
@@ -3927,7 +4123,7 @@ fee_max | required | max fees
 
 ##Get Availability
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/availability"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -3956,22 +4152,20 @@ This endpoint retrieves all Availability.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/availability`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability`
 
 Parameter | Description
 --------- | -----------
 corporation | The corporation id
 username | The username of the expert to retrieve
 
-#Social
 
-##Get All Social
+##Add Availability
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/social"
-  -X GET
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability"
+  -X POST
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
-
 
 > The above command returns JSON structured like this:
 
@@ -3979,59 +4173,25 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:us
 {
   "data": [
     {
-      "twitter": "http://www.twitter.com/techmarketer",
-      "facebook": "",
-      "linkedin": "http://ca.linkedin.com/in/peterevansprofile",
-      "gplus": "",
-      "stackexchange": "",
-      "github": "",
-      "flickr": "",
-      "pinterest": "",
-      "instagram": "",
-      "tumblr": "",
-      "youtube": ""
+      "availability_keynote": 1,
+      "availability_moderator": 1,
+      "availability_panelist": 1,
+      "availability_workshop": 1,
+      "availability_host_mc": 1,
+      "availability_appearance": 0,
+      "availability_corptraining": 1,
+      "availability_open": 1
     }
   ],
   "success": true
 }
 ```
 
-This endpoint retrieves all Social Links.
+This endpoint adds Availability.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/social`
-
-Parameter | Description
---------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
-
-## Add Social
-
-```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/social/"
-  -X POST
-  -H "Authorization: Bearer xxx-xxx-xxx"
-```
-
-
-> if successful, The above command returns JSON structured like this:
-
-```json
-{
-  "data": {
-    "id" : 2
-  },
-  "success": true
-}
-```
-
-This endpoint adds Social Links for an expert.
-
-### HTTP Request
-
-`POST https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/course/`
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/availability`
 
 ### URL Parameters
 
@@ -4043,16 +4203,102 @@ username | The username of the expert
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | course title
-details | required | description/details of the course
-url | optional | url
+availability_keynote | optional | available for keynote
+availability_moderator | optional | available for moderator
+availability_panelist | optional | available for panelist
+availability_workshop | optional | available for workshop
+availability_host_mc | optional | available for host/mc 
+availability_appearance | optional | available for author appearance
+availability_corptraining | optional | available for corporate training
+
+#Social
+
+##Get All Social
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      { "id" : null }
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Social Links.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social`
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Add Social
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+      { "id" : null}
+  },
+  "success": true
+}
+```
+
+This endpoint adds Social Links for an expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/social/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+twitter | optional | twitter url
+facebook | optional | facebook url
+linkedin | optional | linkedin url
+gplus | optional | gplus url
+stackexchange | optional | stackexchange url": "",
+github | optional | github url
+flickr | optional | flickr url
+pinterest | optional | pinterest url
+instagram | optional | instagram url
+tumblr | optional | tumblr url
+youtube | optional | youtube url
 
 
 #YouTube
 
 ##Get All YouTube Media
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/youtube"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4102,7 +4348,7 @@ username | The username of the expert to retrieve
 ##Get a Specific YouTube item
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/youtube/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4132,7 +4378,7 @@ This endpoint retrieves a specific YouTube item.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/youtube/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id`
 
 Parameter | Description
 --------- | -----------
@@ -4145,7 +4391,7 @@ username | The username of the expert to retrieve
 
 ##Get All Vimeo Media
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/vimeo"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4183,7 +4429,7 @@ This endpoint retrieves all Vimeo item for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/vimeo`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo`
 
 Parameter | Description
 --------- | -----------
@@ -4193,7 +4439,7 @@ username | The username of the expert to retrieve
 ##Get a Specific Vimeo item
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/vimeo/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4222,7 +4468,7 @@ This endpoint retrieves a specific Vimeo item.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/vimeo/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id`
 
 Parameter | Description
 --------- | -----------
@@ -4234,7 +4480,7 @@ username | The username of the expert to retrieve
 
 ##Get All SlideShare Media
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/slideshare"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4282,7 +4528,7 @@ username | The username of the expert to retrieve
 ##Get a Specific SlideShare media
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/slideshare/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4311,7 +4557,7 @@ This endpoint retrieves all SlideShare media for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/slideshare/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id`
 
 Parameter | Description
 --------- | -----------
@@ -4323,7 +4569,7 @@ username | The username of the expert to retrieve
 
 ##Get All Documents
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/document"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4363,7 +4609,7 @@ This endpoint retrieves all Documents.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/document`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document`
 
 Parameter | Description
 --------- | -----------
@@ -4373,7 +4619,7 @@ username | The username of the expert to retrieve
 ##Get a Specific Document
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/document/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4403,7 +4649,7 @@ This endpoint retrieves a specific Document.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/document/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id`
 
 Parameter | Description
 --------- | -----------
@@ -4415,7 +4661,7 @@ username | The username of the expert to retrieve
 
 ##Get All Photos
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4455,7 +4701,7 @@ This endpoint retrieves all Photos for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo`
 
 Parameter | Description
 --------- | -----------
@@ -4464,7 +4710,7 @@ username | The username of the expert to retrieve
 
 ##Get a Specific Photo
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4494,7 +4740,7 @@ This endpoint retrieves a specific Photo.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/photo/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id`
 
 Parameter | Description
 --------- | -----------
@@ -4507,7 +4753,7 @@ username | The username of the expert to retrieve
 
 ##Get All Videos
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4547,7 +4793,7 @@ This endpoint retrieves all Videos for an expert.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video`
 
 Parameter | Description
 --------- | -----------
@@ -4557,7 +4803,7 @@ username | The username of the expert to retrieve
 ##Get a Specific Video
 
 ```shell
-curl "https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video/:id"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
@@ -4587,11 +4833,48 @@ This endpoint retrieves a specific Video.
 
 ### HTTP Request
 
-`GET https://public-api.expertfile.com/v2/organization/:corporation/experts/:username/media/video/:id`
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id`
 
 Parameter | Description
 --------- | -----------
 id | id of the video to retrieve
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+#CV
+
+##Get CV
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/cv"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      {
+        "id": "ID",
+        "url":"url",
+        "document_url":"document url"}
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a cv.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/cv`
+
+Parameter | Description
+--------- | -----------
 corporation | The corporation id
 username | The username of the expert to retrieve
 
