@@ -636,6 +636,51 @@
               </ul>
           </li>
           <li>
+            <a href="#categories" class="toc-h1 toc-link" data-title="Categories">Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-categories" class="toc-h2 toc-link" data-title="Categories">Get All Categories</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-category" class="toc-h2 toc-link" data-title="Categories">Get a Specific Category</a>
+                  </li>
+                  <li>
+                    <a href="#add-category" class="toc-h2 toc-link" data-title="Categories">Add Category</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-category" class="toc-h2 toc-link" data-title="Categories">Delete a Specific Category</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tags" class="toc-h1 toc-link" data-title="Tags">Tags</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-tags" class="toc-h2 toc-link" data-title="Tags">Get All Tags</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-tag" class="toc-h2 toc-link" data-title="Tags">Get a Specific Tag</a>
+                  </li>
+                  <li>
+                    <a href="#add-tag" class="toc-h2 toc-link" data-title="Tags">Add Tag</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-tag" class="toc-h2 toc-link" data-title="Tags">Delete a Specific Tag</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#industry-2" class="toc-h1 toc-link" data-title="Industry">Industry</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-industry-2" class="toc-h2 toc-link" data-title="Industry">Get All Industry</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-industry-2" class="toc-h2 toc-link" data-title="Industry">Get a Specific Industry</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#youtube" class="toc-h1 toc-link" data-title="YouTube">YouTube</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1162,9 +1207,19 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>company</td>
 </tr>
 <tr>
+<td>department</td>
+<td>optional</td>
+<td>department</td>
+</tr>
+<tr>
 <td>phone_number</td>
 <td>optional</td>
-<td>company</td>
+<td>phone number</td>
+</tr>
+<tr>
+<td>phone_number_extension</td>
+<td>optional</td>
+<td>phone number extension</td>
 </tr>
 <tr>
 <td>location_city</td>
@@ -1190,6 +1245,16 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>location_address</td>
 <td>optional</td>
 <td>address</td>
+</tr>
+<tr>
+<td>location_building</td>
+<td>optional</td>
+<td>building</td>
+</tr>
+<tr>
+<td>location_room</td>
+<td>optional</td>
+<td>room</td>
 </tr>
 </tbody></table>
 <h2 id='update-an-expert'>Update an Expert</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username"</span>
@@ -1260,9 +1325,19 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>company</td>
 </tr>
 <tr>
+<td>department</td>
+<td>optional</td>
+<td>department</td>
+</tr>
+<tr>
 <td>phone_number</td>
 <td>optional</td>
-<td>company</td>
+<td>phone number</td>
+</tr>
+<tr>
+<td>phone_number_extension</td>
+<td>optional</td>
+<td>phone number extension</td>
 </tr>
 <tr>
 <td>location_city</td>
@@ -1288,6 +1363,16 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>location_address</td>
 <td>optional</td>
 <td>address</td>
+</tr>
+<tr>
+<td>location_building</td>
+<td>optional</td>
+<td>building</td>
+</tr>
+<tr>
+<td>location_room</td>
+<td>optional</td>
+<td>room</td>
 </tr>
 <tr>
 <td>is_private</td>
@@ -6024,6 +6109,415 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td>youtube url</td>
 </tr>
 </tbody></table>
+<h1 id='categories'>Categories</h1><h2 id='get-all-categories'>Get All Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category 2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all Categories for an expert.</p>
+<h3 id='http-request-100'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-category'>Get a Specific Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category 1"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Category for an expert.</p>
+<h3 id='http-request-101'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id</code></p>
+<h3 id='url-parameters-82'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the category to retrieve.</td>
+</tr>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='add-category'>Add Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/"</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>if successful, The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint adds a Category for an expert.</p>
+<h3 id='http-request-102'>HTTP Request</h3>
+<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/</code></p>
+<h3 id='url-parameters-83'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert</td>
+</tr>
+</tbody></table>
+<h3 id='body-parameters-41'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>required</td>
+<td>category name</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-category'>Delete a Specific Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id"</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific Category for an expert.</p>
+<h3 id='http-request-103'>HTTP Request</h3>
+<p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id</code></p>
+<h3 id='url-parameters-84'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the category to delete</td>
+</tr>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert</td>
+</tr>
+</tbody></table>
+<h1 id='tags'>Tags</h1><h2 id='get-all-tags'>Get All Tags</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag 2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all Tags for an expert.</p>
+<h3 id='http-request-104'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-tag'>Get a Specific Tag</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag 1"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Tag for an expert.</p>
+<h3 id='http-request-105'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id</code></p>
+<h3 id='url-parameters-85'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the tag to retrieve.</td>
+</tr>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='add-tag'>Add Tag</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/"</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>if successful, The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint adds a Tag for an expert.</p>
+<h3 id='http-request-106'>HTTP Request</h3>
+<p><code>POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/</code></p>
+<h3 id='url-parameters-86'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert</td>
+</tr>
+</tbody></table>
+<h3 id='body-parameters-42'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>required</td>
+<td>tag name</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-tag'>Delete a Specific Tag</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id"</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific Tag for an expert.</p>
+<h3 id='http-request-107'>HTTP Request</h3>
+<p><code>DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id</code></p>
+<h3 id='url-parameters-87'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the tag to delete</td>
+</tr>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert</td>
+</tr>
+</tbody></table>
+<h1 id='industry-2'>Industry</h1><h2 id='get-all-industry-2'>Get All Industry</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/"</span>
+  -X GET
+  -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Industry 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Industry 2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all Industries.</p>
+<h3 id='http-request-108'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-industry-2'>Get a Specific Industry</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id"</span>
+  -X GET
+  -H <span class="s2">"Authorization: xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Industry 1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Industry for an expert.</p>
+<h3 id='http-request-109'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id</code></p>
+<h3 id='url-parameters-88'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the industry to retrieve.</td>
+</tr>
+<tr>
+<td>corporation</td>
+<td>The corporation id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username of the expert to retrieve.</td>
+</tr>
+</tbody></table>
 <h1 id='youtube'>YouTube</h1><h2 id='get-all-youtube-media'>Get All YouTube Media</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube"</span>
   -X GET
   -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
@@ -6058,7 +6552,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all YouTube media for an expert.</p>
-<h3 id='http-request-100'>HTTP Request</h3>
+<h3 id='http-request-110'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/:username/media/youtube</code></p>
 
 <table><thead>
@@ -6100,7 +6594,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific YouTube item.</p>
-<h3 id='http-request-101'>HTTP Request</h3>
+<h3 id='http-request-111'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/youtube/:id</code></p>
 
 <table><thead>
@@ -6154,7 +6648,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all Vimeo item for an expert.</p>
-<h3 id='http-request-102'>HTTP Request</h3>
+<h3 id='http-request-112'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo</code></p>
 
 <table><thead>
@@ -6195,7 +6689,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Vimeo item.</p>
-<h3 id='http-request-103'>HTTP Request</h3>
+<h3 id='http-request-113'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/vimeo/:id</code></p>
 
 <table><thead>
@@ -6249,7 +6743,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all SlideShare media for an expert.</p>
-<h3 id='http-request-104'>HTTP Request</h3>
+<h3 id='http-request-114'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/:username/media/slideshare</code></p>
 
 <table><thead>
@@ -6290,7 +6784,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all SlideShare media for an expert.</p>
-<h3 id='http-request-105'>HTTP Request</h3>
+<h3 id='http-request-115'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/slideshare/:id</code></p>
 
 <table><thead>
@@ -6346,7 +6840,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all Documents.</p>
-<h3 id='http-request-106'>HTTP Request</h3>
+<h3 id='http-request-116'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document</code></p>
 
 <table><thead>
@@ -6388,7 +6882,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Document.</p>
-<h3 id='http-request-107'>HTTP Request</h3>
+<h3 id='http-request-117'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/document/:id</code></p>
 
 <table><thead>
@@ -6444,7 +6938,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all Photos for an expert.</p>
-<h3 id='http-request-108'>HTTP Request</h3>
+<h3 id='http-request-118'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo</code></p>
 
 <table><thead>
@@ -6486,7 +6980,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Photo.</p>
-<h3 id='http-request-109'>HTTP Request</h3>
+<h3 id='http-request-119'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/photo/:id</code></p>
 
 <table><thead>
@@ -6542,7 +7036,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all Videos for an expert.</p>
-<h3 id='http-request-110'>HTTP Request</h3>
+<h3 id='http-request-120'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video</code></p>
 
 <table><thead>
@@ -6584,7 +7078,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Video.</p>
-<h3 id='http-request-111'>HTTP Request</h3>
+<h3 id='http-request-121'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/media/video/:id</code></p>
 
 <table><thead>
@@ -6626,7 +7120,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a cv.</p>
-<h3 id='http-request-112'>HTTP Request</h3>
+<h3 id='http-request-122'>HTTP Request</h3>
 <p><code>GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/cv</code></p>
 
 <table><thead>
