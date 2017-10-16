@@ -447,7 +447,7 @@ location_address | optional | address
 location_building | optional | building
 location_room | optional | room
 is_private | optional | is private
-is_published | optional | is public
+is_published | optional | is published
 
 
 ## Delete a Specific Expert
