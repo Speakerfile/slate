@@ -382,12 +382,16 @@ lastname | true | last name
 job_title | true | job title
 email | true | email address
 company | true | company
-phone_number | optional | company
+department | optional | department
+phone_number | optional | phone number
+phone_number_extension | optional | phone number extension
 location_city | optional | city
 location_state | optional | state or province
 location_country | optional | country
 location_postal | optional | postal code
 location_address | optional | address
+location_building | optional | building
+location_room | optional | room
 
 ## Update an Expert
 
@@ -432,14 +436,18 @@ lastname | true | last name
 job_title | true | job title
 email | true | email address
 company | true | company
-phone_number | optional | company
+department | optional | department
+phone_number | optional | phone number
+phone_number_extension | optional | phone number extension
 location_city | optional | city
 location_state | optional | state or province
 location_country | optional | country
 location_postal | optional | postal code
 location_address | optional | address
+location_building | optional | building
+location_room | optional | room
 is_private | optional | is private
-is_public | optional | is public
+is_published | optional | is public
 
 
 ## Delete a Specific Expert
@@ -4292,6 +4300,381 @@ pinterest | optional | pinterest url
 instagram | optional | instagram url
 tumblr | optional | tumblr url
 youtube | optional | youtube url
+
+
+#Categories
+
+##Get All Categories
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "category 1"
+    },
+    {
+      "id": 2,
+      "name": "category 2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Categories for an expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/`
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Get a Specific Category
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+     {
+      "id": 1,
+      "name": "category 1"
+     }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Category for an expert.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the category to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Add Category
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a Category for an expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | category name
+
+
+## Delete a Specific Category
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id"
+  -X DELETE
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Category for an expert.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/category/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the category to delete
+corporation | The corporation id
+username | The username of the expert
+
+#Tags
+
+##Get All Tags
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "tag 1"
+    },
+    {
+      "id": 2,
+      "name": "tag 2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Tags for an expert.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/`
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Get a Specific Tag
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+     {
+      "id": 1,
+      "name": "tag 1"
+     }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Tag for an expert.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the tag to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Add Tag
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a Tag for an expert.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+name | required | tag name
+
+
+## Delete a Specific Tag
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id"
+  -X DELETE
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Tag for an expert.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/tag/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the tag to delete
+corporation | The corporation id
+username | The username of the expert
+
+#Industry
+
+##Get All Industry
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Industry 1"
+    },
+    {
+      "id": 2,
+      "name": "Industry 2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Industries.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/`
+
+Parameter | Description
+--------- | -----------
+corporation | The corporation id
+username | The username of the expert to retrieve
+
+## Get a Specific Industry
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Industry 1"
+    }
+  ]
+}
+```
+
+This endpoint retrieves a specific Industry for an expert.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/expert/:username/industry/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | id of the industry to retrieve.
+corporation | The corporation id
+username | The username of the expert to retrieve.
 
 
 #YouTube
