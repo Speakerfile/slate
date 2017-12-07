@@ -4,11 +4,7 @@ title: Expertfile API v2 Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
-
-search: true
+search: false
 ---
 
 # Authentication
@@ -32,13 +28,14 @@ Expertfile expects an access token to be included in all API requests to the ser
 
 Parameter | Required | Description
 --------- | -------- | -----------
-grant_type | true | enter client_credentials
-client_id | true | your organization client id
-client_secret| true | your organization client secret
+`grant_type` | true |  __string__ enter client_credentials
+`client_id` | true | __string__  your organization client id
+`client_secret`| true | __string__  your organization client secret
 
 <aside class="notice">
  You can find you client_id and client_secret in account/api in your app dashboard. The url is https://app.expertfile.com/account/api 
 </aside>
+
 
 # Experts
 
@@ -87,6 +84,8 @@ curl "https://public-api.expertfile.com/v2/:corporation/organization/expert"
 
 This endpoint retrieves all Experts.
 
+To retreive the original photo uploaded to ExpertFile, access "avatar.original".
+
 ### HTTP Request
 
 `GET https://public-api.expertfile.com/v2/organization/:corporation/expert`
@@ -95,23 +94,23 @@ This endpoint retrieves all Experts.
 
 Parameter  | Desription
 ---------  | ----------
-corporation  | The corporation id
+`corporation`  | __integer__The corporation id
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-q | - | search query.
-access | public | This can be public or private.
-page_size | 10 | no. of experts to return.
-page_from | 0 | 
-countries | - |
-topics | - | 
-industries | - |
-companies | - |
-fields | - |
-sort | name | name or featured. 
-
+`q` | - | __string__search query.
+`access` | public | __string__This can be public or private.
+`page_size` | 10 | __integer__no. of experts to return.
+`page_from` | 0 | __integer__
+`countries` | - | __string__
+`topics` | - | __string__
+`industries` | - | __string__
+`companies` | - | __string__
+`fields` | - | __string__
+`sort` | name | __string__ name or featured.  
+`searchfield` | - | __string__ fullname to query only name field. 
 
 ## Get a Specific Expert
 
@@ -242,19 +241,19 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "education": [
       {
         "id": 1,
-			  "institution": "My Institution",
-			  "degree": "My Degree",
-			  "description": "",
-			  "major": "My major",
-			  "date": 1998
+        "institution": "My Institution",
+        "degree": "My Degree",
+        "description": "",
+        "major": "My major",
+        "date": 1998
       },
       {
         "id": 2,
-			  "institution": "My 2nd Institution",
-			  "degree": "My 2nd Degree",
-			  "description": "",
-			  "major": "My 2nd major",
-			  "date": 1998
+        "institution": "My 2nd Institution",
+        "degree": "My 2nd Degree",
+        "description": "",
+        "major": "My 2nd major",
+        "date": 1998
       }
     ],
     "document": [
@@ -262,7 +261,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
         "id": 1,
         "title": "my 1st document",
         "url": "https://documenturl.com"
-		  },
+      },
       {
         "id": 2,
         "title": "my 2nd document",
@@ -272,13 +271,13 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/user
     "video": [
       {
         "id": 1,
-			  "title": "my 1st video",
-			  "url": "https://videourl.com"
+        "title": "my 1st video",
+        "url": "https://videourl.com"
       },
       {
         "id": 2,
-			  "title": "my 2nd video",
-			  "url": "https://videourl.com/1"
+        "title": "my 2nd video",
+        "url": "https://videourl.com/1"
       }
     ],
     "language": [],
@@ -328,8 +327,8 @@ This endpoint retrieves a specific Expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Add an Expert
 
@@ -372,26 +371,26 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert"
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
+`corporation` | __integer__The corporation id
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-firstname | true | first name
-lastname | true | last name
-job_title | true | job title
-email | true | email address
-company | true | company
-department | optional | department
-phone_number | optional | phone number
-phone_number_extension | optional | phone number extension
-location_city | optional | city
-location_state | optional | state or province
-location_country | optional | country
-location_postal | optional | postal code
-location_address | optional | address
-location_building | optional | building
-location_room | optional | room
+`firstname` | true | __string__first name
+`lastname` | true |  __string__last name
+`job_title` | true |  __string__job title
+`email` | true |  __string__email address
+`company` | true |  __string__company
+`department` | optional |  __string__department
+`phone_number` | optional | __string__ phone number
+`phone_number_extension` | optional |  __string__phone number extension
+`location_city` | optional |  __string__city
+`location_state` | optional |  __string__state or province
+`location_country` | optional |  __string__country
+`location_postal` | optional |  __string__postal code
+`location_address` | optional |  __string__address
+`location_building` | optional |  __string__building
+`location_room` | optional |  __string__room
 
 ## Update an Expert
 
@@ -415,7 +414,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 }
 ```
 
-This endpoint updates a link for expert.
+This endpoint updates a expert.
 
 ### HTTP Request
 
@@ -425,29 +424,29 @@ This endpoint updates a link for expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-firstname | true | first name
-lastname | true | last name
-job_title | true | job title
-email | true | email address
-company | true | company
-department | optional | department
-phone_number | optional | phone number
-phone_number_extension | optional | phone number extension
-location_city | optional | city
-location_state | optional | state or province
-location_country | optional | country
-location_postal | optional | postal code
-location_address | optional | address
-location_building | optional | building
-location_room | optional | room
-is_private | optional | is private
-is_published | optional | is published
+`firstname` | true | __string__first name
+`lastname` | true |  __string__last name
+`job_title` | true |  __string__job title
+`email` | true |  __string__email address
+`company` | true |  __string__company
+`department` | optional |  __string__department
+`phone_number` | optional | __string__ phone number
+`phone_number_extension` | optional |  __string__phone number extension
+`location_city` | optional |  __string__city
+`location_state` | optional |  __string__state or province
+`location_country` | optional |  __string__country
+`location_postal` | optional |  __string__postal code
+`location_address` | optional |  __string__address
+`location_building` | optional |  __string__building
+`location_room` | optional |  __string__room
+`is_private` | optional | __integer__1 or 0
+`is_published` | optional | __integer__1 or 0
 
 
 ## Delete a Specific Expert
@@ -482,8 +481,8 @@ This endpoint deletes a specific Expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Biography
 
@@ -516,8 +515,8 @@ This endpoint retrieves an expert's biography
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ## Add Biography
 
@@ -551,13 +550,13 @@ This endpoint adds a Biography.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-description | optional | biography content 
+`description` | optional | __string__biography content 
 
 
 
@@ -592,8 +591,8 @@ This endpoint retrieves an expert's tagline
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ## Add Tagline
 
@@ -629,13 +628,13 @@ This endpoint adds a tagline.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-tagline | optional | tagline content 
+`tagline` | optional | __string__tagline content 
 
 
 ### HTTP Request
@@ -646,8 +645,8 @@ tagline | optional | tagline content
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Link
 
@@ -687,8 +686,8 @@ This endpoint retrieves all Links.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ## Get a Specific Link
@@ -726,9 +725,9 @@ This endpoint retrieves a specific Link.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add a Link
 
@@ -761,14 +760,14 @@ This endpoint adds a link for expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | true | name of the link 
-url | true | the actual url 
+`name` | true | __string__name of the link 
+`url` | true | __string__the actual url 
 
 
 ## Update a Link
@@ -803,15 +802,15 @@ This endpoint updates a link for expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the link
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__id of the link
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | optional | name of the link 
-url | optional | the actual url 
+`name` | optional | __string__name of the link 
+`url` | optional | __string__the actual url 
 
 ## Delete a Specific Link
 
@@ -845,9 +844,9 @@ This endpoint deletes a specific link.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the link
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the link
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 
 #Sample Talk
@@ -890,8 +889,8 @@ This endpoint retrieves all Sample Talks.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Sample Talk
 
@@ -927,9 +926,9 @@ This endpoint retrieves a specific Sample Talk.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add a SampleTalk
 
@@ -961,14 +960,14 @@ This endpoint adds a Sample Talk for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | true | title of the talk 
-description | true | description of the talk 
+`title` | true | __string__title of the talk 
+`description` | true | __string__description of the talk 
 
 ## Update a SampleTalk
 
@@ -1001,15 +1000,15 @@ This endpoint updates a Sample Talk for an expert.
 
 Parameter | Description
 --------- | -----------
-id |  id of Sample Talk
-corporation | The corporation id
-username | The username of the expert
+`id` |  __integer__id of Sample Talk
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | title of the talk 
-description | optional | description of the talk 
+`title` | optional | __string__title of the talk 
+`description` | optional | __string__description of the talk 
 
 ## Delete a Specific Sample Talk
 
@@ -1043,9 +1042,9 @@ This endpoint deletes a specific Sample Talk
 
 Parameter | Description
 --------- | -----------
-id | The ID of the link to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the link to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Accomplishment
 
@@ -1090,8 +1089,8 @@ This endpoint retrieves all Accomplishments.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ## Get a Specific Accomplishment
@@ -1130,9 +1129,9 @@ This endpoint retrieves a specific Accomplishment.
 
 Parameter | Description
 --------- | -----------
-id | Id of the sample talk to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the sample talk to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add an Accomplishment
 
@@ -1164,16 +1163,16 @@ This endpoint adds an Accomplishment for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | title of the talk 
-description | required | description of the talk 
-type | optional | Type of accomplishment. 71 for 'professional' and 73 for 'personal'
-date | optional | date in unix time
+`title` | required | __string__title of the talk 
+`description` | required | __string__description of the talk 
+`type` | optional | __string__Type of accomplishment. 71 for 'professional' and 73 for 'personal'
+`date` | optional | __integer__date in unix time
 
 ##Update a Specific Accomplishment
 
@@ -1206,17 +1205,17 @@ This endpoint updates an Accomplishment for an expert.
 
 Parameter | Description
 --------- | -----------
-id | Id of accomplishment
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__id of accomplishment
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | title of the talk 
-description | optional | description of the talk 
-type | optional | Type of accomplishment. 71 for 'professional' and 73 for 'personal'
-date | optional | date in unix time
+`title` | optional | __string__title of the talk 
+`description` | optional | __string__description of the talk 
+`type` | optional | __string__Type of accomplishment. 71 for 'professional' and 73 for 'personal'
+`date` | optional | __integer__date in unix time
 
 ## Delete a Specific Accomplishment
 
@@ -1250,9 +1249,9 @@ This endpoint deletes a specific Accomplishment.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the accomplishment to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the accomplishment to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 
 #Affiliation
@@ -1294,8 +1293,8 @@ This endpoint retrieves all Affiliations.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Affiliation
 
@@ -1332,9 +1331,9 @@ This endpoint retrieves a specific Affiliation.
 
 Parameter | Description
 --------- | -----------
-id | Id of the affiliation to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the affiliation to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add an Affiliation
 
@@ -1366,13 +1365,13 @@ This endpoint adds an Affiliation for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | name of the affiliation
+`name` | required | __string__name of the affiliation
 
 ##Update an Affiliation
 
@@ -1405,13 +1404,13 @@ This endpoint updates an Affiliation for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | optional | name of the affiliation
+`name` | optional | __string__name of the affiliation
 
 ## Delete a Specific affiliation
 
@@ -1445,9 +1444,9 @@ This endpoint deletes a specific Affiliation.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the affiliation to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the affiliation to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Event Appearances
 
@@ -1491,8 +1490,8 @@ This endpoint retrieves all Event Apperances for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ## Get a Specific Event Appearance
@@ -1531,9 +1530,9 @@ This endpoint retrieves a specific event appearance for an expert.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add an Event Appearance
 
@@ -1565,16 +1564,16 @@ This endpoint adds an Event Appearance for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | title of the Event 
-event_name | required | name of the event 
-location | optional | name of the city/country where event took place
-date | optional | date in unix time
+`title` | required | __string__title of the Event 
+`event_name` | required | __string__name of the event 
+`location` | optional | __string__name of the city/country where event took place
+`date` | optional | __integer__date in unix time
 
 ##Update an Event Appearance
 
@@ -1608,16 +1607,16 @@ This endpoint updates an Event Appearance for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | title of the Event 
-event_name | optional | name of the event 
-location | optional | name of the city/country where event took place
-date | optional | date in unix time
+`title` | optional | __string__title of the Event 
+`event_name` | optional | __string__name of the event 
+`location` | optional | __string__name of the city/country where event took place
+`date` | optional | __integer__date in unix time
 
 ## Delete a Specific Event Appearance
 
@@ -1651,9 +1650,9 @@ This endpoint deletes a specific Event Appearance.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the Event Appearance to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the Event Appearance to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Media Appearance
 
@@ -1706,8 +1705,8 @@ This endpoint retrieves all Media Appearances for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Media Appearance
 
@@ -1749,9 +1748,9 @@ This endpoint retrieves a specific Media Appearance.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ## Add a Media Appearance
@@ -1784,18 +1783,18 @@ This endpoint adds a Media Appearance for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | title of the media appearance
-organiztion | required | name of the organization 
-details | required | details of the media appearance 
-type | optional | this can be one of 'print', 'online', 'tv', 'radio'
-url | optional | link to the media appearance
-date | optional | date in unix time
+`title` | required | __string__title of the media appearance
+`organization` | required | __string__name of the organization 
+`details` | required | __string__details of the media appearance 
+`type` | optional | __string__this can be one of 'print', 'online', 'tv', 'radio'
+`url` | optional | __string__link to the media appearance
+`date` | optional | __integer__date in unix time
 
 ##Update a Media Appearance
 ```shell
@@ -1827,18 +1826,18 @@ This endpoint updates a Media Appearance for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | title of the media appearance
-organization | optional | name of the organization 
-details | optional | details of the media appearance 
-type | optional | this can be one of 'print', 'online', 'tv', 'radio'
-url | optional | link to the media appearance
-date | optional | date in unix time
+`title` | optional | __string__title of the media appearance
+`organization` | optional | __string__name of the organization 
+`details` | optional | __string__details of the media appearance 
+`type` | optional | __string__this can be one of 'print', 'online', 'tv', 'radio'
+`url` | optional | __string__link to the media appearance
+`date` | optional | __integer__date in unix time
 
 ## Delete a Specific Media Appearance
 
@@ -1872,9 +1871,9 @@ This endpoint deletes a specific Media Appearance.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the Media Appearance to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the Media Appearance to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Education
 
@@ -1920,8 +1919,8 @@ This endpoint retrieves all Education.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Education
 
@@ -1960,9 +1959,9 @@ This endpoint retrieves a specific Education.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Education
 
@@ -1994,8 +1993,8 @@ This endpoint adds an Education for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
@@ -2003,8 +2002,8 @@ Parameter | Required | Description
 institution | required | name of the instituion
 degree | required | degree obtained.
 major | optional | Level of study. Bachelors/Masters/Phd
-description | optional | additional information for the degree
-date | optional | year of graduation. Enter '1998' if graduation year is 1998
+`description` | optional | __string__additional information for the degree
+`date` | optional | __integer__year of graduation. Enter '1998' if graduation year is 1998
 
 ## Update an Education 
 
@@ -2037,17 +2036,17 @@ This endpoint updates an Education for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-institution | optional | name of the instituion
-degree | optional | degree obtained.
-major | optional | Level of study. Bachelors/Masters/Phd
-description | optional | additional information for the degree
-date | optional | year of graduation. Enter '1998' if graduation year is 1998
+`institution` | optional | __string__name of the instituion
+`degree` | optional | __string__degree obtained.
+`major` | optional | __string__Level of study. Bachelors/Masters/Phd
+`description` | optional | __string__additional information for the degree
+`date` | optional | __integer__year of graduation. Enter '1998' if graduation year is 1998
 
 
 ## Delete a Specific Education
@@ -2082,9 +2081,9 @@ This endpoint deletes a specific Education.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the Education to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the Education to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Testimonial
 
@@ -2133,8 +2132,8 @@ This endpoint retrieves all Testimonials for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ## Get a Specific Testimonial
@@ -2176,9 +2175,9 @@ This endpoint retrieves a specific Testimonial.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Testimonial
 
@@ -2210,17 +2209,17 @@ This endpoint adds an Testimonial for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | name of the person
-title | required | job title of the person
-company | required | company of the person
-recommendation | required | recommendation note
-url | optional | url of the company where person works
+`name` | required | __string__name of the person
+`title` | required | __string__job title of the person
+`company` | required | __string__company person works for
+`recommendation` | required | __string__recommendation note
+`url` | optional | __string__url of the company where person works
 
 ## Update a Testimonial
 
@@ -2253,17 +2252,17 @@ This endpoint updates a Testimonial for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | optional | name of the person
-title | optional | job title of the person
-company | optional | company of the person
-recommendation | optional | recommendation note
-url | optional | url of the company where person works
+`name` | optional | __string__name of the person
+`title` | optional | __string__job title of the person
+`company` | optional | __string__company person works for
+`recommendation` | optional | __string__recommendation note
+`url` | optional | __string__url of the company where person works
 
 
 ## Delete a Specific Testimonial
@@ -2298,9 +2297,9 @@ This endpoint deletes a specific Testimonial.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the testimonial to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the testimonial to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Patent
 
@@ -2347,8 +2346,8 @@ This endpoint retrieves all Patents.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Patent
 
@@ -2385,9 +2384,9 @@ This endpoint retrieves a specific Patent.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Patent
 
@@ -2419,17 +2418,17 @@ This endpoint adds a Patent for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-number | required | patent number
-title | required | title of the patent
-detail | required | description of the patent
-date | optional | date of the patent granted in unix time
-url | optional | url of the patent
+`number` | required | __string__patent number
+`title` | required | __string__title of the patent
+`detail` | required | __string__description of the patent
+`date` | optional | __integer__date of the patent granted in unix time
+`url` | optional | __string__url of the patent
 
 ##Update a Patent
 
@@ -2462,17 +2461,17 @@ This endpoint updates a Patent for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-number | optional | patent number
-title | optional | title of the patent
-detail | optional | description of the patent
-date | optional | date of the patent granted in unix time
-url | optional | url of the patent
+`number` | optional | __string__patent number
+`title` | optional | __string__title of the patent
+`detail` | optional | __string__description of the patent
+`date` | optional | __integer__date of the patent granted in unix time
+`url` | optional | __string__url of the patent
 
 ## Delete a Specific Patent
 
@@ -2506,9 +2505,9 @@ This endpoint deletes a specific Patent.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the patent to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the patent to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Research Grant
 
@@ -2554,8 +2553,8 @@ This endpoint retrieves all Reseach Grants.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Research grant
 
@@ -2595,9 +2594,9 @@ This endpoint retrieves a specific Research Grant.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Research Grant
 
@@ -2629,18 +2628,18 @@ This endpoint adds a Research Grant for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-organization | required | organization to give grant
-title | required | title of the grant
-detail | required | description of the grant
-date | optional | date in unix time
-url | optional | url
-amount | optional | amount granted
+`organization` | required | __string__organization to give grant
+`title` | required | __string__title of the grant
+`detail` | required | __string__description of the grant
+`date` | optional | __integer__date in unix time
+`url` | optional | __string__url
+`amount` | optional | __string__amount granted
 
 ##Update a Research Grant
 
@@ -2673,18 +2672,18 @@ This endpoint updates a Research Grant for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-organization | optional | organization to give grant
-title | optional | title of the grant
-detail | optional | description of the grant
-date | optional | date in unix time
-url | optional | url
-amount | optional | amount granted
+`organization` | optional | __string__organization to give grant
+`title` | optional | __string__title of the grant
+`detail` | optional | __string__description of the grant
+`date` | optional | __integer__date in unix time
+`url` | optional | __string__url
+`amount` | optional | __string__amount granted
 
 ## Delete a Specific Research Grant
 
@@ -2718,9 +2717,9 @@ This endpoint deletes a specific Research Grant.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the link to research grant
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__The ID of the link to research grant
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Partnerships
 
@@ -2767,8 +2766,8 @@ This endpoint retrieves all Partnerships for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Partnership
 
@@ -2808,9 +2807,9 @@ This endpoint retrieves a specific Partnership for an expert.
 
 Parameter | Description
 --------- | -----------
-id | Id of the Partnership to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__Id of the Partnership to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Partnership
 
@@ -2842,18 +2841,18 @@ This endpoint adds a Partnership for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | partnership title
-individual | required | partner name
-details | required | description of the partnership
-date | optional | date in unix time
-url | optional | url
-organization | optional | organization
+`title` | required | __string__partnership title
+`individual` | required | __string__partner name
+`details` | required | __string__description of the partnership
+`date` | optional | __integer__date in unix time
+`url` | optional | __string__url
+`organization` | optional | __string__organization
 
 ##Update a Partnership
 
@@ -2886,18 +2885,18 @@ This endpoint updates a Partnership for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | partnership title
-individual | optional | partner name
-details | optional | description of the partnership
-date | optional | date in unix time
-url | optional | url
-organization | optional | organization
+`title` | optional | __string__partnership title
+`individual` | optional | __string__partner name
+`details` | optional | __string__description of the partnership
+`date` | optional | __integer__date in unix time
+`url` | optional | __string__url
+`organization` | optional | __string__organization
 
 
 ## Delete a Specific Partnership
@@ -2932,9 +2931,9 @@ This endpoint deletes a specific Partnership.
 
 Parameter | Description
 --------- | -----------
-id | id of the Partnership to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the Partnership to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Courses
 
@@ -2975,8 +2974,8 @@ This endpoint retrieves all Courses.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Course
 
@@ -3013,9 +3012,9 @@ This endpoint retrieves a specific Course.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Course
 
@@ -3047,15 +3046,15 @@ This endpoint adds a Course for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | course title
-details | required | description/details of the course
-url | optional | url
+`title` | required | __string__course title
+`details` | required | __string__description/details of the course
+`url` | optional | __string__url
 
 ##Update a Specific Course
 
@@ -3088,15 +3087,15 @@ This endpoint updates a Course for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | course title
-details | optional | description/details of the course
-url | optional | url
+`title` | optional | __string__course title
+`details` | optional | __string__description/details of the course
+`url` | optional | __string__url
 
 ## Delete a Specific Course
 
@@ -3130,9 +3129,9 @@ This endpoint deletes a specific Course.
 
 Parameter | Description
 --------- | -----------
-id | id of the course to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the course to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Articles
 
@@ -3179,8 +3178,8 @@ This endpoint retrieves all Articles for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Article
 
@@ -3220,9 +3219,9 @@ This endpoint retrieves a specific Article.
 
 Parameter | Description
 --------- | -----------
-id | Id of the link to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Article
 
@@ -3254,18 +3253,18 @@ This endpoint adds an Article for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | course title
+`title` | required | __string__course title
 publisher | required | publisher name
-details | required | description/details of the course
-url | optional | url
+`details` | required | __string__description/details of the course
+`url` | optional | __string__url
 authors | optional | co-authors
-url | optional | link to the article
+`url` | optional | __string__link to the article
 
 ##Update a Artcile
 
@@ -3298,17 +3297,17 @@ This endpoint updates a specific Article for expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | course title
-publisher | optional | publisher name
-details | optional | description/details of the course
-authors | optional | co-authors
-url | optional | link to the article
+`title` | optional | __string__course title
+`publisher` | optional | __string__publisher name
+`details` | optional | __string__description/details of the course
+`authors` | optional | __string__co-authors
+`url` | optional | __string__link to the article
 
 ## Delete a Specific Article
 
@@ -3342,9 +3341,9 @@ This endpoint deletes a specific Article.
 
 Parameter | Description
 --------- | -----------
-id | id of the article to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the article to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Research Focus
 
@@ -3396,8 +3395,8 @@ This endpoint retrieves all Research Focus for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Research Focus
 
@@ -3439,9 +3438,9 @@ This endpoint retrieves a specific Research Focus.
 
 Parameter | Description
 --------- | -----------
-id | id of the research focus to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the research focus to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Research Focus
 
@@ -3473,17 +3472,17 @@ This endpoint adds a Research Focus for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | required | course title
-details | required | description/details of the course
-url | optional | url
-date | optional | date in unix format
-subtitle | optional | 
+`title` | required | __string__course title
+`details` | required | __string__description/details of the course
+`url` | optional | __string__url
+`date` | optional | __integer__date in unix format
+sub`title` | optional | __string__
 
 ##Update a Research Focus
 
@@ -3517,17 +3516,17 @@ This endpoint updates a specific Research Focus for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-title | optional | course title
-details | optional | description/details of the course
-url | optional | url
-date | optional | date in unix format
-subtitle | optional | 
+`title` | optional | __string__course title
+`details` | optional | __string__description/details of the course
+`url` | optional | __string__url
+`date` | optional | __integer__date in unix format
+`subtitle` | optional | __string__
 
 ## Delete a Specific Research Focus
 
@@ -3562,9 +3561,9 @@ This endpoint deletes a specific Research Focus.
 
 Parameter | Description
 --------- | -----------
-id | id of the research focus to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the research focus to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Topics
 
@@ -3601,8 +3600,8 @@ This endpoint retrieves all Topics for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Topic
 
@@ -3637,9 +3636,9 @@ This endpoint retrieves a specific Topic for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the topic to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the topic to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Topic
 
@@ -3671,13 +3670,13 @@ This endpoint adds a Topic for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | topic name
+`name` | required | __string__topic name
 
 
 ## Delete a Specific Topic
@@ -3712,9 +3711,9 @@ This endpoint deletes a specific Topic for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the topic to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the topic to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Industry
 
@@ -3751,8 +3750,8 @@ This endpoint retrieves all Industries.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Industry
 
@@ -3786,9 +3785,9 @@ This endpoint retrieves a specific Industry for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the industry to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve.
+`id` | __integer__id of the industry to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve.
 
 ## Add Industry
 
@@ -3820,13 +3819,13 @@ This endpoint adds an Industry for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | Industry name
+`name` | required | __string__Industry name
 
 
 
@@ -3861,9 +3860,9 @@ This endpoint deletes a specific Industry.
 
 Parameter | Description
 --------- | -----------
-id | id of the industry to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the industry to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Languages
 
@@ -3900,8 +3899,8 @@ This endpoint retrieves all Languages.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Languages
 
@@ -3935,9 +3934,9 @@ This endpoint retrieves a specific Language.
 
 Parameter | Description
 --------- | -----------
-id | id of the language to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the language to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Language
 
@@ -3969,13 +3968,13 @@ This endpoint adds a Language for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | langauge name
+`name` | required | __string__langauge name
 
 
 ##Update a Language
@@ -4009,13 +4008,13 @@ This endpoint updates a Language for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | optional | langauge name
+`name` | optional | __string__langauge name
 
 ## Delete a Specific Language
 
@@ -4049,9 +4048,9 @@ This endpoint deletes a specific Language.
 
 Parameter | Description
 --------- | -----------
-id | id of the research focus to delete
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the research focus to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Fees
 
@@ -4085,8 +4084,8 @@ This endpoint retrieves Fees for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Fees
 
@@ -4118,14 +4117,14 @@ This endpoint adds a Fees for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-fee_min | required | min fees
-fee_max | required | max fees
+`fee_min` | required | __integer__min fees
+`fee_max` | required | __integer__max fees
 
 #Availability
 
@@ -4164,8 +4163,8 @@ This endpoint retrieves all Availability.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 ##Add Availability
@@ -4205,19 +4204,19 @@ This endpoint adds Availability.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-availability_keynote | optional | available for keynote
-availability_moderator | optional | available for moderator
-availability_panelist | optional | available for panelist
-availability_workshop | optional | available for workshop
-availability_host_mc | optional | available for host/mc 
-availability_appearance | optional | available for author appearance
-availability_corptraining | optional | available for corporate training
+`availability_keynote` | optional | __integer__available for keynote(1 or 0)
+`availability_moderator` | optional | __integer__available for moderator(1 or 0)
+`availability_panelist` | optional | __integer__available for panelist(1 or 0)
+`availability_workshop` | optional | __integer__available for workshop(1 or 0)
+`availability_host_mc` | optional | __integer__available for host/mc (1 or 0)
+`availability_appearance`| optional | __integer__available for author appearance(1 or 0)
+`availability_corptraining` | optional | __integer__available for corporate training(1 or 0)
 
 #Social
 
@@ -4250,8 +4249,8 @@ This endpoint retrieves all Social Links.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Social
 
@@ -4283,23 +4282,23 @@ This endpoint adds Social Links for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-twitter | optional | twitter url
-facebook | optional | facebook url
-linkedin | optional | linkedin url
-gplus | optional | gplus url
-stackexchange | optional | stackexchange url": "",
-github | optional | github url
-flickr | optional | flickr url
-pinterest | optional | pinterest url
-instagram | optional | instagram url
-tumblr | optional | tumblr url
-youtube | optional | youtube url
+`twitter` | optional | __string__twitter url
+`facebook` | optional | __string__facebook url
+`linkedin` | optional | __string__linkedin url
+`gplus` | optional | __string__gplus url
+`stackexchange` | optional | __string__stackexchange url,
+`github` | optional | __string__github url
+`flickr` | optional | __string__flickr url
+`pinterest` | optional | __string__pinterest url
+`instagram` | optional | __string__instagram url
+`tumblr` | optional | __string__tumblr url
+`youtube` | optional | __string__youtube url
 
 
 #Categories
@@ -4337,8 +4336,8 @@ This endpoint retrieves all Categories for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Category
 
@@ -4373,9 +4372,9 @@ This endpoint retrieves a specific Category for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the category to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the category to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Category
 
@@ -4407,13 +4406,13 @@ This endpoint adds a Category for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | category name
+`name` | required | __string__category name
 
 
 ## Delete a Specific Category
@@ -4448,9 +4447,9 @@ This endpoint deletes a specific Category for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the category to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__id of the category to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Tags
 
@@ -4487,8 +4486,8 @@ This endpoint retrieves all Tags for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Tag
 
@@ -4523,9 +4522,9 @@ This endpoint retrieves a specific Tag for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the tag to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the tag to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Add Tag
 
@@ -4557,13 +4556,13 @@ This endpoint adds a Tag for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-name | required | tag name
+`name` | required | __string__tag name
 
 
 ## Delete a Specific Tag
@@ -4598,9 +4597,9 @@ This endpoint deletes a specific Tag for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the tag to delete
-corporation | The corporation id
-username | The username of the expert
+`id` | __integer__id of the tag to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert
 
 #Industry
 
@@ -4637,8 +4636,8 @@ This endpoint retrieves all Industries.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ## Get a Specific Industry
 
@@ -4672,9 +4671,9 @@ This endpoint retrieves a specific Industry for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the industry to retrieve.
-corporation | The corporation id
-username | The username of the expert to retrieve.
+`id` | __integer__id of the industry to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve.
 
 
 #YouTube
@@ -4725,8 +4724,8 @@ This endpoint retrieves all YouTube media for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific YouTube item
 
@@ -4765,9 +4764,9 @@ This endpoint retrieves a specific YouTube item.
 
 Parameter | Description
 --------- | -----------
-id | id of the youtube item to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the youtube item to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 #Vimeo
@@ -4816,8 +4815,8 @@ This endpoint retrieves all Vimeo item for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific Vimeo item
 
@@ -4855,9 +4854,9 @@ This endpoint retrieves a specific Vimeo item.
 
 Parameter | Description
 --------- | -----------
-id | id of the vimeo item to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the vimeo item to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #SlideShare
 
@@ -4905,8 +4904,8 @@ This endpoint retrieves all SlideShare media for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific SlideShare media
 
@@ -4944,9 +4943,9 @@ This endpoint retrieves all SlideShare media for an expert.
 
 Parameter | Description
 --------- | -----------
-id | id of the slideshare item to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the slideshare item to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Documents
 
@@ -4996,8 +4995,8 @@ This endpoint retrieves all Documents.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific Document
 
@@ -5036,9 +5035,9 @@ This endpoint retrieves a specific Document.
 
 Parameter | Description
 --------- | -----------
-id | id of the document item to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the document item to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #Photo
 
@@ -5088,8 +5087,8 @@ This endpoint retrieves all Photos for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific Photo
 ```shell
@@ -5127,9 +5126,9 @@ This endpoint retrieves a specific Photo.
 
 Parameter | Description
 --------- | -----------
-id | id of the photo to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the photo to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 
 #Video
@@ -5180,8 +5179,8 @@ This endpoint retrieves all Videos for an expert.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 ##Get a Specific Video
 
@@ -5220,9 +5219,9 @@ This endpoint retrieves a specific Video.
 
 Parameter | Description
 --------- | -----------
-id | id of the video to retrieve
-corporation | The corporation id
-username | The username of the expert to retrieve
+`id` | __integer__id of the video to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
 #CV
 
@@ -5258,7 +5257,1357 @@ This endpoint retrieves a cv.
 
 Parameter | Description
 --------- | -----------
-corporation | The corporation id
-username | The username of the expert to retrieve
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the expert to retrieve
 
+# Staff
+
+## Get All Employees
+
+```shell
+curl "https://public-api.expertfile.com/v2/:corporation/organization/employee"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "staff": [
+      {
+        "username": "myusername",
+        "corporation": "mycorporation",
+        "tagline": "My tagline",
+        "avatar": {
+          "small": "my small avatar url",
+          "medium": "my medium avatar url",
+          "large": "my large avatar url",
+          "original": "my original avatar url"
+        }
+      }
+    ],
+    "total": 12
+  },
+  "success": true
+}
+```
+
+This endpoint retrieves all Employees. Please note that this endpoint returns both staff users and experts. 
+
+To retreive the original photo uploaded to ExpertFile, access "avatar.original".
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/employee`
+
+### Url Parameters
+
+Parameter  | Desription
+---------  | ----------
+`corporation`  | __integer__The corporation id
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+`q` | - | __string__search query.
+`access` | public | __string__This can be public or private.
+`page_size` | 10 | __integer__no. of experts to return.
+`page_from` | 0 | __integer__
+`countries` | - | __string__
+`companies` | - | __string__
+`fields` | - | __string__
+`sort` | name | __string__ name or featured.
+`searchfield` | - | __string__ fullname to query only name field. 
+
+## Get a Specific Staff
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/username"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "account": [
+            {
+                "id": 1,
+                "firstname": "firstname",
+                "lastname": "lastname",
+                "corporation_id": 1,
+                "job_title": "job_title",
+                "location_city": "location_city",
+                "location_state": "location_state",
+                "location_country": "location_country",
+                "location_postal": "location_postal",
+                "location_address": "location_address",
+                "location_building": "location_building",
+                "location_room": "location_room",
+                "email": "myemail@example.com",
+                "company": "company",
+                "department": "department",
+                "phone_number": "phone_number",
+                "phone_number_extension": "phone_number_extension",
+                "username": "username",
+                "is_published": 0
+            }
+        ],
+        "biography": [
+            {
+                "biography": ""
+            }
+        ],
+        "category": [],
+        "corporationProfile": [
+          {
+            "id": 1,
+            "name": "name",
+            "user_name": "username",
+            "description": "",
+            "location_country": "CA",
+            "location_state": "ON",
+            "location_city": "Toronto",
+            "location_postal": "M5G 1L7",
+            "location_address": "address",
+            "website": "myswebsite.com",
+            "private_username": "xxx"
+          }
+        ],
+        "education": [],
+        "language": [],
+        "link": [],
+        "tag": [],
+        "tagline": [
+            {
+                "tagline": ""
+            }
+        ],
+        "avatar": []
+    },
+    "success": true
+}
+```
+This endpoint retrieves a specific Staff User.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+##Add a Staff User
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "username": "username",
+        "inserted": true
+    },
+    "success": true
+}
+```
+
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`firstname` | true | __string__first name
+`lastname` | true |  __string__last name
+`job_title` | true |  __string__job title
+`email` | true |  __string__email address
+`company` | true |  __string__company
+`department` | optional |  __string__department
+`phone_number` | optional | __string__ phone number
+`phone_number_extension` | optional |  __string__phone number extension
+`location_city` | optional |  __string__city
+`location_state` | optional |  __string__state or province
+`location_country` | optional |  __string__country
+`location_postal` | optional |  __string__postal code
+`location_address` | optional |  __string__address
+`location_building` | optional |  __string__building
+`location_room` | optional |  __string__room
+
+## Update a Staff User
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "username": "you.username",
+    "updated": true
+  },
+  "success": true
+}
+```
+
+This endpoint updates a Staff User.
+
+### HTTP Request
+
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/staff`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff user
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`firstname` | true | __string__first name
+`lastname` | true |  __string__last name
+`job_title` | true |  __string__job title
+`email` | true |  __string__email address
+`company` | true |  __string__company
+`department` | optional |  __string__department
+`phone_number` | optional | __string__ phone number
+`phone_number_extension` | optional |  __string__phone number extension
+`location_city` | optional |  __string__city
+`location_state` | optional |  __string__state or province
+`location_country` | optional |  __string__country
+`location_postal` | optional |  __string__postal code
+`location_address` | optional |  __string__address
+`location_building` | optional |  __string__building
+`location_room` | optional |  __string__room
+`is_private` | optional | __integer__1 or 0
+`is_published` | optional | __integer__1 or 0
+
+
+## Delete a Specific Staff
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:id"
+  -X DELETE
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data" : {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Staff User.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff user to retrieve
+
+#Biography
+
+##Get Biography
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/biography"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "biography" : "your biography"
+    }
+  ]
+}
+```
+
+This endpoint retrieves an staff user's biography
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/biography`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+## Add Biography
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/biography"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      { "id" : null }
+    }
+  ]
+}
+```
+
+This endpoint adds a Biography.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/biography`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`description` | optional | __string__biography content 
+
+
+
+#Tagline
+
+##Get Tagline
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tagline"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "tagline" : "your tagline"
+    }
+  ]
+}
+```
+
+This endpoint retrieves an staff user's tagline
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tagline`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+## Add Tagline
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tagline"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "tagline" : {
+        { "id" : null }
+      }
+    }
+  ]
+}
+```
+
+This endpoint adds a tagline.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tagline`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`tagline` | optional | __string__tagline content 
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+#Link
+
+##Get All Links
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "link name",
+      "url": "http://www.example.com/",
+    },
+    {
+      "id": 2,
+      "name": "link name1",
+      "url": "http://www.example.com/1",
+    }
+  ]
+}
+```
+
+This endpoint retrieves all Links.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+
+## Get a Specific Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "link name",
+      "url": "http://linkurl.com"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Link.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Add a Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a link for a staff user.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | true | __string__name of the link 
+`url` | true | __string__the actual url 
+
+
+## Update a Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id"
+  -X PUT
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "updated": true
+  },
+  "success": true
+}
+```
+
+This endpoint updates a link for a staff user.
+
+### HTTP Request
+
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the link
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | optional | __string__name of the link 
+`url` | optional | __string__the actual url 
+
+## Delete a Specific Link
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted": true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific link.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/link/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__The ID of the link
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+#Education
+
+##Get All Education
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "institution": "My Institution",
+      "degree": "My Degree",
+      "description": "",
+      "major": "My major",
+      "date": 1998 // year 
+    },
+    {
+      "id": 2,
+      "institution": "My 2nd Institution",
+      "degree": "My 2nd Degree",
+      "description": "",
+      "major": "My 2nd major",
+      "date": 1998
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Education.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education`
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Get a Specific Education
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/:id"
+  -X GET
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "institution": "My Institution",
+      "degree": "My Degree",
+      "description": "",
+      "major": "My major",
+      "date": 1998
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Education.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__Id of the link to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Add Education
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds an Education for a staff user.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`institution` | required | __string__name of the instituion
+`degree` | required | __string__degree obtained.
+`major` | optional | __string__Level of study. Bachelors/Masters/Phd
+`description` | optional | __string__additional information for the degree
+`date` | optional | __integer__year of graduation. Enter '1998' if graduation year is 1998
+
+## Update an Education 
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/:id"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "updated": true
+  },
+  "success": true
+}
+```
+
+This endpoint updates an Education for a staff user.
+
+### HTTP Request
+
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`institution` | optional | __string__name of the instituion
+`degree` | optional | __string__degree obtained.
+`major` | optional | __string__Level of study. Bachelors/Masters/Phd
+`description` | optional | __string__additional information for the degree
+`date` | optional | __integer__year of graduation. Enter '1998' if graduation year is 1998
+
+
+## Delete a Specific Education
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/education/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted": true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Education.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/accomplishment/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__The ID of the Education to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+#Languages
+
+##Get All languages
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Language1"
+    },
+    {
+      "id": 2,
+      "name": "Language2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Languages.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/`
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Get a Specific Languages
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Language1"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Language.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the language to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Add Language
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/"
+  -X POST
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a Language for a staff user.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | required | __string__langauge name
+
+
+##Update a Language
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id"
+  -X PUT
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2,
+    "updated": true
+  },
+  "success": true
+}
+```
+
+This endpoint updates a Language for a staff user.
+
+### HTTP Request
+
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | optional | __string__ langauge name
+
+## Delete a Specific Language
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id"
+  -X DELETE
+  -H "Authorization: xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Language.
+
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/language/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__ ID of the research focus to delete
+`corporation` | __integer__ The corporation id
+`username` | __integer__ The username of the staff to retrieve
+
+#Categories
+
+##Get All Categories
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "category 1"
+    },
+    {
+      "id": 2,
+      "name": "category 2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Categories for a staff user.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/`
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Get a Specific Category
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+     {
+      "id": 1,
+      "name": "category 1"
+     }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Category for a staff user.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the category to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Add Category
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a Category for a staff user.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | required | __string__category name
+
+
+## Delete a Specific Category
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/:id"
+  -X DELETE
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Category for a staff user.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/category/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the category to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+#Tags
+
+##Get All Tags
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "tag 1"
+    },
+    {
+      "id": 2,
+      "name": "tag 2"
+    }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves all Tags for a staff user.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/`
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Get a Specific Tag
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+     {
+      "id": 1,
+      "name": "tag 1"
+     }
+  ],
+  "success": true
+}
+```
+
+This endpoint retrieves a specific Tag for a staff user.
+
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the tag to retrieve.
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff to retrieve
+
+## Add Tag
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/"
+  -X POST
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> if successful, The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id" : 2
+  },
+  "success": true
+}
+```
+
+This endpoint adds a Tag for a staff user.
+
+### HTTP Request
+
+`POST https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
+
+###Body Parameters
+Parameter | Required | Description
+--------- | -------- | ----------
+`name` | required | __string__tag name
+
+
+## Delete a Specific Tag
+
+
+```shell
+curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/:id"
+  -X DELETE
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "deleted" : true
+  },
+  "success": true
+}
+```
+
+This endpoint deletes a specific Tag for a staff user.
+
+### HTTP Request
+
+`DELETE https://public-api.expertfile.com/v2/organization/:corporation/staff/:username/tag/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`id` | __integer__id of the tag to delete
+`corporation` | __integer__The corporation id
+`username` | __string__The username of the staff
 

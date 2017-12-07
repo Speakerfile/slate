@@ -1,6 +1,7 @@
 ruby '>=2.3.1'
 source 'https://rubygems.org'
 
+gem 'font-awesome-sass'
 # Middleman
 gem 'middleman', '~>4.2.1'
 gem 'middleman-syntax', '~> 3.0.0'
