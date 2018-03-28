@@ -18,7 +18,6 @@ curl -X POST \
   https://public-api.expertfile.com/v2/oauth/token \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/x-www-form-urlencoded' \
-  -H 'postman-token: 882ab29f-a5ed-bf2f-19c1-bd41fce436b7' \
   -d 'client_id=<YOUR_ID>&client_secret=<YOUR_SECRET>&grant_type=client_credentials'
 
 ```
