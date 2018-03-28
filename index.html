@@ -900,11 +900,16 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
-  -X POST
+curl -X POST <span class="se">\</span>
+  https://public-api.expertfile.com/v2/oauth/token <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  -H <span class="s1">'postman-token: 882ab29f-a5ed-bf2f-19c1-bd41fce436b7'</span> <span class="se">\</span>
+  -d <span class="s1">'client_id=&lt;YOUR_ID&gt;&amp;client_secret=&lt;YOUR_SECRET&gt;&amp;grant_type=client_credentials'</span>
+
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>xxx-xxx-xxx</code> with your Access Token.</p>
+<p>Make sure to add you client ID and client secret.</p>
 </blockquote>
 
 <p>Expertfile expects an access token to be included in all API requests to the server in a header that looks like the following:</p>
@@ -938,7 +943,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <aside class="notice">
  You can find you client_id and client_secret in account/api in your app dashboard. The url is https://app.expertfile.com/account/api 
 </aside>
-<h1 id='experts'>Experts</h1><h2 id='get-all-experts'>Get All Experts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/:corporation/organization/expert"</span>
+<h1 id='experts'>Experts</h1><h2 id='get-all-experts'>Get All Experts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/expert"</span>
   -X GET
   -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
 </code></pre>
@@ -7281,7 +7286,7 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/oauth/token"</span>
 <td><strong>string</strong>The username of the expert to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='staff'>Staff</h1><h2 id='get-all-employees'>Get All Employees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/:corporation/organization/employee"</span>
+<h1 id='staff'>Staff</h1><h2 id='get-all-employees'>Get All Employees</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corporation/employee"</span>
   -X GET
   -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
 </code></pre>
