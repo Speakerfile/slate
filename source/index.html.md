@@ -14,11 +14,16 @@ search: false
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://public-api.expertfile.com/v2/oauth/token"
-  -X POST
+curl -X POST \
+  https://public-api.expertfile.com/v2/oauth/token \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'postman-token: 882ab29f-a5ed-bf2f-19c1-bd41fce436b7' \
+  -d 'client_id=<YOUR_ID>&client_secret=<YOUR_SECRET>&grant_type=client_credentials'
+
 ```
 
-> Make sure to replace `xxx-xxx-xxx` with your Access Token.
+> Make sure to add you client ID and client secret.
 
 Expertfile expects an access token to be included in all API requests to the server in a header that looks like the following:
 
@@ -42,11 +47,10 @@ Parameter | Required | Description
 ## Get All Experts
 
 ```shell
-curl "https://public-api.expertfile.com/v2/:corporation/organization/expert"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/expert"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -5265,7 +5269,7 @@ Parameter | Description
 ## Get All Employees
 
 ```shell
-curl "https://public-api.expertfile.com/v2/:corporation/organization/employee"
+curl "https://public-api.expertfile.com/v2/organization/:corporation/employee"
   -X GET
   -H "Authorization: Bearer xxx-xxx-xxx"
 ```
