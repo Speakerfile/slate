@@ -1013,7 +1013,12 @@ curl -X POST <span class="se">\</span>
 <tr>
 <td><code>access</code></td>
 <td>public</td>
-<td><strong>string</strong>This can be public or private.</td>
+<td><strong>string</strong>This can be public, private or all.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>all</td>
+<td><strong>string</strong>This can be published, unpublished or all.</td>
 </tr>
 <tr>
 <td><code>page_size</code></td>
@@ -1028,17 +1033,27 @@ curl -X POST <span class="se">\</span>
 <tr>
 <td><code>countries</code></td>
 <td>-</td>
-<td><strong>string</strong></td>
+<td><strong>string</strong>array of countries(i.e. [&quot;CA&quot;,&quot;US&quot;])</td>
 </tr>
 <tr>
 <td><code>topics</code></td>
 <td>-</td>
-<td><strong>string</strong></td>
+<td><strong>string</strong>array of topics(i.e. [&quot;topic1&quot;,&quot;topic2&quot;])</td>
 </tr>
 <tr>
 <td><code>industries</code></td>
 <td>-</td>
-<td><strong>string</strong></td>
+<td><strong>string</strong>array of industries(i.e. [&quot;industry1&quot;,&quot;industry2&quot;])</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>all</td>
+<td><strong>string</strong>array of categories(i.e. [&quot;cat1&quot;,&quot;cat2&quot;])</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>all</td>
+<td><strong>string</strong>array of tags(i.e. [&quot;tag1&quot;,&quot;tag2&quot;])</td>
 </tr>
 <tr>
 <td><code>companies</code></td>
