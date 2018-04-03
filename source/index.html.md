@@ -104,12 +104,15 @@ Parameter  | Desription
 Parameter | Default | Description
 --------- | ------- | -----------
 `q` | - | __string__search query.
-`access` | public | __string__This can be public or private.
+`access` | public | __string__This can be public, private or all.
+`status` | all | __string__This can be published, unpublished or all.
 `page_size` | 10 | __integer__no. of experts to return.
 `page_from` | 0 | __integer__
-`countries` | - | __string__
-`topics` | - | __string__
-`industries` | - | __string__
+`countries` | - | __string__array of countries(i.e. ["CA","US"])
+`topics` | - | __string__array of topics(i.e. ["topic1","topic2"])
+`industries` | - | __string__array of industries(i.e. ["industry1","industry2"])
+`category` | all | __string__array of categories(i.e. ["cat1","cat2"])
+`tag` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `companies` | - | __string__
 `fields` | - | __string__
 `sort` | name | __string__ name or featured.  
