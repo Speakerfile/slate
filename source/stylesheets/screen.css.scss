@@ -640,8 +640,19 @@ html, body {
     content: "\f2bd";
     margin-right: 10px;    
 }
+.Inquiry_header:before {
+    font-family: FontAwesome;
+    content: "\f0e0";
+    margin-right: 10px;    
+}
 
-.Experts_header, .Authentication_header, .Staff_header{
+.Helper_header:before {
+    font-family: FontAwesome;
+    content: "\f129";
+    margin-right: 10px;    
+}
+
+.Experts_header, .Authentication_header, .Staff_header, .Inquiry_header, .Helper_header{
   padding-left: 8px;
   margin-top: 10px;
   font-weight: 700;

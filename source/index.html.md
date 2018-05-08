@@ -413,7 +413,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/expert/:use
 ```json
 {
   "data": {
-    "username": "you.username",
+    "user": "you.username",
     "updated": true
   },
   "success": true
@@ -5478,7 +5478,7 @@ curl "https://public-api.expertfile.com/v2/organization/:corporation/staff/:user
 ```json
 {
   "data": {
-    "username": "you.username",
+    "user": "you.username",
     "updated": true
   },
   "success": true
@@ -6617,3 +6617,710 @@ Parameter | Description
 `corporation` | __integer__The corporation id
 `username` | __string__The username of the staff
 
+
+# Inquiry
+
+## General
+
+Will send a general inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a general inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+ curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/general" 
+ -X POST 
+ -H "Authorization: Bearer xxx-xxx-xxx" 
+ -d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/general
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+
+## Event
+
+Will send a event inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a event inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+ curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/event" 
+ -X POST 
+ -H "Authorization: Bearer xxx-xxx-xxx" 
+ -d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&event_name=<EVENT_NAME>&event_location=<EVENT_LOCATION>&event_date=<EVENT_DATE>&event_description=<EVENT_DESCRIPTION>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/event
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`event_name`| true | __string__  Event name
+`event_location`| true | __string__  Event Location
+`event_date`| true | __string__  your Event date(must be sent as UNIX timestamp)
+`event_description`| true | __string__  Event Description
+
+## Media
+
+Will send a media inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a media inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+ curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/media" 
+ -X POST 
+ -H "Authorization: Bearer xxx-xxx-xxx" 
+ -d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&media_position=<MEDIA_POSITION>&media_type=<MEDIA_TYPE>&media_deadline=<MEDIA_DEADLINE>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/media
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`media_position`| true | __string__  Media Postion(valid input: 'reporter','editor','news_director','researcher', 'other')
+`media_type`| true | __string__  Media Type(valid input: 'print','online','tv','radio')
+`media_deadline`| true | __string__  Media deadline(must be sent as UNIX timestamp)
+
+## Partnership
+
+Will send a partnership inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a partnership inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/partnership" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&partner_organization_type=<TYPE>&partner_focus=<FOCUS>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/partnership
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`partner_organization_type`| true | __string__  Media Postion(valid input: 'corporate', 'government', 'ngo', 'not_for_profit', 'other')
+`partner_focus`| true | __string__  Media Type(valid input: 'business_development', 'corporate', 'fundraising', 'licensing', 'research', 'sponsorship', 'technology', 'other')
+
+## Admission
+
+Will send a admission inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a partnership inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/admission" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&admission_type=<TYPE>&admission_program_name=<PROGRAM_NAME>&admission_faculty=<FACULTY>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/admission
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`admission_type`| true | __string__  Admission Type(valid input: 'undergraduate', 'graduate')
+`admission_program_name`| true | __string__  Admission Program Name
+`admission_faculty`| true | __string__  Admission Faculty
+
+## Research
+
+Will send a research inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a research inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/research" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&research_area=<AREA>&research_stage_in_process=<PROCESS>&research_deadline=<DEADLINE>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/research
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`research_area`| true | __string__  Research Area
+`research_stage_in_process`| true | __string__  Research Stage(valid input: 'collaboration', 'funding', 'partnership', 'other')
+`research_deadline`| true | __string__  Research Deadline
+
+## Business
+
+Will send a business inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a business inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/business" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&business_opportunity_type=<TYPE>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/business
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`business_opportunity_type`| true | __string__  Business Stage(valid input: 'consulting_engagement', 'new_ventures/partnerships', 'business_deals', 'corporate_training')
+
+## Donor
+
+Will send a donor inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a donor inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/donor" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&donor_type=<TYPE>&donor_focus=<FOCUS>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/donor
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`donor_type`| true | __string__  Donor Type(valid input: 'corporate','government','ngo','not_for_profit', 'other')
+`donor_focus`| true | __string__  Donor Focus(valid input: 'one_time_gift','recurring_gift','endowments','bequests','other')
+
+## Expert Witness
+
+Will send a expert witness inquiry to the expert, agent(depending on notification settings found in app) and mailing list recipients.
+
+> To send a donor inquiry, use this code:
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://public-api.expertfile.com/v2/organization/:corporation/inquiry/expertwitness" 
+-X POST 
+-H "Authorization: Bearer xxx-xxx-xxx" 
+-d "message=<MESSAGE>&email=<EMAIL>&lastname=<LASTNAME>&firstname=<FIRSTNAME>&location_city=<CITY>&location_country=<COUNTRY_CODE>&location_state=<STATE_CODE>&username=<USERNAME>&expertwitness_stage_in_process=<PROCESS>&expertwitness_organization_type=<TYPE>"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "data" : {
+    "id" : <INQUIRY_ID>
+  } , 
+  "success": true
+}
+```
+
+### HTTP Request
+
+POST https://public-api.expertfile.com/v2/organization/:corporation/inquiry/expertwitness
+
+###Body Parameters 
+
+Parameter | Required | Description
+--------- | -------- | -----------
+`firstname` | true |  __string__ Sender first name
+`lastname` | true | __string__  Sender last name
+`email`| true | __string__  Sender email
+`phone`| false | __string__  Sender phone number
+`website`| false | __string__  Sender website
+`organization`| false | __string__  Sender organization
+`message`| true | __string__  Sender message
+`location_city`| true | __string__  Sender city
+`location_state` | true |  __string__ Sender state/province(if country is Canada or U.S.A valid state or province codes must be passed(See Helper->State/Province section for list).
+`location_country` | true | __string__  Sender country(See Helper->Country/Province section for list) 
+`username` | true | __string__  Recipient username(may only send to experts belonging to organization)
+`expertwitness_stage_in_process`| true | __string__  Donor Type(valid input: 'investigation', 'in_litigation', 'approaching_trial','other')
+`expertwitness_organization_type`| true | __string__  Donor Focus(valid input: 'legal_firm', 'corporate_legal_department', 'insurance_provider', 'government_agency', 'legal_nurse_consultant', 'other')
+
+# Helper
+
+## Country
+
+These are the valid country codes and their corresponding names that may be used when sending location_country params to ExpertFile's API.
+
+```json
+
+{
+  US : 'UNITED STATES',
+  CA : 'CANADA',
+  AF : 'AFGHANISTAN',
+  AL : 'ALBANIA',
+  DZ : 'ALGERIA',
+  AS : 'AMERICAN SAMOA',
+  AD : 'ANDORRA',
+  AO : 'ANGOLA',
+  AI : 'ANGUILLA',
+  AQ : 'ANTARCTICA',
+  AG : 'ANTIGUA AND BARBUDA',
+  AR : 'ARGENTINA',
+  AM : 'ARMENIA',
+  AW : 'ARUBA',
+  AU : 'AUSTRALIA',
+  AT : 'AUSTRIA',
+  AZ : 'AZERBAIJAN',
+  BS : 'BAHAMAS',
+  BH : 'BAHRAIN',
+  BD : 'BANGLADESH',
+  BB : 'BARBADOS',
+  BY : 'BELARUS',
+  BE : 'BELGIUM',
+  BZ : 'BELIZE',
+  BJ : 'BENIN',
+  BM : 'BERMUDA',
+  BT : 'BHUTAN',
+  BO : 'BOLIVIA',
+  BA : 'BOSNIA AND HERZEGOVINA',
+  BW : 'BOTSWANA',
+  BV : 'BOUVET ISLAND',
+  BR : 'BRAZIL',
+  IO : 'BRITISH INDIAN OCEAN TERRITORY',
+  BN : 'BRUNEI DARUSSALAM',
+  BG : 'BULGARIA',
+  BF : 'BURKINA FASO',
+  BI : 'BURUNDI',
+  KH : 'CAMBODIA',
+  CM : 'CAMEROON',
+  CV : 'CAPE VERDE',
+  KY : 'CAYMAN ISLANDS',
+  CF : 'CENTRAL AFRICAN REPUBLIC',
+  TD : 'CHAD',
+  CL : 'CHILE',
+  CN : 'CHINA',
+  CX : 'CHRISTMAS ISLAND',
+  CC : 'COCOS (KEELING) ISLANDS',
+  CO : 'COLOMBIA',
+  KM : 'COMOROS',
+  CG : 'CONGO',
+  CD : 'CONGO, THE DEMOCRATIC REPUBLIC OF THE',
+  CK : 'COOK ISLANDS',
+  CR : 'COSTA RICA',
+  CI : 'COTE D IVOIRE',
+  HR : 'CROATIA',
+  CU : 'CUBA',
+  CY : 'CYPRUS',
+  CZ : 'CZECH REPUBLIC',
+  DK : 'DENMARK',
+  DJ : 'DJIBOUTI',
+  DM : 'DOMINICA',
+  DO : 'DOMINICAN REPUBLIC',
+  TP : 'EAST TIMOR',
+  EC : 'ECUADOR',
+  EG : 'EGYPT',
+  SV : 'EL SALVADOR',
+  GQ : 'EQUATORIAL GUINEA',
+  ER : 'ERITREA',
+  EE : 'ESTONIA',
+  ET : 'ETHIOPIA',
+  FK : 'FALKLAND ISLANDS (MALVINAS)',
+  FO : 'FAROE ISLANDS',
+  FJ : 'FIJI',
+  FI : 'FINLAND',
+  FR : 'FRANCE',
+  GF : 'FRENCH GUIANA',
+  PF : 'FRENCH POLYNESIA',
+  TF : 'FRENCH SOUTHERN TERRITORIES',
+  GA : 'GABON',
+  GM : 'GAMBIA',
+  GE : 'GEORGIA',
+  DE : 'GERMANY',
+  GH : 'GHANA',
+  GI : 'GIBRALTAR',
+  GR : 'GREECE',
+  GL : 'GREENLAND',
+  GD : 'GRENADA',
+  GP : 'GUADELOUPE',
+  GU : 'GUAM',
+  GT : 'GUATEMALA',
+  GN : 'GUINEA',
+  GW : 'GUINEA-BISSAU',
+  GY : 'GUYANA',
+  HT : 'HAITI',
+  HM : 'HEARD ISLAND AND MCDONALD ISLANDS',
+  VA : 'HOLY SEE (VATICAN CITY STATE)',
+  HN : 'HONDURAS',
+  HK : 'HONG KONG',
+  HU : 'HUNGARY',
+  IS : 'ICELAND',
+  IN : 'INDIA',
+  ID : 'INDONESIA',
+  IR : 'IRAN, ISLAMIC REPUBLIC OF',
+  IQ : 'IRAQ',
+  IE : 'IRELAND',
+  IL : 'ISRAEL',
+  IT : 'ITALY',
+  JM : 'JAMAICA',
+  JP : 'JAPAN',
+  JO : 'JORDAN',
+  KZ : 'KAZAKSTAN',
+  KE : 'KENYA',
+  KI : 'KIRIBATI',
+  KP : 'KOREA DEMOCRATIC PEOPLES REPUBLIC OF',
+  KR : 'KOREA REPUBLIC OF',
+  KW : 'KUWAIT',
+  KG : 'KYRGYZSTAN',
+  LA : 'LAO PEOPLES DEMOCRATIC REPUBLIC',
+  LV : 'LATVIA',
+  LB : 'LEBANON',
+  LS : 'LESOTHO',
+  LR : 'LIBERIA',
+  LY : 'LIBYAN ARAB JAMAHIRIYA',
+  LI : 'LIECHTENSTEIN',
+  LT : 'LITHUANIA',
+  LU : 'LUXEMBOURG',
+  MO : 'MACAU',
+  MK : 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF',
+  MG : 'MADAGASCAR',
+  MW : 'MALAWI',
+  MY : 'MALAYSIA',
+  MV : 'MALDIVES',
+  ML : 'MALI',
+  MT : 'MALTA',
+  MH : 'MARSHALL ISLANDS',
+  MQ : 'MARTINIQUE',
+  MR : 'MAURITANIA',
+  MU : 'MAURITIUS',
+  YT : 'MAYOTTE',
+  MX : 'MEXICO',
+  FM : 'MICRONESIA, FEDERATED STATES OF',
+  MD : 'MOLDOVA, REPUBLIC OF',
+  MC : 'MONACO',
+  MN : 'MONGOLIA',
+  MS : 'MONTSERRAT',
+  MA : 'MOROCCO',
+  MZ : 'MOZAMBIQUE',
+  MM : 'MYANMAR',
+  NA : 'NAMIBIA',
+  NR : 'NAURU',
+  NP : 'NEPAL',
+  NL : 'NETHERLANDS',
+  AN : 'NETHERLANDS ANTILLES',
+  NC : 'NEW CALEDONIA',
+  NZ : 'NEW ZEALAND',
+  NI : 'NICARAGUA',
+  NE : 'NIGER',
+  NG : 'NIGERIA',
+  NU : 'NIUE',
+  NK : 'NORFOLK ISLAND',
+  MP : 'NORTHERN MARIANA ISLANDS',
+  NO : 'NORWAY',
+  OM : 'OMAN',
+  PK : 'PAKISTAN',
+  PW : 'PALAU',
+  PS : 'PALESTINIAN TERRITORY, OCCUPIED',
+  PA : 'PANAMA',
+  PG : 'PAPUA NEW GUINEA',
+  PY : 'PARAGUAY',
+  PE : 'PERU',
+  PH : 'PHILIPPINES',
+  PN : 'PITCAIRN',
+  PL : 'POLAND',
+  PT : 'PORTUGAL',
+  PR : 'PUERTO RICO',
+  QA : 'QATAR',
+  RE : 'REUNION',
+  RO : 'ROMANIA',
+  RU : 'RUSSIAN FEDERATION',
+  RW : 'RWANDA',
+  SH : 'SAINT HELENA',
+  KN : 'SAINT KITTS AND NEVIS',
+  LC : 'SAINT LUCIA',
+  PM : 'SAINT PIERRE AND MIQUELON',
+  VC : 'SAINT VINCENT AND THE GRENADINES',
+  WS : 'SAMOA',
+  SM : 'SAN MARINO',
+  ST : 'SAO TOME AND PRINCIPE',
+  SA : 'SAUDI ARABIA',
+  SN : 'SENEGAL',
+  SC : 'SEYCHELLES',
+  SL : 'SIERRA LEONE',
+  SG : 'SINGAPORE',
+  SK : 'SLOVAKIA',
+  SI : 'SLOVENIA',
+  SB : 'SOLOMON ISLANDS',
+  SO : 'SOMALIA',
+  ZA : 'SOUTH AFRICA',
+  GS : 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS',
+  ES : 'SPAIN',
+  LK : 'SRI LANKA',
+  SD : 'SUDAN',
+  SR : 'SURINAME',
+  SJ : 'SVALBARD AND JAN MAYEN',
+  SZ : 'SWAZILAND',
+  SE : 'SWEDEN',
+  CH : 'SWITZERLAND',
+  SY : 'SYRIAN ARAB REPUBLIC',
+  TW : 'TAIWAN, PROVINCE OF CHINA',
+  TJ : 'TAJIKISTAN',
+  TZ : 'TANZANIA, UNITED REPUBLIC OF',
+  TH : 'THAILAND',
+  TG : 'TOGO',
+  TK : 'TOKELAU',
+  TO : 'TONGA',
+  TT : 'TRINIDAD AND TOBAGO',
+  TN : 'TUNISIA',
+  TR : 'TURKEY',
+  TM : 'TURKMENISTAN',
+  TC : 'TURKS AND CAICOS ISLANDS',
+  TV : 'TUVALU',
+  UG : 'UGANDA',
+  UA : 'UKRAINE',
+  AE : 'UNITED ARAB EMIRATES',
+  GB : 'UNITED KINGDOM',
+  UM : 'UNITED STATES MINOR OUTLYING ISLANDS',
+  UY : 'URUGUAY',
+  UZ : 'UZBEKISTAN',
+  VU : 'VANUATU',
+  VE : 'VENEZUELA',
+  VN : 'VIET NAM',
+  VG : 'VIRGIN ISLANDS, BRITISH',
+  VI : 'VIRGIN ISLANDS, U.S.',
+  WF : 'WALLIS AND FUTUNA',
+  EH : 'WESTERN SAHARA',
+  YE : 'YEMEN',
+  YU : 'YUGOSLAVIA',
+  ZM : 'ZAMBIA',
+  ZW : 'ZIMBABWE'
+}
+```
+
+## State/Province
+
+These are the valid state/province codes that may be used when sending location_state param to ExpertFile's API and the location_country is set to CA/US.
+
+```json
+ ['AB', 'BC', 'ON', 'NF', 'NS', 'PE', 'NU', 'NB', 'QC', 'MB']
+```
+```json
+['AB','NT','YT','AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
+```
