@@ -7319,7 +7319,7 @@ These are the valid country codes and their corresponding names that may be used
 These are the valid state/province codes that may be used when sending location_state param to ExpertFile's API and the location_country is set to CA/US.
 
 ```json
- ["BC","ON","NF","NS","PE","NU","NB","QC","MB","SK","AB","NT","YT"]
+["BC","ON","NF","NS","PE","NU","NB","QC","MB","SK","AB","NT","YT"]
 ```
 
 ```json
