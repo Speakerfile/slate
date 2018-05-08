@@ -6915,7 +6915,7 @@ Parameter | Required | Description
 `username` | true | __string__  Recipient username(may only send to experts belonging to organization)
 `research_area`| true | __string__  Research Area
 `research_stage_in_process`| true | __string__  Research Stage(valid input: 'collaboration', 'funding', 'partnership', 'other')
-`research_deadline`| true | __string__  Research Deadline
+`research_deadline`| false | __string__  Research Deadline
 
 ## Business
 
@@ -7319,8 +7319,7 @@ These are the valid country codes and their corresponding names that may be used
 These are the valid state/province codes that may be used when sending location_state param to ExpertFile's API and the location_country is set to CA/US.
 
 ```json
- ["AB", "BC", "ON", "NF", "NS", "PE", "NU", "NB", "QC", "MB"]
+ ["BC","ON","NF","NS","PE","NU","NB","QC","MB","SK","AB","NT","YT"]
 ```
-```json
-["AB","NT","YT","AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+```json["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
 ```
