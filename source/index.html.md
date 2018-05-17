@@ -7069,6 +7069,7 @@ Parameter | Required | Description
 
 These are the valid field names that may be used when sending the fields param to ExpertFile's API.
 
+```json
 [
  "accomplishment",
  "accreditation",
@@ -7116,6 +7117,7 @@ These are the valid field names that may be used when sending the fields param t
  "vimeo",
  "youtube"
  ]
+```
 
 ## Country
 
