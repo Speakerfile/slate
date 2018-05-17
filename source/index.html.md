@@ -114,7 +114,7 @@ Parameter | Default | Description
 `category` | all | __string__array of categories(i.e. ["cat1","cat2"])
 `tag` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `companies` | all | __string__
-`fields` | - | __string__array of tags(i.e. ["fullname","username"]) See Helper->Field Names section for list)
+`fields` | - | __string__array of tags(i.e. ["fullname","username"]) See Helper->Return Fields section for list)
 `sort` | name | __string__ name or featured.  
 `searchfield` | - | __string__ fullname to query only name field. 
 
