@@ -924,6 +924,9 @@
             <a href="#helper" class="toc-h1 toc-link Helper_header" data-title="Helper" >Helper</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#return-fields" class="toc-h2 toc-link" data-title="Return Fields">Return Fields</a>
+                  </li>
+                  <li>
                     <a href="#country" class="toc-h2 toc-link" data-title="Country">Country</a>
                   </li>
                   <li>
@@ -1106,7 +1109,7 @@ curl -X POST <span class="se">\</span>
 <tr>
 <td><code>fields</code></td>
 <td>-</td>
-<td><strong>string</strong></td>
+<td><strong>string</strong>array of tags(i.e. [&quot;fullname&quot;,&quot;username&quot;]) See Helper-&gt;Field Names section for list)</td>
 </tr>
 <tr>
 <td><code>sort</code></td>
@@ -9923,7 +9926,57 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corpor
 <td><strong>string</strong>  Donor Focus(valid input: &#39;legal_firm&#39;, &#39;corporate_legal_department&#39;, &#39;insurance_provider&#39;, &#39;government_agency&#39;, &#39;legal_nurse_consultant&#39;, &#39;other&#39;)</td>
 </tr>
 </tbody></table>
-<h1 id='helper'>Helper</h1><h2 id='country'>Country</h2>
+<h1 id='helper'>Helper</h1><h2 id='return-fields'>Return Fields</h2>
+<p>These are the valid field names that may be used when sending the fields param to ExpertFile&#39;s API.</p>
+
+<p>[
+ &quot;accomplishment&quot;,
+ &quot;accreditation&quot;,
+ &quot;address&quot;,
+ &quot;article&quot;,
+ &quot;avatar_large&quot;,
+ &quot;avatar_medium&quot;,
+ &quot;avatar_original&quot;,
+ &quot;avatar_small&quot;,
+ &quot;book&quot;,
+ &quot;building&quot;,
+ &quot;city&quot;,
+ &quot;company&quot;,
+ &quot;corporation_id&quot;,
+ &quot;corporation_logo&quot;,
+ &quot;corporation_name&quot;,
+ &quot;corporation_username&quot;,
+ &quot;country&quot;,
+ &quot;course&quot;,
+ &quot;department&quot;,
+ &quot;description&quot;,
+ &quot;email&quot;,
+ &quot;event_appearance&quot;,
+ &quot;firstname&quot;,
+ &quot;fullname&quot;,
+ &quot;industry&quot;,
+ &quot;jobtitle&quot;,
+ &quot;lastname&quot;,
+ &quot;media_appearance&quot;,
+ &quot;patent&quot;,
+ &quot;phone_number&quot;,
+ &quot;phone_number_extension&quot;,
+ &quot;postal&quot;,
+ &quot;research_focus&quot;,
+ &quot;research_grant&quot;,
+ &quot;room&quot;,
+ &quot;slideshare&quot;,
+ &quot;spotlight&quot;,
+ &quot;state&quot;,
+ &quot;tagline&quot;,
+ &quot;talk&quot;,
+ &quot;testimonial&quot;,
+ &quot;topic&quot;,
+ &quot;username&quot;,
+ &quot;vimeo&quot;,
+ &quot;youtube&quot;
+ ]</p>
+<h2 id='country'>Country</h2>
 <p>These are the valid country codes and their corresponding names that may be used when sending location_country params to ExpertFile&#39;s API.</p>
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
