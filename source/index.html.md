@@ -114,7 +114,7 @@ Parameter | Default | Description
 `category` | all | __string__array of categories(i.e. ["cat1","cat2"])
 `tag` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `companies` | all | __string__
-`fields` | - | __string__
+`fields` | - | __string__array of tags(i.e. ["fullname","username"]) See Helper->Field Names section for list)
 `sort` | name | __string__ name or featured.  
 `searchfield` | - | __string__ fullname to query only name field. 
 
@@ -7064,6 +7064,58 @@ Parameter | Required | Description
 `expertwitness_organization_type`| true | __string__  Donor Focus(valid input: 'legal_firm', 'corporate_legal_department', 'insurance_provider', 'government_agency', 'legal_nurse_consultant', 'other')
 
 # Helper
+
+## Return Fields
+
+These are the valid field names that may be used when sending the fields param to ExpertFile's API.
+
+[
+ "accomplishment",
+ "accreditation",
+ "address",
+ "article",
+ "avatar_large",
+ "avatar_medium",
+ "avatar_original",
+ "avatar_small",
+ "book",
+ "building",
+ "city",
+ "company",
+ "corporation_id",
+ "corporation_logo",
+ "corporation_name",
+ "corporation_username",
+ "country",
+ "course",
+ "department",
+ "description",
+ "email",
+ "event_appearance",
+ "firstname",
+ "fullname",
+ "industry",
+ "jobtitle",
+ "lastname",
+ "media_appearance",
+ "patent",
+ "phone_number",
+ "phone_number_extension",
+ "postal",
+ "research_focus",
+ "research_grant",
+ "room",
+ "slideshare",
+ "spotlight",
+ "state",
+ "tagline",
+ "talk",
+ "testimonial",
+ "topic",
+ "username",
+ "vimeo",
+ "youtube"
+ ]
 
 ## Country
 
