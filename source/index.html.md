@@ -424,7 +424,7 @@ This endpoint updates a expert.
 
 ### HTTP Request
 
-`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert`
+`PUT https://public-api.expertfile.com/v2/organization/:corporation/expert/:username`
 
 ### URL Parameters
 
@@ -436,11 +436,11 @@ Parameter | Description
 ###Body Parameters
 Parameter | Required | Description
 --------- | -------- | ----------
-`firstname` | true | __string__first name
-`lastname` | true |  __string__last name
-`job_title` | true |  __string__job title
-`email` | true |  __string__email address
-`company` | true |  __string__company
+`firstname` | optional | __string__first name
+`lastname` | optional |  __string__last name
+`job_title` | optional |  __string__job title
+`email` | optional |  __string__email address
+`company` | optional |  __string__company
 `department` | optional |  __string__department
 `phone_number` | optional | __string__ phone number
 `phone_number_extension` | optional |  __string__phone number extension
