@@ -651,8 +651,12 @@ html, body {
     content: "\f129";
     margin-right: 10px;    
 }
-
-.Experts_header, .Authentication_header, .Staff_header, .Inquiry_header, .Helper_header{
+.Spotlights_header:before{
+    font-family: FontAwesome;
+    content: "\f006";
+    margin-right: 10px;    
+}
+.Experts_header, .Authentication_header, .Staff_header, .Inquiry_header, .Helper_header, .Spotlights_header{
   padding-left: 8px;
   margin-top: 10px;
   font-weight: 700;

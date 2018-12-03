@@ -112,7 +112,7 @@ Parameter | Default | Description
 `topics` | all | __string__array of topics(i.e. ["topic1","topic2"])
 `industries` | all | __string__array of industries(i.e. ["industry1","industry2"])
 `category` | all | __string__array of categories(i.e. ["cat1","cat2"])
-`tag` | all | __string__array of tags(i.e. ["tag1","tag2"])
+`tags` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `companies` | all | __string__
 `fields` | - | __string__array of tags(i.e. ["fullname","username"]) See Helper->Return Fields section for list)
 `sort` | name | __string__ name or featured.  
@@ -7062,6 +7062,119 @@ Parameter | Required | Description
 `username` | true | __string__  Recipient username(may only send to experts belonging to organization)
 `expertwitness_stage_in_process`| true | __string__  Donor Type(valid input: 'investigation', 'in_litigation', 'approaching_trial','other')
 `expertwitness_organization_type`| true | __string__  Donor Focus(valid input: 'legal_firm', 'corporate_legal_department', 'insurance_provider', 'government_agency', 'legal_nurse_consultant', 'other')
+
+# Spotlights
+
+## Get All Spotlights
+
+```shell
+curl "https://public-api.expertfile.com/v2/spotlight/:corporation/search"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "spotlights": [
+            {
+                "spotlight_title": "title",
+                "tags": [],
+                "tagged_experts": [],
+                "created_date": unixtimestamp,
+                "modified_date": unixtimestamp,
+                "published_date": unixtimestamp,
+                "corporation_id": corporation_id,
+                "assets": [],
+                "id": id,
+                "published": 1,
+                "year": "year",
+                "year-month": "year-month"
+            }
+          }
+        ],
+        "aggregations": {
+            "year": {},
+            "tagged_experts": [],
+            "tags": []
+        },
+        "total": int
+    },
+    "success": true
+}
+```
+
+This endpoint retrieves all Spotlights.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/spotlight/:corporation/search`
+
+### Url Parameters
+
+Parameter  | Desription
+---------  | ----------
+`corporation`  | __integer__The corporation id
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+`q` | - | __string__search query.
+`status` | all | __string__This can be published, unpublished or all.
+`page_size` | 10 | __integer__no. of experts to return.
+`page_from` | 0 | __integer__
+`tags` | all | __string__array of tags(i.e. ["tag1","tag2"])
+`tagged` | all | __string__array of tags(i.e. ["expert1","expert1"])
+`month` | all | __string__month
+`year` | all | __string__year
+
+
+## Get a Specific Spotlight
+
+```shell
+curl "https://public-api.expertfile.com/v2/spotlight/:corporation/:id"
+  -X GET
+  -H "Authorization: Bearer xxx-xxx-xxx"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "spotlight": [
+            {
+                "id": id,
+                "title": "title",
+                "corporation_id": corporation_id,
+                "featured_image": "image_url",
+                "enabled": 1,
+                "published": 1,
+                "published_date": unixtimestamp,
+                "created": unixtimestamp,
+                "html": "",
+                "reading_time": int,
+                "tagged_experts": [],
+        "tags": []
+    },
+    "success": true
+}
+```
+This endpoint retrieves a specific Spotlight.
+
+### HTTP Request
+
+`GET https://public-api.expertfile.com/v2/spotlight/:corporation/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+`corporation` | __integer__The corporation id
+`id` | __string__The id of the spotlight to retrieve
+
 
 # Helper
 
