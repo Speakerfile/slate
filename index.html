@@ -921,6 +921,17 @@
               </ul>
           </li>
           <li>
+            <a href="#spotlights" class="toc-h1 toc-link Spotlights_header" data-title="Spotlights" >Spotlights</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-spotlights" class="toc-h2 toc-link" data-title="Get All Spotlights">Get All Spotlights</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-spotlight" class="toc-h2 toc-link" data-title="Get a Specific Spotlight">Get a Specific Spotlight</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#helper" class="toc-h1 toc-link Helper_header" data-title="Helper" >Helper</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1097,7 +1108,7 @@ curl -X POST <span class="se">\</span>
 <td><strong>string</strong>array of categories(i.e. [&quot;cat1&quot;,&quot;cat2&quot;])</td>
 </tr>
 <tr>
-<td><code>tag</code></td>
+<td><code>tags</code></td>
 <td>all</td>
 <td><strong>string</strong>array of tags(i.e. [&quot;tag1&quot;,&quot;tag2&quot;])</td>
 </tr>
@@ -9924,6 +9935,152 @@ curl <span class="s2">"https://public-api.expertfile.com/v2/organization/:corpor
 <td><code>expertwitness_organization_type</code></td>
 <td>true</td>
 <td><strong>string</strong>  Donor Focus(valid input: &#39;legal_firm&#39;, &#39;corporate_legal_department&#39;, &#39;insurance_provider&#39;, &#39;government_agency&#39;, &#39;legal_nurse_consultant&#39;, &#39;other&#39;)</td>
+</tr>
+</tbody></table>
+<h1 id='spotlights'>Spotlights</h1><h2 id='get-all-spotlights'>Get All Spotlights</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/spotlight/:corporation/search"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"spotlights"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"spotlight_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"title"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"tagged_experts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="err">unixtimestamp</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"modified_date"</span><span class="p">:</span><span class="w"> </span><span class="err">unixtimestamp</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="err">unixtimestamp</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"corporation_id"</span><span class="p">:</span><span class="w"> </span><span class="err">corporation_id</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">id</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"year"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"year-month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"year-month"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"aggregations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="s2">"tagged_experts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="err">int</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all Spotlights.</p>
+<h3 id='http-request-165'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/spotlight/:corporation/search</code></p>
+<h3 id='url-parameters-118'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Desription</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>corporation</code></td>
+<td><strong>integer</strong>The corporation id</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>q</code></td>
+<td>-</td>
+<td><strong>string</strong>search query.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>all</td>
+<td><strong>string</strong>This can be published, unpublished or all.</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>10</td>
+<td><strong>integer</strong>no. of experts to return.</td>
+</tr>
+<tr>
+<td><code>page_from</code></td>
+<td>0</td>
+<td><strong>integer</strong></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>all</td>
+<td><strong>string</strong>array of tags(i.e. [&quot;tag1&quot;,&quot;tag2&quot;])</td>
+</tr>
+<tr>
+<td><code>tagged</code></td>
+<td>all</td>
+<td><strong>string</strong>array of tags(i.e. [&quot;expert1&quot;,&quot;expert1&quot;])</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td>all</td>
+<td><strong>string</strong>month</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td>all</td>
+<td><strong>string</strong>year</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-spotlight'>Get a Specific Spotlight</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://public-api.expertfile.com/v2/spotlight/:corporation/:id"</span>
+  -X GET
+  -H <span class="s2">"Authorization: Bearer xxx-xxx-xxx"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"spotlight"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">id</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"title"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"corporation_id"</span><span class="p">:</span><span class="w"> </span><span class="err">corporation_id</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"featured_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image_url"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="err">unixtimestamp</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="err">unixtimestamp</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"reading_time"</span><span class="p">:</span><span class="w"> </span><span class="err">int</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"tagged_experts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Spotlight.</p>
+<h3 id='http-request-166'>HTTP Request</h3>
+<p><code>GET https://public-api.expertfile.com/v2/spotlight/:corporation/:id</code></p>
+<h3 id='url-parameters-119'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>corporation</code></td>
+<td><strong>integer</strong>The corporation id</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><strong>string</strong>The id of the spotlight to retrieve</td>
 </tr>
 </tbody></table>
 <h1 id='helper'>Helper</h1><h2 id='return-fields'>Return Fields</h2>
