@@ -7123,7 +7123,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 `q` | - | __string__search query.
 `status` | all | __string__This can be published, unpublished or all.
-`page_size` | 10 | __integer__no. of experts to return.
+`page_size` | 10 | __integer__no. of spotlights to return.
 `page_from` | 0 | __integer__
 `tags` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `tagged` | all | __string__array of tags(i.e. ["expert1","expert1"])
