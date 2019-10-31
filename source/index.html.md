@@ -111,7 +111,7 @@ Parameter | Default | Description
 `countries` | all | __string__array of countries(i.e. ["CA","US"])
 `topics` | all | __string__array of topics(i.e. ["topic1","topic2"])
 `industries` | all | __string__array of industries(i.e. ["industry1","industry2"])
-`category` | all | __string__array of categories(i.e. ["cat1","cat2"])
+`categories` | all | __string__array of categories(i.e. ["cat1","cat2"])
 `tags` | all | __string__array of tags(i.e. ["tag1","tag2"])
 `companies` | all | __string__
 `fields` | - | __string__array of tags(i.e. ["fullname","username"]) See Helper->Return Fields section for list)
